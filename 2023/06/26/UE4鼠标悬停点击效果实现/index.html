@@ -20,12 +20,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"vv-carrot.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="重新整理先前本科做过的一些文档。  这个实验做的太艰难了，因为我的电脑已经不太能带的动UE4了，c++代码只要有错误，编译一次要20多分钟。 一、实验要求目的：  3D Interaction。要求：  鼠标操作3D空间物体。必备：悬停高亮            左键拖拽            右键旋转作品示例↓： 二、软件核心代码（算法+代码文本）实现响应用户输入的第一步：首先我们要新建一个">
+    <meta name="description" content="&gt; 重新整理先前本科做过的一些文档。 这个实验做的太艰难了，因为我的电脑已经不太能带的动UE4了，c++代码只要有错误，编译一次要20多分钟。  一、实验要求 目的：  3D Interaction。 要求：  鼠标操作3D空间物体。 必备：悬停高亮 左键拖拽 右键旋转 作品示例↓：   二、软件核心代码（算法+代码文本） 实现响应用户输入的第一步：首先我们要新建一个自定义的pawn类MyPaw">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UE4鼠标悬停点击效果实现">
 <meta property="og:url" content="https://vv-carrot.github.io/2023/06/26/UE4%E9%BC%A0%E6%A0%87%E6%82%AC%E5%81%9C%E7%82%B9%E5%87%BB%E6%95%88%E6%9E%9C%E5%AE%9E%E7%8E%B0/index.html">
 <meta property="og:site_name" content="VV&#39;s Blog">
-<meta property="og:description" content="重新整理先前本科做过的一些文档。  这个实验做的太艰难了，因为我的电脑已经不太能带的动UE4了，c++代码只要有错误，编译一次要20多分钟。 一、实验要求目的：  3D Interaction。要求：  鼠标操作3D空间物体。必备：悬停高亮            左键拖拽            右键旋转作品示例↓： 二、软件核心代码（算法+代码文本）实现响应用户输入的第一步：首先我们要新建一个">
+<meta property="og:description" content="&gt; 重新整理先前本科做过的一些文档。 这个实验做的太艰难了，因为我的电脑已经不太能带的动UE4了，c++代码只要有错误，编译一次要20多分钟。  一、实验要求 目的：  3D Interaction。 要求：  鼠标操作3D空间物体。 必备：悬停高亮 左键拖拽 右键旋转 作品示例↓：   二、软件核心代码（算法+代码文本） 实现响应用户输入的第一步：首先我们要新建一个自定义的pawn类MyPaw">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20210322194453170.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20210322194523957.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70">
@@ -143,7 +143,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%AE%9E%E9%AA%8C%E8%A6%81%E6%B1%82"><span class="nav-number">1.</span> <span class="nav-text">一、实验要求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E8%BD%AF%E4%BB%B6%E6%A0%B8%E5%BF%83%E4%BB%A3%E7%A0%81%EF%BC%88%E7%AE%97%E6%B3%95-%E4%BB%A3%E7%A0%81%E6%96%87%E6%9C%AC%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">二、软件核心代码（算法+代码文本）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E6%B8%B8%E6%88%8F%E8%BF%90%E8%A1%8C%E6%95%88%E6%9E%9C%EF%BC%88%E6%88%AA%E5%9B%BE%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">三、游戏运行效果（截图）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%AE%9E%E9%AA%8C%E5%BF%83%E5%BE%97"><span class="nav-number">4.</span> <span class="nav-text">四、实验心得</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80-%E5%AE%9E%E9%AA%8C%E8%A6%81%E6%B1%82"><span class="nav-number">1.</span> <span class="nav-text"> 一、实验要求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C-%E8%BD%AF%E4%BB%B6%E6%A0%B8%E5%BF%83%E4%BB%A3%E7%A0%81%E7%AE%97%E6%B3%95%E4%BB%A3%E7%A0%81%E6%96%87%E6%9C%AC"><span class="nav-number">2.</span> <span class="nav-text"> 二、软件核心代码（算法+代码文本）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89-%E6%B8%B8%E6%88%8F%E8%BF%90%E8%A1%8C%E6%95%88%E6%9E%9C%E6%88%AA%E5%9B%BE"><span class="nav-number">3.</span> <span class="nav-text"> 三、游戏运行效果（截图）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B-%E5%AE%9E%E9%AA%8C%E5%BF%83%E5%BE%97"><span class="nav-number">4.</span> <span class="nav-text"> 四、实验心得</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -250,27 +250,104 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p><meta name="referrer" content="no-referrer"/></p>
-<blockquote>
-<p>重新整理先前本科做过的一些文档。</p>
-</blockquote>
+    <div class="post-body" itemprop="articleBody"><meta name="referrer" content="no-referrer"/>
+> 重新整理先前本科做过的一些文档。
 <p>这个实验做的太艰难了，因为我的电脑已经不太能带的动UE4了，c++代码只要有错误，编译一次要20多分钟。</p>
-<h2 id="一、实验要求"><a href="#一、实验要求" class="headerlink" title="一、实验要求"></a>一、实验要求</h2><p>目的：  3D Interaction。<br>要求：  鼠标操作3D空间物体。<br>必备：悬停高亮<br>            左键拖拽<br>            右键旋转<br>作品示例↓：<br><img src="https://img-blog.csdnimg.cn/20210322194453170.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt=""></p>
-<h2 id="二、软件核心代码（算法-代码文本）"><a href="#二、软件核心代码（算法-代码文本）" class="headerlink" title="二、软件核心代码（算法+代码文本）"></a>二、软件核心代码（算法+代码文本）</h2><p>实现响应用户输入的第一步：首先我们要新建一个自定义的pawn类MyPawn，并设置MyPawn，使之在游戏开始时能自动响应玩家输入。<br>（Pawn 类提供了一个变量，可供我们在初始化时进行设置，从而为我们处理该内容。）<br><img src="https://img-blog.csdnimg.cn/20210322194523957.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt=""><br>添加以下代码到 AMyPawn::AMyPawn 。<br><img src="https://img-blog.csdnimg.cn/20210322194539346.png" alt=""><br>构建基础组件。<br><img src="https://img-blog.csdnimg.cn/20210322194554985.png" alt=""><br>这个变量被标记为 UPROPERTY ，所以可以在 虚幻引擎 中看到它。 这个变量很重要，因为它可以防止游戏启动时或项目或关卡的关闭和重新载入时的变量重置。<br>在MyPawn类的头文件里面添加：<br><img src="https://img-blog.csdnimg.cn/20210322194649507.png" alt=""><br>在MyPawn类的cpp文件构造函数里面继续添加：<br><img src="https://img-blog.csdnimg.cn/20210322194703560.png" alt=""><br>（这部分代码是按着官方文档写的，它是要做实现玩家移动和右键改变相机视角。<br>但是相机部分我自己后来没用到，因为我还是做了右键旋转物体而不是相机）</p>
-<p>给项目添加操作映射：<br><img src="https://img-blog.csdnimg.cn/20210322194718633.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt=""><br>关于动作映射和轴映射，我查了一下具体有啥区别。在代码实现上最大的区别就是动作映射绑定的函数不能带参数，而轴映射需要参数。<br><img src="https://img-blog.csdnimg.cn/20210322194751412.png" alt=""><br>接下来把编译好的MyPawn类创建实例放到世界大纲地图中：<br><img src="https://img-blog.csdnimg.cn/20210322194805999.png" alt=""><br><strong>下面开始依次实现实验要求的基本功能。</strong></p>
-<p> <strong>1. 鼠标左键拖动实现改变物体位置</strong><br>前面已经实现了映射绑定，现在我们开始在绑定的函数里添加具体实现。<br>实现思路：<br>在点击鼠标左键的绑定函数里记录物体旧的位置：<br><img src="https://img-blog.csdnimg.cn/20210322194928344.png" alt=""><br>在每一帧都会被调用的函数里计算物体新位置并更改：<br><img src="https://img-blog.csdnimg.cn/20210322194943443.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt=""><br>接下来在世界大纲视图里选中要进行操作的物体，右键对它的staticmesh进行编辑，在资源编辑器里设置碰撞为复杂碰撞，如下所示：<br><img src="https://img-blog.csdnimg.cn/20210322195010240.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt=""><br>完成以上操作后运行，长按鼠标左键就可以拖动物体了。</p>
-<p> <strong>2.鼠标右键拖动实现物体旋转</strong></p>
-<p>首先，先在之前按下鼠标右键绑定的函数startRotate里添加如下所示的代码。与移动鼠标思路一致，获取鼠标的当前位置和物体的当前旋转角度。<br><img src="https://img-blog.csdnimg.cn/20210322195100142.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt=""><br>查资料查到FRotator的三个属性，还有yaw，pitch，roll在空间坐标系的作用。<br><img src="https://img-blog.csdnimg.cn/20210322195117642.png" alt="">Yaw绕z轴旋转，pitch绕y轴，roll绕x轴旋转。</p>
-<p><img src="https://img-blog.csdnimg.cn/20210322195136948.png" alt=""><br>观察一下我自己的坐标系，调一下相机的位置，尽可能的让它正一点，比如zoy面正对屏幕，这样后面右键鼠标旋转时，它的旋转效果会好一点。</p>
-<p><strong>实现思路：</strong><br>实现思路跟左键移动类似。<br><img src="https://img-blog.csdnimg.cn/20210322195219482.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt=""><br>先写一段代码获得鼠标当前在世界中的位置然后算出每一帧中鼠标的位移量，然后用物体旧的旋转值加上适当处理过的（我这里是直接加上去的，我问了别人，有算线面角再处理的）鼠标位移量，达到新的旋转值。<br><img src="https://img-blog.csdnimg.cn/20210322195249846.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt=""><br>我试着调整了一下NewRotation的Yaw，Pich，Roll的值，发现鼠标的右键移动并不能很好的映射（就是它旋转的方向，它旋转的轴是它自己的轴，转是能转了，但效果可能不是你所期望的。）</p>
-<p><strong>3.鼠标悬浮实现物体高亮</strong><br>实现思路：<br>自己试着按照官网文档新建一个发光的材质,然后把它添加到要变换的物体的staticmesh上。<br><img src="https://img-blog.csdnimg.cn/20210322195334895.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt=""><br>然后需要在检测到鼠标悬浮时，切换目标物体材质，检测到鼠标离开时，换回原材质。<br>接下来在前面用到的碰撞检测函数的代码最前面添加如下代码：<br>（这段代码的作用是当鼠标离开物体时恢复到物体以前的材质，取消高亮）<br><img src="https://img-blog.csdnimg.cn/2021032219535222.png" alt=""><br>在检测到碰撞物体不为空后，切换物体材质让它变成高亮材质：<br>桌子的原本材质有两个，所以切换的材质统一使用静态网格体的最后一个材质。<br><img src="https://img-blog.csdnimg.cn/20210322195409553.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt=""><br>以上，编译运行即可。</p>
-<p>补充一点：需要注意的的是编译运行之前，需要设置鼠标在play界面可见，不然运行的时候就看不到鼠标，把这一段代码添加到BeginPlay（）函数里：<br><img src="https://img-blog.csdnimg.cn/20210322195431315.png" alt=""></p>
-<h2 id="三、游戏运行效果（截图）"><a href="#三、游戏运行效果（截图）" class="headerlink" title="三、游戏运行效果（截图）"></a>三、游戏运行效果（截图）</h2><p>效果截图（部分）：<img src="https://img-blog.csdnimg.cn/20210322195500392.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt=""></p>
-<h2 id="四、实验心得"><a href="#四、实验心得" class="headerlink" title="四、实验心得"></a>四、实验心得</h2><p>我觉得我快没有办法再用下去了。（绝望.jpg）<br>只要代码有问题或是代码实现不太好，UE在Vs里编译一次就能花20分钟，在这期间我的浏览器，我挂在电脑上的qq，onenote，连我那个破输入法都变的奇卡无比。<br>这可能已经不是“有点慢”的概念了。我真的没有办法理解为什么会那么慢，整个人心态都崩溃了。我打算再买个内存条装上看看，如果之后它还是这么慢的话，我都不知道以后工作量再大一点该怎么办，应该会照着教程直接用蓝图做了吧。<br>这大概就是设备太烂的无能为力吧。</p>
+<h2 id="一-实验要求"><a class="markdownIt-Anchor" href="#一-实验要求"></a> 一、实验要求</h2>
+<p>目的：  3D Interaction。<br />
+要求：  鼠标操作3D空间物体。<br />
+必备：悬停高亮<br />
+左键拖拽<br />
+右键旋转<br />
+作品示例↓：<br />
+<img src="https://img-blog.csdnimg.cn/20210322194453170.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt="" /></p>
+<h2 id="二-软件核心代码算法代码文本"><a class="markdownIt-Anchor" href="#二-软件核心代码算法代码文本"></a> 二、软件核心代码（算法+代码文本）</h2>
+<p>实现响应用户输入的第一步：首先我们要新建一个自定义的pawn类MyPawn，并设置MyPawn，使之在游戏开始时能自动响应玩家输入。<br />
+（Pawn 类提供了一个变量，可供我们在初始化时进行设置，从而为我们处理该内容。）<br />
+<img src="https://img-blog.csdnimg.cn/20210322194523957.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt="" /><br />
+添加以下代码到 AMyPawn::AMyPawn 。<br />
+<img src="https://img-blog.csdnimg.cn/20210322194539346.png" alt="" /><br />
+构建基础组件。<br />
+<img src="https://img-blog.csdnimg.cn/20210322194554985.png" alt="" /><br />
+这个变量被标记为 UPROPERTY ，所以可以在 虚幻引擎 中看到它。 这个变量很重要，因为它可以防止游戏启动时或项目或关卡的关闭和重新载入时的变量重置。<br />
+在MyPawn类的头文件里面添加：<br />
+<img src="https://img-blog.csdnimg.cn/20210322194649507.png" alt="" /><br />
+在MyPawn类的cpp文件构造函数里面继续添加：<br />
+<img src="https://img-blog.csdnimg.cn/20210322194703560.png" alt="" /><br />
+（这部分代码是按着官方文档写的，它是要做实现玩家移动和右键改变相机视角。<br />
+但是相机部分我自己后来没用到，因为我还是做了右键旋转物体而不是相机）</p>
+<p>给项目添加操作映射：<br />
+<img src="https://img-blog.csdnimg.cn/20210322194718633.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt="" /><br />
+关于动作映射和轴映射，我查了一下具体有啥区别。在代码实现上最大的区别就是动作映射绑定的函数不能带参数，而轴映射需要参数。<br />
+<img src="https://img-blog.csdnimg.cn/20210322194751412.png" alt="" /><br />
+接下来把编译好的MyPawn类创建实例放到世界大纲地图中：<br />
+<img src="https://img-blog.csdnimg.cn/20210322194805999.png" alt="" /><br />
+<strong>下面开始依次实现实验要求的基本功能。</strong></p>
+<p><strong>1. 鼠标左键拖动实现改变物体位置</strong><br />
+前面已经实现了映射绑定，现在我们开始在绑定的函数里添加具体实现。<br />
+实现思路：<br />
+在点击鼠标左键的绑定函数里记录物体旧的位置：<br />
+<img src="https://img-blog.csdnimg.cn/20210322194928344.png" alt="" /><br />
+在每一帧都会被调用的函数里计算物体新位置并更改：<br />
+<img src="https://img-blog.csdnimg.cn/20210322194943443.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt="" /><br />
+接下来在世界大纲视图里选中要进行操作的物体，右键对它的staticmesh进行编辑，在资源编辑器里设置碰撞为复杂碰撞，如下所示：<br />
+<img src="https://img-blog.csdnimg.cn/20210322195010240.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt="" /><br />
+完成以上操作后运行，长按鼠标左键就可以拖动物体了。</p>
+<p><strong>2.鼠标右键拖动实现物体旋转</strong></p>
+<p>首先，先在之前按下鼠标右键绑定的函数startRotate里添加如下所示的代码。与移动鼠标思路一致，获取鼠标的当前位置和物体的当前旋转角度。<br />
+<img src="https://img-blog.csdnimg.cn/20210322195100142.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt="" /><br />
+查资料查到FRotator的三个属性，还有yaw，pitch，roll在空间坐标系的作用。<br />
+<img src="https://img-blog.csdnimg.cn/20210322195117642.png" alt="" />Yaw绕z轴旋转，pitch绕y轴，roll绕x轴旋转。</p>
+<p><img src="https://img-blog.csdnimg.cn/20210322195136948.png" alt="" /><br />
+观察一下我自己的坐标系，调一下相机的位置，尽可能的让它正一点，比如zoy面正对屏幕，这样后面右键鼠标旋转时，它的旋转效果会好一点。</p>
+<p><strong>实现思路：</strong><br />
+实现思路跟左键移动类似。<br />
+<img src="https://img-blog.csdnimg.cn/20210322195219482.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt="" /><br />
+先写一段代码获得鼠标当前在世界中的位置然后算出每一帧中鼠标的位移量，然后用物体旧的旋转值加上适当处理过的（我这里是直接加上去的，我问了别人，有算线面角再处理的）鼠标位移量，达到新的旋转值。<br />
+<img src="https://img-blog.csdnimg.cn/20210322195249846.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt="" /><br />
+我试着调整了一下NewRotation的Yaw，Pich，Roll的值，发现鼠标的右键移动并不能很好的映射（就是它旋转的方向，它旋转的轴是它自己的轴，转是能转了，但效果可能不是你所期望的。）</p>
+<p><strong>3.鼠标悬浮实现物体高亮</strong><br />
+实现思路：<br />
+自己试着按照官网文档新建一个发光的材质,然后把它添加到要变换的物体的staticmesh上。<br />
+<img src="https://img-blog.csdnimg.cn/20210322195334895.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt="" /><br />
+然后需要在检测到鼠标悬浮时，切换目标物体材质，检测到鼠标离开时，换回原材质。<br />
+接下来在前面用到的碰撞检测函数的代码最前面添加如下代码：<br />
+（这段代码的作用是当鼠标离开物体时恢复到物体以前的材质，取消高亮）<br />
+<img src="https://img-blog.csdnimg.cn/2021032219535222.png" alt="" /><br />
+在检测到碰撞物体不为空后，切换物体材质让它变成高亮材质：<br />
+桌子的原本材质有两个，所以切换的材质统一使用静态网格体的最后一个材质。<br />
+<img src="https://img-blog.csdnimg.cn/20210322195409553.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt="" /><br />
+以上，编译运行即可。</p>
+<p>补充一点：需要注意的的是编译运行之前，需要设置鼠标在play界面可见，不然运行的时候就看不到鼠标，把这一段代码添加到BeginPlay（）函数里：<br />
+<img src="https://img-blog.csdnimg.cn/20210322195431315.png" alt="" /></p>
+<h2 id="三-游戏运行效果截图"><a class="markdownIt-Anchor" href="#三-游戏运行效果截图"></a> 三、游戏运行效果（截图）</h2>
+<p>效果截图（部分）：<img src="https://img-blog.csdnimg.cn/20210322195500392.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt="" /></p>
+<h2 id="四-实验心得"><a class="markdownIt-Anchor" href="#四-实验心得"></a> 四、实验心得</h2>
+<p>我觉得我快没有办法再用下去了。（绝望.jpg）<br />
+只要代码有问题或是代码实现不太好，UE在Vs里编译一次就能花20分钟，在这期间我的浏览器，我挂在电脑上的qq，onenote，连我那个破输入法都变的奇卡无比。<br />
+这可能已经不是“有点慢”的概念了。我真的没有办法理解为什么会那么慢，整个人心态都崩溃了。我打算再买个内存条装上看看，如果之后它还是这么慢的话，我都不知道以后工作量再大一点该怎么办，应该会照着教程直接用蓝图做了吧。<br />
+这大概就是设备太烂的无能为力吧。</p>
 <p>Ue4总体而言过程有点艰难，中文教程太少了。有教程的也全部都是蓝图的教程，代码的教程都是在它的英文论坛上一部分一部分找的。做这个的过程中，也问了走在我前面的人不少问题，在论坛试着找了很多英文教程，目前英语检索能力不太过关，走了不少弯路。</p>
 <p>但最后实现出来了，虽然只是最基本的第一页功能，也着实不容易。</p>
 <p><strong>惯例，还是记一下在实验过程中遇到的问题。</strong></p>
-<p><strong>1.没有与参数列表匹配的 重载函数 “UInputComponent::BindAction” 实例</strong><br>一直报这个错误，查了好久查不到解决方案，快自闭了。<br><img src="https://img-blog.csdnimg.cn/20210322195556212.png" alt=""><br>后来发现我绑定的几个函数是带参数的，我把参数去掉，就没报这个错了。<br><img src="https://img-blog.csdnimg.cn/20210322195615116.png" alt=""><br><strong>动作映射不能带参数！！！轴映射要带参数。</strong><br><img src="https://img-blog.csdnimg.cn/20210322195644681.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt=""><br><strong>2.UE4崩溃</strong><br>UE4崩溃有两种可能（我遇到的），第一种是代码里面有错误拿去编译运行，有一定几率崩溃。<br>第二种是代码逻辑错误，比如数组越界，我在实现高亮换材质时遇到了这个。很坑，编译成功，一运行就崩，半天找不到哪错了。<br><img src="https://img-blog.csdnimg.cn/20210322195709603.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt=""><br><strong>3.鼠标悬浮（或许以后能用）</strong><br>最开始想要实现悬浮效果，就试着用下面的代码绑定了文档里的OnBeginCursor还给它绑了自己新写的customOnBeginCursor。试了下效果，可以检测到鼠标悬浮，但是因为换材质要用到的变量挺多，就没有写在customOnBeginCursor里面。<br><img src="https://img-blog.csdnimg.cn/20210322195727591.png" alt=""><br>当鼠标光标移到此组件上并在播放器控制器中启用鼠标悬停事件时调用的事件<br><img src="https://img-blog.csdnimg.cn/20210322195741949.png" alt=""><br>这里面的参数UPrimitiveComponent类官网介绍这个是用于渲染数据，以后应该有机会用到，先码住。<br><img src="https://img-blog.csdnimg.cn/20210322195800527.png" alt=""></p>
+<p><strong>1.没有与参数列表匹配的 重载函数 “UInputComponent::BindAction” 实例</strong><br />
+一直报这个错误，查了好久查不到解决方案，快自闭了。<br />
+<img src="https://img-blog.csdnimg.cn/20210322195556212.png" alt="" /><br />
+后来发现我绑定的几个函数是带参数的，我把参数去掉，就没报这个错了。<br />
+<img src="https://img-blog.csdnimg.cn/20210322195615116.png" alt="" /><br />
+<strong>动作映射不能带参数！！！轴映射要带参数。</strong><br />
+<img src="https://img-blog.csdnimg.cn/20210322195644681.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt="" /><br />
+<strong>2.UE4崩溃</strong><br />
+UE4崩溃有两种可能（我遇到的），第一种是代码里面有错误拿去编译运行，有一定几率崩溃。<br />
+第二种是代码逻辑错误，比如数组越界，我在实现高亮换材质时遇到了这个。很坑，编译成功，一运行就崩，半天找不到哪错了。<br />
+<img src="https://img-blog.csdnimg.cn/20210322195709603.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt="" /><br />
+<strong>3.鼠标悬浮（或许以后能用）</strong><br />
+最开始想要实现悬浮效果，就试着用下面的代码绑定了文档里的OnBeginCursor还给它绑了自己新写的customOnBeginCursor。试了下效果，可以检测到鼠标悬浮，但是因为换材质要用到的变量挺多，就没有写在customOnBeginCursor里面。<br />
+<img src="https://img-blog.csdnimg.cn/20210322195727591.png" alt="" /><br />
+当鼠标光标移到此组件上并在播放器控制器中启用鼠标悬停事件时调用的事件<br />
+<img src="https://img-blog.csdnimg.cn/20210322195741949.png" alt="" /><br />
+这里面的参数UPrimitiveComponent类官网介绍这个是用于渲染数据，以后应该有机会用到，先码住。<br />
+<img src="https://img-blog.csdnimg.cn/20210322195800527.png" alt="" /></p>
 
     </div>
 

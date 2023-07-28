@@ -20,12 +20,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"vv-carrot.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="重新整理先前本科做过的一些文档。  老师特别不推荐直接使用插件去完成实验，所以写了很多，很啰嗦。 一、实验要求目的：  熟悉Mesh的概念，能自由利用Mesh数据。要求：  编写一个脚本，实现对mesh的破碎效果。Dalao作品示例↓：（不是我的！！不是我的—-） 二、软件核心代码（算法+代码文本）我先是使用apex destruction插件试了一下做出破碎效果，然后自己手动又用代码做了一下">
+    <meta name="description" content="&gt; 重新整理先前本科做过的一些文档。 老师特别不推荐直接使用插件去完成实验，所以写了很多，很啰嗦。  一、实验要求 目的：  熟悉Mesh的概念，能自由利用Mesh数据。 要求：  编写一个脚本，实现对mesh的破碎效果。 Dalao作品示例↓：（不是我的！！不是我的—）   二、软件核心代码（算法+代码文本） 我先是使用apex destruction插件试了一下做出破碎效果，然后自己手动又用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UE4实现破碎效果">
 <meta property="og:url" content="https://vv-carrot.github.io/2023/06/26/UE4%E7%A0%B4%E7%A2%8E%E6%95%88%E6%9E%9C%E5%AE%9E%E7%8E%B0/index.html">
 <meta property="og:site_name" content="VV&#39;s Blog">
-<meta property="og:description" content="重新整理先前本科做过的一些文档。  老师特别不推荐直接使用插件去完成实验，所以写了很多，很啰嗦。 一、实验要求目的：  熟悉Mesh的概念，能自由利用Mesh数据。要求：  编写一个脚本，实现对mesh的破碎效果。Dalao作品示例↓：（不是我的！！不是我的—-） 二、软件核心代码（算法+代码文本）我先是使用apex destruction插件试了一下做出破碎效果，然后自己手动又用代码做了一下">
+<meta property="og:description" content="&gt; 重新整理先前本科做过的一些文档。 老师特别不推荐直接使用插件去完成实验，所以写了很多，很啰嗦。  一、实验要求 目的：  熟悉Mesh的概念，能自由利用Mesh数据。 要求：  编写一个脚本，实现对mesh的破碎效果。 Dalao作品示例↓：（不是我的！！不是我的—）   二、软件核心代码（算法+代码文本） 我先是使用apex destruction插件试了一下做出破碎效果，然后自己手动又用">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20210322192351691.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/2021032219261171.png">
@@ -144,7 +144,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%AE%9E%E9%AA%8C%E8%A6%81%E6%B1%82"><span class="nav-number">1.</span> <span class="nav-text">一、实验要求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E8%BD%AF%E4%BB%B6%E6%A0%B8%E5%BF%83%E4%BB%A3%E7%A0%81%EF%BC%88%E7%AE%97%E6%B3%95-%E4%BB%A3%E7%A0%81%E6%96%87%E6%9C%AC%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">二、软件核心代码（算法+代码文本）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E6%B8%B8%E6%88%8F%E8%BF%90%E8%A1%8C%E6%95%88%E6%9E%9C%EF%BC%88%E6%88%AA%E5%9B%BE%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">三、游戏运行效果（截图）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%AE%9E%E9%AA%8C%E5%BF%83%E5%BE%97"><span class="nav-number">4.</span> <span class="nav-text">四、实验心得</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80-%E5%AE%9E%E9%AA%8C%E8%A6%81%E6%B1%82"><span class="nav-number">1.</span> <span class="nav-text"> 一、实验要求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C-%E8%BD%AF%E4%BB%B6%E6%A0%B8%E5%BF%83%E4%BB%A3%E7%A0%81%E7%AE%97%E6%B3%95%E4%BB%A3%E7%A0%81%E6%96%87%E6%9C%AC"><span class="nav-number">2.</span> <span class="nav-text"> 二、软件核心代码（算法+代码文本）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89-%E6%B8%B8%E6%88%8F%E8%BF%90%E8%A1%8C%E6%95%88%E6%9E%9C%E6%88%AA%E5%9B%BE"><span class="nav-number">3.</span> <span class="nav-text"> 三、游戏运行效果（截图）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B-%E5%AE%9E%E9%AA%8C%E5%BF%83%E5%BE%97"><span class="nav-number">4.</span> <span class="nav-text"> 四、实验心得</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -251,36 +251,102 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p><meta name="referrer" content="no-referrer"/></p>
-<blockquote>
-<p>重新整理先前本科做过的一些文档。</p>
-</blockquote>
+    <div class="post-body" itemprop="articleBody"><meta name="referrer" content="no-referrer"/>
+> 重新整理先前本科做过的一些文档。
 <p>老师特别不推荐直接使用插件去完成实验，所以写了很多，很啰嗦。</p>
-<h2 id="一、实验要求"><a href="#一、实验要求" class="headerlink" title="一、实验要求"></a>一、实验要求</h2><p>目的：  熟悉Mesh的概念，能自由利用Mesh数据。<br>要求：  编写一个脚本，实现对mesh的破碎效果。<br>Dalao作品示例↓：（不是我的！！不是我的—-）<br><img src="https://img-blog.csdnimg.cn/20210322192351691.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt=""></p>
-<h2 id="二、软件核心代码（算法-代码文本）"><a href="#二、软件核心代码（算法-代码文本）" class="headerlink" title="二、软件核心代码（算法+代码文本）"></a>二、软件核心代码（算法+代码文本）</h2><p>我先是使用apex destruction插件试了一下做出破碎效果，然后自己手动又用代码做了一下破碎效果。下面是实验过程记录，因为不算对ue4界面很熟，所以可能写的很详细。</p>
+<h2 id="一-实验要求"><a class="markdownIt-Anchor" href="#一-实验要求"></a> 一、实验要求</h2>
+<p>目的：  熟悉Mesh的概念，能自由利用Mesh数据。<br />
+要求：  编写一个脚本，实现对mesh的破碎效果。<br />
+Dalao作品示例↓：（不是我的！！不是我的—）<br />
+<img src="https://img-blog.csdnimg.cn/20210322192351691.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt="" /></p>
+<h2 id="二-软件核心代码算法代码文本"><a class="markdownIt-Anchor" href="#二-软件核心代码算法代码文本"></a> 二、软件核心代码（算法+代码文本）</h2>
+<p>我先是使用apex destruction插件试了一下做出破碎效果，然后自己手动又用代码做了一下破碎效果。下面是实验过程记录，因为不算对ue4界面很熟，所以可能写的很详细。</p>
 <ol>
-<li>使用插件制作破碎效果： 在ue4 StarterContent-&gt;Props文件夹里选中一个模型。<br><img src="https://img-blog.csdnimg.cn/2021032219261171.png" alt=""><br>在设置面板里找到插件位置，选中Apex Destruction插件，在已启用处勾选。</li>
+<li>使用插件制作破碎效果： 在ue4 StarterContent-&gt;Props文件夹里选中一个模型。<br />
+<img src="https://img-blog.csdnimg.cn/2021032219261171.png" alt="" /><br />
+在设置面板里找到插件位置，选中Apex Destruction插件，在已启用处勾选。</li>
 </ol>
-<p><img src="https://img-blog.csdnimg.cn/20210322192659464.png" alt=""><br>选中一个静态网格体模型右键，点击“创建可破坏网格体”。</p>
-<p>下面记录了一些我查到的参数作用：<br>Voronoi控制碎块的数目，Fracture Material Desc控制碎块生成的随机性。<br>“爆炸当量”能调整碎块之间的距离。<br><img src="https://img-blog.csdnimg.cn/20210322192720448.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt=""><br><img src="https://img-blog.csdnimg.cn/20210322192745448.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt=""><br>调节完毕后，点击“破碎网格体”得到效果如下的破碎。<br><img src="https://img-blog.csdnimg.cn/20210322192757648.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt=""><br>按照官网上的教程，我想要给破碎体添加内外材质。（顺便学一下怎么在UE4里面自己做材质）<br>Ue4里制作简单材质的方法：<br>右键创建新的材质，重命名后双击点开。此时应该是下面的界面。</p>
-<p><img src="https://img-blog.csdnimg.cn/20210322192837810.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt=""><br>给材质添加constant和constant3Vector两个常量。<br><img src="https://img-blog.csdnimg.cn/20210322192855285.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt=""><br>Constant控制材质的粗糙程度，constant3Vector控制材质的颜色。<br><img src="https://img-blog.csdnimg.cn/20210322192925455.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt=""><br>因为材质要应用到骨架网格体上，所以需要勾选“使用骨架网格体选项”（后来我尝试了一下，不勾选也可以，u添加到骨架网格体上时ue4会自动给你勾上）<br><img src="https://img-blog.csdnimg.cn/20210322192945399.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt=""><br>材质创建好了以后给要可破碎网格体添加上，0号材质是外面的一层材质，1号材质是里面的一层材质。我想跟着官网做那种破碎以后里外颜色不同的效果，但是失败了，ue论坛里有人说这个插件有一点问题。</p>
-<p>最后在主界面打开可破坏网格体的模拟物理和模拟命中事件。<br><img src="https://img-blog.csdnimg.cn/20210322193010926.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt=""><br>点击运行，得到效果如下：<br><img src="https://img-blog.csdnimg.cn/20210322193028393.png" alt=""><br>然后我又试着下载了模型，导入UE4进行破碎查看效果。<br>UE4支持导入fbx和obj模型的导入，它会自动生成一些比如static mesh的文件，比较智能。<br><img src="https://img-blog.csdnimg.cn/20210322193043300.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt=""></p>
-<ol>
+<p><img src="https://img-blog.csdnimg.cn/20210322192659464.png" alt="" /><br />
+选中一个静态网格体模型右键，点击“创建可破坏网格体”。</p>
+<p>下面记录了一些我查到的参数作用：<br />
+Voronoi控制碎块的数目，Fracture Material Desc控制碎块生成的随机性。<br />
+“爆炸当量”能调整碎块之间的距离。<br />
+<img src="https://img-blog.csdnimg.cn/20210322192720448.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt="" /><br />
+<img src="https://img-blog.csdnimg.cn/20210322192745448.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt="" /><br />
+调节完毕后，点击“破碎网格体”得到效果如下的破碎。<br />
+<img src="https://img-blog.csdnimg.cn/20210322192757648.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt="" /><br />
+按照官网上的教程，我想要给破碎体添加内外材质。（顺便学一下怎么在UE4里面自己做材质）<br />
+Ue4里制作简单材质的方法：<br />
+右键创建新的材质，重命名后双击点开。此时应该是下面的界面。</p>
+<p><img src="https://img-blog.csdnimg.cn/20210322192837810.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt="" /><br />
+给材质添加constant和constant3Vector两个常量。<br />
+<img src="https://img-blog.csdnimg.cn/20210322192855285.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt="" /><br />
+Constant控制材质的粗糙程度，constant3Vector控制材质的颜色。<br />
+<img src="https://img-blog.csdnimg.cn/20210322192925455.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt="" /><br />
+因为材质要应用到骨架网格体上，所以需要勾选“使用骨架网格体选项”（后来我尝试了一下，不勾选也可以，u添加到骨架网格体上时ue4会自动给你勾上）<br />
+<img src="https://img-blog.csdnimg.cn/20210322192945399.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt="" /><br />
+材质创建好了以后给要可破碎网格体添加上，0号材质是外面的一层材质，1号材质是里面的一层材质。我想跟着官网做那种破碎以后里外颜色不同的效果，但是失败了，ue论坛里有人说这个插件有一点问题。</p>
+<p>最后在主界面打开可破坏网格体的模拟物理和模拟命中事件。<br />
+<img src="https://img-blog.csdnimg.cn/20210322193010926.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt="" /><br />
+点击运行，得到效果如下：<br />
+<img src="https://img-blog.csdnimg.cn/20210322193028393.png" alt="" /><br />
+然后我又试着下载了模型，导入UE4进行破碎查看效果。<br />
+UE4支持导入fbx和obj模型的导入，它会自动生成一些比如static mesh的文件，比较智能。<br />
+<img src="https://img-blog.csdnimg.cn/20210322193043300.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt="" /></p>
+<ol start="2">
 <li>使用UE4代码和蓝图制作破碎效果：</li>
 </ol>
-<p>Ue4的点开模型的界面可以显示出这个模型的mesh顶点，但想要自己用代码访问获取它的顶点数据还是得费点功夫的，在ue4官方论坛上有大神写了获取mesh顶点数据的教程。<br><img src="https://img-blog.csdnimg.cn/20210322193159124.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt=""><br>找了很久的教程，获取mesh网格<strong>顶点数据的核心代码</strong>：（UE4的教程真的太少啦，这个还是科学上网到论坛上找到的）<br><img src="https://img-blog.csdnimg.cn/20210322193257274.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt=""><br>在UE4里Tick( )函数是每帧都会被调用的函数。<br>接下来就要在Tick（ ）函数里把获取到的mesh顶点都画出来。<br><img src="https://img-blog.csdnimg.cn/20210322193314240.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt=""><br>运行一下，顶点找到的效果如下。红色的就是找到的顶点位置。<br><img src="https://img-blog.csdnimg.cn/20210322193331216.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt=""><br>在找到顶点以后。开始下一步操作。新建一个蓝图类fragment，给他设置添加上基本的static mesh 和material。并且在physics一栏勾选模拟物理。<br><img src="https://img-blog.csdnimg.cn/20210322193345776.png" alt=""><img src="https://img-blog.csdnimg.cn/20210322193356569.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt=""><br>换了一个形状，现在更像破碎后的碎片了。<br><img src="https://img-blog.csdnimg.cn/20210322193428395.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt=""><br><strong>下面让它怎么碎我就找不到代码教程了，班里面一个做游戏的大佬教我用蓝图实现了，菜鸡落泪。</strong></p>
+<p>Ue4的点开模型的界面可以显示出这个模型的mesh顶点，但想要自己用代码访问获取它的顶点数据还是得费点功夫的，在ue4官方论坛上有大神写了获取mesh顶点数据的教程。<br />
+<img src="https://img-blog.csdnimg.cn/20210322193159124.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt="" /><br />
+找了很久的教程，获取mesh网格<strong>顶点数据的核心代码</strong>：（UE4的教程真的太少啦，这个还是科学上网到论坛上找到的）<br />
+<img src="https://img-blog.csdnimg.cn/20210322193257274.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt="" /><br />
+在UE4里Tick( )函数是每帧都会被调用的函数。<br />
+接下来就要在Tick（ ）函数里把获取到的mesh顶点都画出来。<br />
+<img src="https://img-blog.csdnimg.cn/20210322193314240.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt="" /><br />
+运行一下，顶点找到的效果如下。红色的就是找到的顶点位置。<br />
+<img src="https://img-blog.csdnimg.cn/20210322193331216.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt="" /><br />
+在找到顶点以后。开始下一步操作。新建一个蓝图类fragment，给他设置添加上基本的static mesh 和material。并且在physics一栏勾选模拟物理。<br />
+<img src="https://img-blog.csdnimg.cn/20210322193345776.png" alt="" /><img src="https://img-blog.csdnimg.cn/20210322193356569.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt="" /><br />
+换了一个形状，现在更像破碎后的碎片了。<br />
+<img src="https://img-blog.csdnimg.cn/20210322193428395.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt="" /><br />
+<strong>下面让它怎么碎我就找不到代码教程了，班里面一个做游戏的大佬教我用蓝图实现了，菜鸡落泪。</strong></p>
 <p>下面打开MyBreakingActor类的蓝图编辑器，开始用蓝图写出MyBreakingActor类的break函数。它的执行过程是这样的：</p>
 <ol>
 <li>调用MeshData方法获取mesh顶点。</li>
 <li>显示循环遍历获取的每一个顶点，在顶点位置处生成fragment。</li>
-<li>循环执行完以后，销毁MyBreakingActor实例。其蓝图视图如下所示：<br><img src="https://img-blog.csdnimg.cn/2021032219354724.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt=""><br>设置完break函数后，给要碰撞的breakingActor添加碰撞capsule，同时给地面也添加碰撞体以实现碰撞事件的触发。这样就可以实现碰撞后破碎的效果了。<br><img src="https://img-blog.csdnimg.cn/20210322193606375.png" alt=""><br>右键单击世界大纲视图中的mybreakingactor类，在“添加事件”中选择“OnActorBeginOverlap”，这个函数的作用是在进入触发器时，触发事件。<br><img src="https://img-blog.csdnimg.cn/20210322193623643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt=""><br>接下来开始设置关卡。<br>新建对象mybreakingactor的引用，然后通过这个引用拉出一条线调用break函数。连接OnActorBeginOverlap和break函数（也就是触发OnActorBeginOverlap时调用break函数）。<br>在break函数后连接UE4自带的函数“在位置处生成发射器”，添加粒子效果进去。<br>选好Emitter Template，然后执行完了需要记得销毁粒子效果，当然可以把烟的效果留下来。完整的关卡蓝图流程图如下所示：<br><img src="https://img-blog.csdnimg.cn/20210322193647172.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt=""><h2 id="三、游戏运行效果（截图）"><a href="#三、游戏运行效果（截图）" class="headerlink" title="三、游戏运行效果（截图）"></a>三、游戏运行效果（截图）</h2>使用插件apex destruction实现的效果：<br><img src="https://img-blog.csdnimg.cn/20210322193717174.png" alt=""><br><img src="https://img-blog.csdnimg.cn/20210322193724992.png" alt=""><br>代码+蓝图实现的效果：<br>以前视频的逐帧截图：（石头掉下来把鹿砸碎了）：<br><img src="https://img-blog.csdnimg.cn/20210322193835546.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt=""></li>
+<li>循环执行完以后，销毁MyBreakingActor实例。其蓝图视图如下所示：<br />
+<img src="https://img-blog.csdnimg.cn/2021032219354724.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt="" /><br />
+设置完break函数后，给要碰撞的breakingActor添加碰撞capsule，同时给地面也添加碰撞体以实现碰撞事件的触发。这样就可以实现碰撞后破碎的效果了。<br />
+<img src="https://img-blog.csdnimg.cn/20210322193606375.png" alt="" /><br />
+右键单击世界大纲视图中的mybreakingactor类，在“添加事件”中选择“OnActorBeginOverlap”，这个函数的作用是在进入触发器时，触发事件。<br />
+<img src="https://img-blog.csdnimg.cn/20210322193623643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt="" /><br />
+接下来开始设置关卡。<br />
+新建对象mybreakingactor的引用，然后通过这个引用拉出一条线调用break函数。连接OnActorBeginOverlap和break函数（也就是触发OnActorBeginOverlap时调用break函数）。<br />
+在break函数后连接UE4自带的函数“在位置处生成发射器”，添加粒子效果进去。<br />
+选好Emitter Template，然后执行完了需要记得销毁粒子效果，当然可以把烟的效果留下来。完整的关卡蓝图流程图如下所示：<br />
+<img src="https://img-blog.csdnimg.cn/20210322193647172.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt="" /></li>
 </ol>
-<h2 id="四、实验心得"><a href="#四、实验心得" class="headerlink" title="四、实验心得"></a>四、实验心得</h2><p>惯例，还是记一下在实验过程中遇到的问题。<br>因为用的是UE4，它有很厉害的破碎插件，（破碎这个功能在ue4里面好像就特别底层）所以我查找到的大部分教程基本上都是用插件就实现破碎。<br>虽然用插件apex destruction破碎很简单，但毕竟我啥也不会，不试一下连插件也不会，就先试着用插件实现了一下破碎。</p>
+<h2 id="三-游戏运行效果截图"><a class="markdownIt-Anchor" href="#三-游戏运行效果截图"></a> 三、游戏运行效果（截图）</h2>
+<p>使用插件apex destruction实现的效果：<br />
+<img src="https://img-blog.csdnimg.cn/20210322193717174.png" alt="" /><br />
+<img src="https://img-blog.csdnimg.cn/20210322193724992.png" alt="" /><br />
+代码+蓝图实现的效果：<br />
+以前视频的逐帧截图：（石头掉下来把鹿砸碎了）：<br />
+<img src="https://img-blog.csdnimg.cn/20210322193835546.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt="" /></p>
+<h2 id="四-实验心得"><a class="markdownIt-Anchor" href="#四-实验心得"></a> 四、实验心得</h2>
+<p>惯例，还是记一下在实验过程中遇到的问题。<br />
+因为用的是UE4，它有很厉害的破碎插件，（破碎这个功能在ue4里面好像就特别底层）所以我查找到的大部分教程基本上都是用插件就实现破碎。<br />
+虽然用插件apex destruction破碎很简单，但毕竟我啥也不会，不试一下连插件也不会，就先试着用插件实现了一下破碎。</p>
 <p>用插件做了一遍以后，接下来就是自己试着做一个破碎的效果了。</p>
-<p>我检索了很久都找不到ue4怎么用代码访问StaticMesh顶点数据，我不熟悉StaticMesh类的数据结构，去找官方文档，ue4官方文档又写得太简短，对我这种小白实在太不友好。<br>就这样做了好几天的无用功后，我偶然间在ue4论坛找到了一篇文章，才终于找到了访问StaticMesh顶点数据的方法。（还是论坛靠谱，大佬也多）</p>
+<p>我检索了很久都找不到ue4怎么用代码访问StaticMesh顶点数据，我不熟悉StaticMesh类的数据结构，去找官方文档，ue4官方文档又写得太简短，对我这种小白实在太不友好。<br />
+就这样做了好几天的无用功后，我偶然间在ue4论坛找到了一篇文章，才终于找到了访问StaticMesh顶点数据的方法。（还是论坛靠谱，大佬也多）</p>
 <p>最后吐槽一下，UE4编译是真的慢，慢的我一怒之下都想买个内存条了。</p>
 <p>UE4里的奇奇怪怪的报错：</p>
-<p>1号选手：就突然不认识最基本的类了，我查了半天发现原来根本就不用理它，报这种错应该就是编译器抽了，可以编译成功的。<br><img src="https://img-blog.csdnimg.cn/20210322193919595.png" alt=""><br>2号选手：<br><img src="https://img-blog.csdnimg.cn/20210322193938990.png" alt=""><br>找到BuildConfiguration.xml文件，并且在里面修改关掉vs的Increment那个插件：<img src="https://img-blog.csdnimg.cn/20210322193959125.png" alt=""></p>
+<p>1号选手：就突然不认识最基本的类了，我查了半天发现原来根本就不用理它，报这种错应该就是编译器抽了，可以编译成功的。<br />
+<img src="https://img-blog.csdnimg.cn/20210322193919595.png" alt="" /><br />
+2号选手：<br />
+<img src="https://img-blog.csdnimg.cn/20210322193938990.png" alt="" /><br />
+找到BuildConfiguration.xml文件，并且在里面修改关掉vs的Increment那个插件：<img src="https://img-blog.csdnimg.cn/20210322193959125.png" alt="" /></p>
 
     </div>
 
