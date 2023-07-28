@@ -1,0 +1,268 @@
+
+body {
+    background: var(--body-bg-color);
+    box-sizing: border-box;
+    color: var(--text-color);
+    /* font-family: Lato, 'PingFang SC', 'Microsoft YaHei', sans-serif; */
+    font-family: "STZhongsong";
+    font-size: 0.6em;
+    line-height: 1.6;
+    min-height: 100%;
+    position: relative;
+    transition: padding 0.2s ease-in-out;
+    overflow-x: hidden;
+    width: 100vw;
+}
+.content{
+    display: block;
+}
+.content-inner{
+    margin: 0 auto;
+    width: 750px;
+    /* padding-bottom: 60px; */
+}
+.theme{
+    width: 100%;
+    position: relative;
+
+}
+.theme_img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.theme_text{
+    width: 80%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    position:absolute; 
+    z-index:2;
+
+    text-align: center;
+}
+.seg{
+    padding: 0;
+    margin: 0;
+    position: relative;
+
+}
+
+.segbox{
+    width: 80%;
+    z-index:2;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    position:absolute; 
+}
+.seg1-card{
+    width: auto;
+    height: 100%;
+    display: inline-flex;
+    padding-left: 6px;
+    
+}
+.seg1-card-circle{
+    width: 80px;
+    height: 80px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    position: relative;
+    
+}
+.seg1-card-circle-spin{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border-top: black solid 3px;
+    
+}
+.circle-animation1{
+    animation: seg1-card-circle-spin1 3s linear infinite;
+}
+.circle-animation2{
+    animation: seg1-card-circle-spin2 3s linear infinite;
+}
+.circle-animation3{
+    animation: seg1-card-circle-spin3 3s linear infinite;
+}
+.circle-animation4{
+    animation: seg1-card-circle-spin4 3s linear infinite;
+}
+.circle-animation5{
+    animation: seg1-card-circle-spin5 3s linear infinite;
+}
+.circle-animation6{
+    animation: seg1-card-circle-spin6 3s linear infinite;
+}
+.seg1-card-rect{
+    width: 100%;
+    height: 140px;
+    /* position: relative; */
+    /* display: inline-flex; */
+    
+}
+
+.seg2-nature{
+    z-index: 3;
+    width: 250px;
+    height: 150px;
+    display: inline-flex;
+}
+.seg2-humanities{
+    z-index: 3;
+    width: 250px;
+    height: 150px;
+    display: inline-flex;
+}
+
+
+.yujuetu_box{
+    z-index: 3;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transform: translate(0%,-95%);
+}
+.yujuetu_box:nth-of-type(1){
+    transform: translate(0%,0%);
+}
+.yujuetu_box:nth-of-type(2){
+    transform: translate(-82%,55%);
+}
+.yujuetu_box:nth-of-type(3){
+    transform: translate(-82%,-55%);
+}
+.yujuetu_box:nth-of-type(4){
+    transform: translate(0%,95%);
+}
+.yujuetu_box:nth-of-type(5){
+    transform: translate(82%,55%);
+}
+.yujuetu_box:nth-of-type(6){
+    transform: translate(82%,-55%);
+}
+
+
+.seg5-barchart{
+    position: absolute;
+    top: 0;
+    width: 40%;
+    height: 80%;
+}
+
+.seg7-charts{
+    /* border:5px solid #000; */
+    position: relative;
+    height: 800px;
+    width: 100%;
+    top: 0px;
+    
+}
+.history-card{
+    width: 120px;
+    height: 200px;
+}
+
+.hide_zhuqueqiao,.hide_luoqiao_flourish,.hide_weiqiao,.hide_luoqiao_decay,.hide_wanliqiao,.hide_ershisiqiao_flourish,.hide_ershisiqiao_decay{
+    display: none;
+}
+
+.history_decay_zhuqueqiao,.history_flourish_luoqiao,.history_decay_weiqiao,.history_decay_luoqiao,.history_decay_wanliqiao,.history_flourish_ershisiqiao,.history_decay_ershisiqiao{
+    width: 60px;
+    height: 20px;
+    /* border:3px solid #000; */
+}
+
+.history_decay_zhuqueqiao:hover+.hide_zhuqueqiao,.history_flourish_luoqiao:hover+.hide_luoqiao_flourish,.history_decay_weiqiao:hover+.hide_weiqiao,
+.history_decay_luoqiao:hover+.hide_luoqiao_decay,.history_decay_wanliqiao:hover+.hide_wanliqiao,.history_flourish_ershisiqiao:hover+.hide_ershisiqiao_flourish,.history_decay_ershisiqiao:hover+.hide_ershisiqiao_decay{
+    display: block !important;; 
+}
+
+@keyframes  seg1-card-circle-spin1{
+    0% {
+        transform: rotate(-360deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+@keyframes  seg1-card-circle-spin2{
+    0% {
+        transform: rotate(-320deg);
+    }
+    100% {
+        transform: rotate(40deg);
+    }
+}
+
+@keyframes  seg1-card-circle-spin3{
+    0% {
+        transform: rotate(-280deg);
+    }
+    100% {
+        transform: rotate(80deg);
+    }
+}
+
+@keyframes  seg1-card-circle-spin4{
+    0% {
+        transform: rotate(-240deg);
+    }
+    100% {
+        transform: rotate(120deg);
+    }
+}
+@keyframes  seg1-card-circle-spin5{
+    0% {
+        transform: rotate(-200deg);
+    }
+    100% {
+        transform: rotate(160deg);
+    }
+}
+
+@keyframes  seg1-card-circle-spin6{
+    0% {
+        transform: rotate(-160deg);
+    }
+    100% {
+        transform: rotate(200deg);
+    }
+}
+
+@keyframes fade {
+    0%{
+        opacity: 0;
+    }
+
+    20%, 80% {
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+
+
+@font-face {
+    font-family: "STZhongsong";
+    src: url("https://github.com/adobe-fonts/source-han-serif/raw/release/Variable/TTF/Subset/SourceHanSerifCN-VF.ttf");
+  }

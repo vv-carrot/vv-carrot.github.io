@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html class="no-js" >
+<head>
+    <meta charset="utf-8">
+    <title>The Bridge | Connect</title>
+    <meta name="description" content="'The Bridge | Connect', an interactive graphic webpage about Connet theme.'">
+    <meta name="keywords" content="poems, bridges">
+    <meta name="author" content="Li Ruiling, Zhang Xiaoqi, Wu Yuying, Zhou Zicheng">
+
+    <!-- width=device-width is required to trigger GPU rasterizr: https://www.chromium.org/developers/design-documents/chromium-graphics/how-to-get-gpu-rasterization -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+
+    <!-- meta tags -->
+    <meta property="og:title" content="The Bridge | Connect">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+    <meta property="og:description" content="'The Bridge | Connect', an interactive graphic webpage about Connet theme.'​">
+    <style>@media print{body{display:none}}</style>
+    <!--link rel="shortcut icon" href="favicon.ico"-->
+    <!--link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png"-->
+    <link rel="stylesheet" type="text/css" href="css/dongxiao.css" />
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link href="主题诗人统计.json">
+    <link rel="stylesheet" type="text/css" href="css/test.css" />
+    <link rel="stylesheet" type="text/css" href="css/style_history.css" />
+    <link rel="stylesheet" type="text/css" href="css/yujuetu.css" />
+
+    <script type="text/javascript" src="js/test.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/wordcloud2.js/1.2.1/wordcloud2.min.js"></script>
+    <script src="lib/b2wordcloud-master/dist/b2wordcloud.min.js"></script>
+
+    
+    <script type="text/javascript" src="scripts/jquery.js"></script>
+    <script type="text/javascript" src="scripts/bouton.js"></script>
+    <script type="text/javascript" src="scripts/jquery.parallax-1.1.3.js"></script>
+    <script type="text/javascript" src="scripts/jquery.localscroll-1.2.7-min.js"></script>
+    <script type="text/javascript" src="scripts/jquery.scrollTo-1.4.2-min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+
+    <script src="https://gw.alipayobjects.com/os/lib/antv/g6/4.2.7/dist/g6.min.js"></script>
+    <!-- <script src="https://gw.alipayobjects.com/os/antv/pkg/_antv.g2-3.5.1/dist/g2.min.js"></script> -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/antv-g2/4.1.15/g2.min.js"></script>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/g2plot/2.3.21/g2plot.min.js"></script>
+    <!-- <script type="text/javascript" src="js/g2plot.min.js"></script> -->
+    <script src="https://gw.alipayobjects.com/os/antv/pkg/_antv.data-set-0.10.1/dist/data-set.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+<!-- <div id="share">
+    <a href="#">
+        <img alt="share button" src="images/share.png">
+    </a>
+</div> -->
+
+<ul id="nav">
+  <img src="images/nav/navbg.png" style="position: absolute;right:10px;bottom:-124px;">
+
+    <li>
+        <a id="n0" href="#part0" title="桥跃纸上" style="opacity: 1;">
+            <img src="images/nav/桥-off.png" alt="Link" >
+        </a>
+    </li>
+    <li>
+        <a id="n1" href="#part1" title="桥连意向" style="opacity: 1;">
+            <img src="images/nav/象-off.png" alt="Link">
+        </a>
+    </li>
+    <li>
+        <a id="n2" href="#part2" title="桥入诗情" style="opacity: 1;">
+            <img src="images/nav/情-off.png" alt="Link">
+        </a>
+    </li>
+    <li>
+        <a id="n3" href="#part3" title="桥入史诗" style="opacity: 1;">
+            <img src="images/nav/史-off.png" alt="Link">
+        </a>
+    </li>
+    <li>
+        <a id="n4" href="#part4" title="桥入送别" style="opacity: 1;">
+            <img src="images/nav/送-off.png" alt="Link">
+        </a>
+    </li>
+</ul>
+<div class="content">
+  <div class="content-inner">
+  <div class="theme">
+    <img class="theme_img" src="images/theme.jpg"/>
+      <div class="theme_text" style="padding-top: 480px;">
+        中国古代桥梁文化是中华文化的重要组成部分,它代代相传、自成体系。从古至今，一座座桥相连相接，成为我们民族情感的一条长长的脉络。</br>
+  诗歌是人们想象与现实相结合的产物，桥在我国诗歌作品中亦占据着一席之地。古者以桥入诗由来已久。在诗词中，我们在灞桥上离别、在二十四桥上感叹世事变迁、在洛桥上思念家乡。桥梁是跨越障碍的建筑结构，也是连接自然与人文的纽带。</br>
+  桥的这边是我们，桥的那边是璀璨的历史和真挚的情感，踏上这座桥，我们终将与它们相遇。
+  
+      </div>
+</div>
+<div class="seg" id="part0">
+  <img class="theme_img" src="images/seg1.jpg"/>
+  <div class="theme_text" style="padding-top: 80px;line-height: 1.2;">
+    <font color="#676767">由于汉字字义在具体诗境中的比喻和引申，桥在诗中的呈现并非仅用桥字，有相当一部分是用其替代之字或词来入诗，比如梁、虹、月。<br/></font>
+    桥入诗词后，形成了形象而又极具诗意的<font size="3 em" color="#DBB756">别称</font>：
+  </div>
+  <div class="segbox" style="padding-top: 130px;padding-bottom: 110px;">
+    <div class="seg1-card">
+      <div style="width: 90px;">
+        <div class="seg1-card-circle">
+          <img class="theme_img" src="images/seg1/icon6.png"/>
+          <div class="seg1-card-circle-spin circle-animation1">
+          </div>
+        </div>
+        <div class="seg1-card-rect">
+          <p style="text-align: center;margin: 0;"><font size="3em">梁</font></p>
+          <img class="theme_img" src="images/seg1/rect1.png"/>
+        </div>
+      </div>
+
+    </div>
+    <div class="seg1-card">
+      <div style="width: 90px;">
+        <div class="seg1-card-circle">
+          <img class="theme_img" src="images/seg1/icon5.png"/>
+          <div class="seg1-card-circle-spin circle-animation2">
+
+          </div>
+        </div>
+        <div class="seg1-card-rect">
+          <p style="text-align: center;margin: 0;"><font size="3em">航</font></p>
+          <img class="theme_img" src="images/seg1/rect5.png"/>
+        </div>
+      </div>
+    </div>
+    <div class="seg1-card">
+      <div style="width: 90px;">
+        <div class="seg1-card-circle">
+          <img class="theme_img" src="images/seg1/icon4.png"/>
+          <div class="seg1-card-circle-spin circle-animation3">
+
+          </div>
+        </div>
+        <div class="seg1-card-rect">
+          <p style="text-align: center;margin: 0;"><font size="3em">矼</font></p>
+          <img class="theme_img" src="images/seg1/rect4.png"/>
+        </div>
+      </div>
+    </div>
+    <div class="seg1-card">
+      <div style="width: 90px;">
+        <div class="seg1-card-circle">
+          <img class="theme_img" src="images/seg1/icon3.png"/>
+          <div class="seg1-card-circle-spin circle-animation4">
+          </div>
+        </div>
+        <div class="seg1-card-rect">
+          <p style="text-align: center;margin: 0;"><font size="3em">杠</font></p>
+          <img class="theme_img" src="images/seg1/rect3.png"/>
+        </div>
+      </div>
+    </div>
+    <div class="seg1-card">
+      <div style="width: 90px;">
+        <div class="seg1-card-circle">
+          <img class="theme_img" src="images/seg1/icon2.png"/>
+          <div class="seg1-card-circle-spin circle-animation5">
+
+          </div>
+        </div>
+        <div class="seg1-card-rect">
+          <p style="text-align: center;margin: 0;"><font size="3em">虹</font></p>
+          <img class="theme_img" src="images/seg1/rect2.png"/>
+        </div>
+      </div>
+    </div>
+    <div class="seg1-card">
+      <div style="width: 90px;">
+        <div class="seg1-card-circle">
+          <img class="theme_img" src="images/seg1/icon1.png"/>
+          <div class="seg1-card-circle-spin circle-animation6">
+
+          </div>
+        </div>
+        <div class="seg1-card-rect">
+          <p style="text-align: center;margin: 0;"><font size="3em">彴</font></p>
+          <img class="theme_img" src="images/seg1/rect6.png"/>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="seg" id="part1">
+    <img class="theme_img" src="images/seg2.jpg"/>
+    <div class="theme_text" style="padding-top: 118px;padding-right: 360px;line-height: 1.2;width: auto;">
+      <font color="#777777" size="1">鼠标悬浮至意象文字查看详细信息</font>
+    </div>
+    <div class="segbox" style="padding-top: 150px;padding-bottom: 130px;width: 70%;">
+      <div class="seg2-nature" id="wordcloud_nature">
+        <script src="js/ciyun_nature.js"></script>
+      </div>
+      <div class="seg2-humanities" id="wordcloud_humanities">
+        <script src="js/ciyun_humanities.js"></script> 
+      </div>
+    </div>
+    </div>
+  <div class="seg">
+    <img class="theme_img" src="images/seg3.jpg"/>
+    <div class="segbox" style="padding-top: 15px;padding-bottom: 60px;width: 64%;">
+      <div style="width: 100%;height: 100%;padding-left:20px;position: relative;">
+        <div class="yujuetu_box yujuetu_aiqing" id="chart_aiqing"></div>
+        <div class="yujuetu_box yujuetu_biansai" id="chart_biansai"></div>
+        <div class="yujuetu_box yujuetu_jingwu" id="chart_jingwu"></div>
+        <div class="yujuetu_box yujuetu_shanshui" id="chart_shanshui"></div>
+        <div class="yujuetu_box yujuetu_sixiang" id="chart_sixiang"></div>
+        <div class="yujuetu_box yujuetu_songbie" id="chart_songbie"></div>
+        <div class="yujuetu_box yujuetu_yongshi" id="chart_yongshi"></div>
+      </div>
+      </div>
+        <script type="text/javascript" src="js/yujuetu.js">  </script>
+  </div>
+  <div  class="seg" id="part2">
+    <img class="theme_img" src="images/seg4.jpg"/>
+  </div>
+  <div  class="seg">
+    <img class="theme_img" src="images/seg5.jpg"/>
+    <div class="segbox" style="padding-top: 0px;padding-bottom: 40px;width: 76%;">
+      <div style="width: 100%;height: 100%;padding-left:10px;position: relative;">
+        <div class="seg5-barchart">
+              <div id="luyou" style="z-index: 3;position: absolute;width: 150px;height: 120px;top:80px;left: 0px;opacity: 0.6;">
+              </div>
+              <script>
+      
+              const datalu=
+              [
+              {"主题":"爱情","陆游":1},
+              {"主题":"边塞","陆游":27},
+              {"主题":"景物","陆游":68},
+              {"主题":"山水","陆游":65},
+              {"主题":"思乡","陆游":97},
+              {"主题":"送别","陆游":167},
+              {"主题":"历史","陆游":20},
+              ];
+      
+              const lu = new G2.Chart({
+                  container: 'luyou',
+                  width:150,
+                  height:120,
+                  showTitle:false,
+      
+                });
+                lu.source(datalu);
+                lu.legend(false);
+                lu.axis('陆游', {
+                  position: 'right'
+                });
+      
+              lu.tooltip(
+                  { 
+                      useHtml:true, 
+                      domStyles: {
+                        'g2-tooltip': {
+                              width:'120px',
+                              height:'50px',    
+                          },
+                      },
+                      customContent: (title, items) => {
+                          const data = items[0]?.data || {};
+                          const titleDom = `<div class ="custom-tooltip-title" >${data.主题}</div>`;
+                          const temDom = `<div style="textAlign:center;">————————<br>总计诗词数:${data.陆游}首</div>`;
+                          return `<div style="text-align:center;margin:5%;">${titleDom} ${temDom}</div>`;
+                      },
+                  });
+                lu.axis('主题', {
+                  label: null,
+                });
+                lu.coord().transpose().scale(1, -1);
+                lu.interval().position('主题*陆游').color('主题',['#aa7065', '#aa935c', '#808a87', '#5f8aaa','#aa90a8','#9aaa6c','#aa988b']);
+                
+              </script>
+              <div id="yangwanli" style="position: absolute;width:150px;height: 120px;top:190px;left: 0px;opacity: 0.6;">
+              </div>
+              <script>
+                  const datayang=
+                  [
+                  {"主题":"爱情","杨万里":1},
+                  {"主题":"边塞","杨万里":5},
+                  {"主题":"景物","杨万里":25},
+                  {"主题":"山水","杨万里":27},
+                  {"主题":"思乡","杨万里":27},
+                  {"主题":"送别","杨万里":82},
+                  {"主题":"历史","杨万里":0},
+      
+                  ]
+              const yang = new G2.Chart({
+                  container: 'yangwanli',
+                  width:150,
+                  height:120,
+                  scale:{
+                      杨万里: {
+                        min: 0,
+                        max: 160,
+                      },
+                  }
+                });
+                yang.source(datayang);
+                yang.legend(false);
+                yang.axis('杨万里', {
+                  position: 'right'
+                });
+                  yang.tooltip(
+                      { 
+                          useHtml:true, 
+                      domStyles: {
+                        'g2-tooltip': {
+                              width:'120px',
+                              height:'50px',    
+                          },
+                      },
+                      customContent: (title, items) => {
+                          const data = items[0]?.data || {};
+                          const titleDom = `<div class ="custom-tooltip-title" >${data.主题}</div>`;
+                          const temDom = `<div style="text-align:center;">————————<br>总计诗词数:${data.杨万里}首</div>`;
+                          return `<div style="text-align:center;margin:5%;">${titleDom} ${temDom}</div>`;
+                      },
+                    });
+      
+                yang.axis('主题', {
+                  label: null,
+                });
+                yang.scale('杨万里',  {
+                  min: 0,
+                  ticks: [ 0, 40, 80, 120, 160],
+                  alias: 'AQI(空气质量指数)',
+                });
+                yang.coord().transpose().scale(1, -1);
+      
+                yang.interval().position('主题*杨万里').color('主题',['#aa7065', '#aa935c', '#808a87', '#5f8aaa','#aa90a8','#9aaa6c','#aa988b']);
+              </script>
+        </div>
+        <div id="container">
+        <div id="container-shi" style="display: block; position: absolute;width: 400px;height: 100%;top:0%;margin-left: 0px;">
+        </div>
+        <div id="container-ci" style="display: block; position: absolute;width: 400px;height: 100%;top:0%;margin-left: 00px;">
+        </div>
+              <div class="btn-toolbar" role="toolbar">
+                  <div class="btn-group">
+                      <ul>
+                          <li class="topic-shi">
+                              <input type="radio" name="check" id="shi" checked><label for="shi" ></label>
+                          </li>
+                          <li class="topic-ci">
+                              
+                              <input type="radio" name="check" id="ci"><label for="ci"></label>
+                          </li>
+                      </ul>
+                  <img src="images/seg5/点击提示.png" style="position:absolute;width: 140px;right:-20px;" alt="点击提示">
+              </div>
+      
+          </div>
+
+          <script type="text/javascript" src="topic.js"></script>
+      </div>
+      </div>
+
+    </div>
+
+  </div>
+  <div  class="seg">
+    <img class="theme_img" src="images/seg6.jpg"/>
+  </div>
+  <div  class="seg" id="part3">
+    <img class="theme_img" src="images/seg7.jpg"/>
+    <div class="segbox" style="padding-top: 145px;padding-bottom: 40px;width: 84%;">
+    <div class="seg7-charts">
+        <div id="area-chart" style="position: absolute;left:60px;top: 10px;width: 90%;height:200px;">
+        </div>
+        <script>
+    
+     fetch('./时间线诗词统计.json')
+      .then((data) => data.json())
+      .then((data) => {
+        const { area: data1, circle: data2 } = data;
+        const rangeAreaPlot = new G2Plot.Mix('area-chart', {
+          appendPadding: [50,0,0,0],
+          autoFit:false,
+          height:200,
+          width:580,
+          padding:'auto',
+          syncViewPadding: true,
+          tooltip: false,
+          plots:[
+            {
+              type: 'area',
+              options: {
+                data:data1, // 图表数据
+                yField: 'num',
+                xField: 'time',
+                xAxis:true,
+                smooth:true,
+                line:{
+                  color:'#777777',
+                },
+                tooltip: {
+                  showMarkers: false,
+                  enterable: true,
+                  //shared: false,
+                  domStyles: {
+                    'g2-tooltip': {
+                      width: '150px',
+                      padding: '5px',
+    
+                    },
+                  },
+                  customContent: (title, items) => {
+                    const data = items[0]?.data || {};
+                    var v0 = items[1]?.value || {};
+                    
+                    const titleDom = `<div style="font-weight: bolder;">${data.time}年  ·  ${data.dynasty}</div>`;
+                    const tempDom = `<div>
+                      <div><br>————————————<br><br>累计诗词数:${data.num}首</span></div></div>`;
+                    return `<div style="text-align:center;margin:5%;">${titleDom}${tempDom}</div>`;
+                  },
+                },
+                areaStyle: () => {
+                  return {
+                      fill: 'l(270) 0:#E8E4E1 0.5:#777777 1:#000000',
+                      fillOpacity:0.8,
+                  };
+                },
+                 animation:{
+                  appear: { animation: "wave-in",duration: 5000 } ,
+                },
+              },
+            },
+          ],
+          views: [
+            {
+              data: data2,
+              tooltip:false,
+              axes: false,
+              meta: {
+                time: {
+                  type: 'cat',
+                  nice: true,
+                },
+                num:{
+                  sync: true,
+                  alias: '增长数量',
+                }
+              },
+              // view2: prepare a line plot and point plot, mapping position to `time*temperature` (share data)
+              geometries: [
+                {
+                  type: 'interval',
+                  xField: 'time',
+                  yField: 'num',
+    
+                  mapping: {
+                    size: 1,
+                    style: { fill: '#CCCCCC' },
+                  },
+                },
+                {
+                  type: 'point',
+                  xField: 'time',
+                  yField: 'num',
+                  colorField: 'num',
+                  sizeField: 'num',
+                  tooltip:false,
+                  label:{
+                      content:(title, items) => {
+                          return items._origin.num>9000?items._origin.dynasty+"\n—————\n"+items._origin.num:"";
+                      },
+                      offsetY:10,
+                      style: {
+    
+                        fill:'#fff',
+                        opacity: 1,
+                        fontSize: 10,
+                      },
+                    },
+                  mapping: {  
+                    shape: 'circle',
+                    color: ['#EEEEEE','#333333',],
+                    style: {size:6,strokeOpacity: 0,},
+                   size:[1,30],
+                  },
+                },
+              ],
+            },
+          ],
+    
+        });
+        rangeAreaPlot.on('plot:click', (cfg,plot) => {
+          //cfg.view.views[0].update({ animation: { appear: { animation: "wave-in",duration: 5000 } } });
+          rangeAreaPlot.render();
+        });
+    
+        // Step 3: 渲染图表
+        rangeAreaPlot.render();
+    
+      });
+    
+        </script>
+    
+        <img src="images/seg7/bridges.png" alt="桥 图标" style="position: absolute;left:80px;top:240px;height:140px;">
+    
+        <div id="bubble-chart" style="position: absolute;left:55px;top:240px;width: 80%;height:180px; margin-left: 10%;z-index: 4;">
+            <script>
+            var data=[[0, 0, 4], [0, 1, 2], [0, 2, 41], [0, 3, 213], [0, 4, 9], [0, 5, 3], [0, 6, 8], [0, 7, 37], [0, 8, 23], [0, 9, 202], [0, 10, 128], [0, 11, 53], [0, 12, 34], [0, 13, 32], [1, 0, 0], [1, 1, 0], [1, 2, 2], [1, 3, 47], [1, 4, 0], [1, 5, 1], [1, 6, 7], [1, 7, 15], [1, 8, 4], [1, 9, 60], [1, 10, 30], [1, 11, 3], [1, 12, 4], [1, 13, 5], [2, 0, 0], [2, 1, 0], [2, 2, 15], [2, 3, 51], [2, 4, 0], [2, 5, 0], [2, 6, 2], [2, 7, 8], [2, 8, 2], [2, 9, 84], [2, 10, 25], [2, 11, 19], [2, 12, 6], [2, 13, 11], [3, 0, 22], [3, 1, 10], [3, 2, 60], [3, 3, 84], [3, 4, 2], [3, 5, 0], [3, 6, 8], [3, 7, 15], [3, 8, 7], [3, 9, 118], [3, 10, 56], [3, 11, 20], [3, 12, 9], [3, 13, 6], [4, 0, 2], [4, 1, 0], [4, 2, 33], [4, 3, 14], [4, 4, 0], [4, 5, 0], [4, 6, 0], [4, 7, 2], [4, 8, 0], [4, 9, 12], [4, 10, 6], [4, 11, 1], [4, 12, 0], [4, 13, 5], [5, 0, 0], [5, 1, 0], [5, 2, 11], [5, 3, 305], [5, 4, 8], [5, 5, 5], [5, 6, 38], [5, 7, 46], [5, 8, 16], [5, 9, 213], [5, 10, 150], [5, 11, 53], [5, 12, 25], [5, 13, 9]];
+            const source = [];
+            for (let i = 0; i < 6; i++) {
+              for (let j = 0; j < 14; j++) {
+                const item = {};
+                item.bridge = i;
+                item.time = data[i * 14 + j][1];
+                item.poems = data[i * 14 + j][2];
+                if(item.poems>=150){
+                    item.color='#BAA77D';
+                }else{
+                    item.color='#000';
+                };
+                source.push(item);
+              }
+            }
+            const chart1 = new G2.Chart({
+              container: 'bubble-chart',
+              autoFit: true,
+              width: 540,
+              height: 190,
+    
+            });
+    
+            const b=['灞桥','二十四桥','万里桥','渭桥','天津桥','断桥'];
+            const tm=['南北朝','隋','唐','宋','金','金末元初','宋末元初','元','元末明初','明','清','近现代','清末民国初','当代'];
+            chart1.data(source);
+            chart1.scale({
+              bridge: {
+                type: 'cat',
+                values: b,
+                },
+              time: {
+                type: 'cat',
+                values: tm,
+              }
+            });
+    
+            chart1.tooltip({
+                showTitle: true,
+                showMarkers: false,
+                domStyles: {
+                  'g2-tooltip': {
+                        width:'100px',
+                        height:'50px',
+                  },
+                },
+                    customContent: (title, items) => {
+                      const data = items[0]?.data || {};
+                      const titleDom = `<div class ="custom-tooltip-title" >${tm[data.time]}  ·  ${b[data.bridge]}</div>`;
+                      const temDom = `<div style="textAlign:center;">————————<br>创作数:${data.poems}</div>`;
+                      return `<div style="text-align:center;margin:5%;">${titleDom} ${temDom}</div>`;
+                    },
+    
+            });
+            chart1.legend(false);
+            chart1.axis('bridge', {
+              line: null,
+              tickLine: null,
+              grid: null,
+              label: {
+                style: {
+                  fontSize: 6,
+                  fill: '#555',
+                }
+              }
+            });
+            chart1.axis('time', {
+              line: {
+                style: {
+                  stroke: '#eee',
+                  lineWidth: 4
+                }
+              },
+              tickLine: {
+                length: -10
+              },
+              label: {
+                style: {
+                  fontSize: 6,
+                }
+              }
+            });
+    
+            chart1.point()
+              .position('time*bridge')
+              .size('poems', [3, 15])
+              .shape('circle')
+              .color('color',['#444','#BAA77D'])
+              .animate({
+                  appear: {
+                    animation: 'zoom-in', // 动画名称
+                    easing: 'easeQuadIn', // 动画缓动效果
+                    delay: 300, // 动画延迟执行时间
+                    duration: 2000 // 动画执行时间
+                  }
+              });
+    
+    
+    
+            chart1.interaction('element-active');
+    
+            //chart1.render();   
+            </script>
+        </div>
+        <div id="history-chart" style="position: absolute;bottom: 40px;width: 500px;height:250px; margin-left: 30px;">
+          <div class="box_history" >
+            <script type="text/javascript">
+              const cards = ['hide_zhuqueqiao','hide_luoqiao_flourish','hide_weiqiao','hide_luoqiao_decay','hide_wanliqiao','hide_ershisiqiao_flourish','hide_ershisiqiao_decay'];
+              var index = 0;
+              function lunbo(){
+                if(index==0)document.getElementsByClassName(cards[6])[0].style.display = "none";
+                else document.getElementsByClassName(cards[index-1])[0].style.display = "none";
+                index%=7;
+                //获取img对象
+                var card = document.getElementsByClassName(cards[index])[0];
+                card.style.display = "block";
+                card.style.animation = "fade 4s";
+                index ++ ;
+
+              }
+              //2.定义定时器
+              setInterval(lunbo,4000);
+            </script>
+              <div class="history_decay_zhuqueqiao" style="position: absolute;left:100px;top:245px;" ></div>
+              <div class="hide_zhuqueqiao" style="display:none;position: absolute;left:80px;top:40px;">
+                <div class="history-card">
+                  <img class="theme_img" src="images/seg7/Rectangle 97.png" alt="朱雀桥">
+                </div>
+              </div>
+              <div class="history_flourish_luoqiao" style="position: absolute;left:170px;top:190px;"></div>
+              <div class="hide_luoqiao_flourish" style="position: absolute;left:140px;top:0px;height:140px;">
+                <div class="history-card">
+                  <img class="theme_img" src="images/seg7/Rectangle 98.png" alt="洛桥">
+                </div>
+              </div>
+              <div class="history_decay_weiqiao" style="position: absolute;left:250px;top:160px;"></div>
+              <div class="hide_weiqiao"  style="position: absolute;left:200px;top:-20px;height:140px;">
+                <div class="history-card">
+                  <img class="theme_img" src="images/seg7/Rectangle 99.png" alt="渭桥">
+                </div>
+              </div>
+              <div class="history_decay_luoqiao" style="position: absolute;left:260px;top:190px;"></div>
+              <div class="hide_luoqiao_decay"  style="position: absolute;left:240px;top:0px;height:140px;">
+                <div class="history-card">
+                  <img class="theme_img" src="images/seg7/Rectangle 102.png" alt="洛桥" >
+                </div>
+              </div>
+              <div class="history_decay_wanliqiao"style="position: absolute;left:260px;top:220px;"></div>
+              <div class="hide_wanliqiao" style="position: absolute;left:240px;top:20px;height:140px;">
+                <div class="history-card">
+                  <img class="theme_img" src="images/seg7/Rectangle 101.png" alt="万里桥" >
+                </div>
+              </div>
+              <div class="history_flourish_ershisiqiao" style="position: absolute;left:380px;top:210px;"></div>
+              <div class="hide_ershisiqiao_flourish" style="position: absolute;left:360px;top:10px;height:140px;">
+                <div class="history-card">
+                  <img class="theme_img" src="images/seg7/Rectangle 100.png" alt="二十四桥" >
+                </div>
+              </div>
+              <div class="history_decay_ershisiqiao"style="position: absolute;left:490px;top:210px;"></div>
+              <div class="hide_ershisiqiao_decay" style="position: absolute;left:460px;top:20px;height:140px;">
+            <div class="history-card">
+              <img class="theme_img" src="images/seg7/Rectangle 104.png" alt="二十四桥" >
+            </div>
+          </div>
+          </div>
+        </div>
+    
+    </div>
+    </div>
+  </div>
+  <div  class="seg" id="part4">
+    <img class="theme_img" src="images/seg8.jpg"/>
+    <div class="segbox" style="padding-top: 140px;padding-bottom: 40px;width: 84%;">
+      <div style="position: relative;height: 300px;width: 100%;">
+        <div id="farewell-chart1" style="position: absolute;top:0px;width: 80%;height:150px;margin-left: 40px;"> 
+        </div>
+            <script>
+              const poemtang=['其他','元稹','白居易','刘禹锡'];
+                fetch('./送别_tang.json')
+                  .then((data) => data.json())
+                  .then((data) => {
+                    const plot1 = new G2Plot.Mix('farewell-chart1', {
+                      height:150,
+                      width:560,
+                      padding: [10, 10, 10, 10],
+                      autoFit:false,
+                      meta: {
+                        id: { sync: true },
+                        Giver: { min: 0, max: 3 },
+                        Recipient: { min: 0, max: 3},
+                        values: { min: 0, max: 3 },
+                      },
+                      tooltip: {
+                        showMarkers: true,
+                        enterable: true,
+                        domStyles: {
+                          'g2-tooltip': {
+                            width: '200px',
+                            padding: '5px',
+    
+                          },
+                        },
+                        customContent: (title, items) => {
+                          const data = items[0]?.data || {};
+                          const titleDom = `<div style="font-weight: bolder;">酬赠诗 : <br><br>《${data.poetry}》</div>`;
+                          const tempDom = `<div>
+                            <div><br>————————————————<br><span>酬赠者 : ${poemtang[data.Giver]}</span></div><div><span><br>赠予对象  : ${data.Recipient_name}</span></div></div>`;
+                          const windDom = `<div style="text-align:center;"><br>人物关系 ： ${data.identity}</div>`;
+                          return `<div style="text-align:center;margin:5%;">${titleDom}${tempDom}${windDom}</div>`;
+                        },
+                      },
+                      views: [
+                        {
+                          data: data.map((d) => {
+                            return { ...d, values: [d.Giver, d.Recipient] };
+                          }),
+                          meta: {
+                            date: { sync: true },
+                            Giver: { min: 0, max: 3 },
+                            Recipient: { min: 0, max: 3 },
+                            values: { min: 0, max: 3 },
+                          },
+                          axes: {
+                            id: {},
+                            values:false,
+                          },
+                          interactions: [{ type: 'active-region' },{ type: 'element-highlight-by-color' }],
+                          geometries: [
+                            {
+                              type: 'interval',
+                              xField: 'id',
+                              yField: 'values',
+                              mapping: {
+                                size: 2,
+                                style: { fill: '#AAAAAA' },
+                              },
+                            },
+                            {
+                              type: 'point',
+                              xField: 'id',
+                              yField: 'Giver',
+                              colorField: 'Giver',
+                              mapping: {
+                                style: { r: 6,strokeOpacity: 0,},
+                                shape: 'square',
+                                color: ['#666666'],
+                              },
+                            },
+                            {
+                              type: 'point',
+                              xField: 'id',
+                              yField: 'Recipient',
+                              colorField: 'identity',
+                              mapping: {
+                                size: 6,
+                                style:{strokeOpacity: 0,},
+                                shape: 'circle',
+                                color:  ['#9aaa6c','#d1ad66'],
+                              },
+                            },
+                          ],
+                        },
+                      ],
+                    });
+    
+                    plot1.render();
+                  });
+            </script>
+        <div id="farewell-chart2" style="position: absolute;bottom:24px;width: 80%;height:150px;margin-left: 40px;">
+        </div>
+            <script>
+               const poemsong=['其他','苏辙','苏轼','杨万里'];
+                fetch('./送别_song.json')
+                  .then((data) => data.json())
+                  .then((data) => {
+                    const plot2 = new G2Plot.Mix('farewell-chart2', {
+                      height:150,
+                      width:560,
+                      padding: [10, 10, 10, 10],
+                      autoFit:false,
+                      meta: {
+                        id: { sync: true },
+                        Giver: { min: 0, max: 3 },
+                        Recipient: { min: 0, max: 3},
+                        values: { min: 0, max: 3 },
+                      },
+                      tooltip: {
+                        showMarkers: false,
+                        enterable: true,
+                        domStyles: {
+                          'g2-tooltip': {
+                            width: '200px',
+                            padding: '5px',
+    
+                          },
+                        },
+                        customContent: (title, items) => {
+                          const data = items[0]?.data || {};
+                          const titleDom = `<div style="font-weight: bolder;">酬赠诗 : <br><br>《${data.poetry}》</div>`;
+                          const tempDom = `<div>
+                            <div><br>————————————————<br><span>酬赠者 : ${poemtang[data.Giver]}</span></div><div><span><br>赠予对象  : ${data.Recipient_name}</span></div></div>`;
+                          const windDom = `<div style="text-align:center;"><br>人物关系 ： ${data.identity}</div>`;
+                          return `<div style="text-align:center;margin:5%;">${titleDom}${tempDom}${windDom}</div>`;
+                        },
+                      },
+                      views: [
+                        {
+                          data: data.map((d) => {
+                            return { ...d, values: [d.Giver, d.Recipient] };
+                          }),
+                          meta: {
+                            date: { sync: true },
+                            Giver: { min: 0, max: 3 },
+                            Recipient: { min: 0, max: 3 },
+                            values: { min: 0, max: 3 },
+                          },
+                          axes: {
+                            id: {},
+                            values:false,
+                          },
+                          interactions: [{ type: 'active-region' },{ type: 'element-highlight-by-color' }],
+                          geometries: [
+                            {
+                              type: 'interval',
+                              xField: 'id',
+                              yField: 'values',
+                              mapping: {
+                                size: 2,
+                                style: { fill: '#AAAAAA' },
+                              },
+                            },
+                            {
+                              type: 'point',
+                              xField: 'id',
+                              yField: 'Giver',
+                              colorField: 'Giver',
+                              mapping: {
+                                style: { r: 6,strokeOpacity: 0,},
+                                shape: 'square',
+                                color: ['#666666'],
+                              },
+                            },
+                            {
+                              type: 'point',
+                              xField: 'id',
+                              yField: 'Recipient',
+                              colorField: 'identity',
+                              mapping: {
+                                size: 6,
+                                style:{strokeOpacity: 0,},
+                                shape: 'circle',
+                                color: ['#9EB3BA','#d1ad66','#9aaa6c'],
+    
+                              },
+                            },
+                          ],
+                        },
+                      ],
+                    });
+    
+                    plot2.render();
+                  });
+            </script>
+    </div>
+    </div>
+
+  </div>
+  <div  class="seg">
+    <img class="theme_img" src="images/seg9.png"/>
+  </div>
+  <div  class="seg">
+    <img class="theme_img" src="images/reference.jpg"/>
+
+  <script src="scripts/main.js"></script>
+  </div>
+  </div>
+
+</div>
+</div>
+
+
+
+<!-- <div id="part0" style="position: relative;width: 10px;height: 0px;top: 600px;border:5px solid #000;">
+</div>
+<div id="part1" style="position: relative;width: 10px;height: 0px;top: 1600px;border:5px solid #000;"></div>
+<div id="part2" style="position: relative;width: 10px;height: 0px;top: 3500px;border:5px solid #000;"></div>
+<div id="part3" style="position: relative;width: 10px;height: 0px;top: 5100px;border:5px solid #000;"></div>
+<div id="part4" style="position: relative;width: 10px;height: 0px;top: 7300px;border:5px solid #000;"></div> -->
+<!-- <div id="pre-part">
+
+</div> -->
+
+
+
+
+
+
+<!--script type="text/javascript" src="//nexus.ensighten.com/sbs/prod/Bootstrap.js"></script-->
+</body>
+</html>

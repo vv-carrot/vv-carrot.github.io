@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
@@ -16,51 +16,52 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"vv-carrot.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"vv-carrot.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="整理了本科一些小demo的文档。   一.实验选题： 自己实现一种细胞自动机，用excel或任意编程方式，可尝试在以下方面进行拓展： 网格结构（六边形&#x2F;其他形态） 邻域 计算规则 数值形式（标量&#x2F;矢量&#x2F;张量…） 可视化方式（静态&#x2F;非静态） 其他    二.实验过程：在网格结构为正方形细胞自动机的基础上，我尝试着使用matlab制作了一个网格结构为正六边形的">
+    <meta name="description" content="整理了本科一些小demo的文档。 ———一.实验选题： 自己实现一种细胞自动机，用excel或任意编程方式，可尝试在以下方面进行拓展： 网格结构（六边形&#x2F;其他形态） 邻域 计算规则 数值形式（标量&#x2F;矢量&#x2F;张量…） 可视化方式（静态&#x2F;非静态） 其他二.实验过程：    在网格结构为正方形细胞自动机的基础上，我尝试着使用matlab制作了一个网格结构为正六边形的细胞自动机。  绘制正六边形蜂窝网络：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="细胞自动机">
 <meta property="og:url" content="https://vv-carrot.github.io/2023/06/10/%E7%BB%86%E8%83%9E%E8%87%AA%E5%8A%A8%E6%9C%BA/index.html">
 <meta property="og:site_name" content="VV&#39;s Blog">
-<meta property="og:description" content="整理了本科一些小demo的文档。   一.实验选题： 自己实现一种细胞自动机，用excel或任意编程方式，可尝试在以下方面进行拓展： 网格结构（六边形&#x2F;其他形态） 邻域 计算规则 数值形式（标量&#x2F;矢量&#x2F;张量…） 可视化方式（静态&#x2F;非静态） 其他    二.实验过程：在网格结构为正方形细胞自动机的基础上，我尝试着使用matlab制作了一个网格结构为正六边形的">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://vv-carrot.github.io/images/cellular-automaton/1.png">
-<meta property="og:image" content="https://vv-carrot.github.io/images/cellular-automaton/2.png">
-<meta property="og:image" content="https://vv-carrot.github.io/images/cellular-automaton/3.png">
-<meta property="og:image" content="https://vv-carrot.github.io/images/cellular-automaton/4.png">
-<meta property="og:image" content="https://vv-carrot.github.io/images/cellular-automaton/5.png">
-<meta property="og:image" content="https://vv-carrot.github.io/images/cellular-automaton/6.png">
-<meta property="og:image" content="https://vv-carrot.github.io/images/cellular-automaton/7.png">
-<meta property="og:image" content="https://vv-carrot.github.io/images/cellular-automaton/8.png">
-<meta property="og:image" content="https://vv-carrot.github.io/images/cellular-automaton/9.png">
-<meta property="og:image" content="https://vv-carrot.github.io/images/cellular-automaton/a2.gif">
-<meta property="og:image" content="https://vv-carrot.github.io/images/cellular-automaton/a3.gif">
-<meta property="og:image" content="https://vv-carrot.github.io/images/cellular-automaton/a4.gif">
-<meta property="og:image" content="https://vv-carrot.github.io/images/cellular-automaton/a6.gif">
-<meta property="og:image" content="https://vv-carrot.github.io/images/cellular-automaton/a8.gif">
-<meta property="og:image" content="https://vv-carrot.github.io/images/cellular-automaton/a5.gif">
-<meta property="og:image" content="https://vv-carrot.github.io/images/cellular-automaton/a7.gif">
-<meta property="og:image" content="https://vv-carrot.github.io/images/cellular-automaton/a11.gif">
-<meta property="og:image" content="https://vv-carrot.github.io/images/cellular-automaton/a9.gif">
-<meta property="og:image" content="https://vv-carrot.github.io/images/cellular-automaton/10.png">
-<meta property="og:image" content="https://vv-carrot.github.io/images/cellular-automaton/a10.gif">
-<meta property="og:image" content="https://vv-carrot.github.io/images/cellular-automaton/11.png">
-<meta property="og:image" content="https://vv-carrot.github.io/images/cellular-automaton/a12.gif">
+<meta property="og:description" content="整理了本科一些小demo的文档。 ———一.实验选题： 自己实现一种细胞自动机，用excel或任意编程方式，可尝试在以下方面进行拓展： 网格结构（六边形&#x2F;其他形态） 邻域 计算规则 数值形式（标量&#x2F;矢量&#x2F;张量…） 可视化方式（静态&#x2F;非静态） 其他二.实验过程：    在网格结构为正方形细胞自动机的基础上，我尝试着使用matlab制作了一个网格结构为正六边形的细胞自动机。  绘制正六边形蜂窝网络：">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://vv-carrot.github.io/2023/06/10/%E7%BB%86%E8%83%9E%E8%87%AA%E5%8A%A8%E6%9C%BA/images/cellular-automaton/1.png">
+<meta property="og:image" content="https://vv-carrot.github.io/2023/06/10/%E7%BB%86%E8%83%9E%E8%87%AA%E5%8A%A8%E6%9C%BA/images/cellular-automaton/2.png">
+<meta property="og:image" content="https://vv-carrot.github.io/2023/06/10/%E7%BB%86%E8%83%9E%E8%87%AA%E5%8A%A8%E6%9C%BA/images/cellular-automaton/3.png">
+<meta property="og:image" content="https://vv-carrot.github.io/2023/06/10/%E7%BB%86%E8%83%9E%E8%87%AA%E5%8A%A8%E6%9C%BA/images/cellular-automaton/4.png">
+<meta property="og:image" content="https://vv-carrot.github.io/2023/06/10/%E7%BB%86%E8%83%9E%E8%87%AA%E5%8A%A8%E6%9C%BA/images/cellular-automaton/5.png">
+<meta property="og:image" content="https://vv-carrot.github.io/2023/06/10/%E7%BB%86%E8%83%9E%E8%87%AA%E5%8A%A8%E6%9C%BA/images/cellular-automaton/6.png">
+<meta property="og:image" content="https://vv-carrot.github.io/2023/06/10/%E7%BB%86%E8%83%9E%E8%87%AA%E5%8A%A8%E6%9C%BA/images/cellular-automaton/7.png">
+<meta property="og:image" content="https://vv-carrot.github.io/2023/06/10/%E7%BB%86%E8%83%9E%E8%87%AA%E5%8A%A8%E6%9C%BA/images/cellular-automaton/8.png">
+<meta property="og:image" content="https://vv-carrot.github.io/2023/06/10/%E7%BB%86%E8%83%9E%E8%87%AA%E5%8A%A8%E6%9C%BA/images/cellular-automaton/9.png">
+<meta property="og:image" content="https://vv-carrot.github.io/2023/06/10/%E7%BB%86%E8%83%9E%E8%87%AA%E5%8A%A8%E6%9C%BA/images/cellular-automaton/a2.gif">
+<meta property="og:image" content="https://vv-carrot.github.io/2023/06/10/%E7%BB%86%E8%83%9E%E8%87%AA%E5%8A%A8%E6%9C%BA/images/cellular-automaton/a3.gif">
+<meta property="og:image" content="https://vv-carrot.github.io/2023/06/10/%E7%BB%86%E8%83%9E%E8%87%AA%E5%8A%A8%E6%9C%BA/images/cellular-automaton/a4.gif">
+<meta property="og:image" content="https://vv-carrot.github.io/2023/06/10/%E7%BB%86%E8%83%9E%E8%87%AA%E5%8A%A8%E6%9C%BA/images/cellular-automaton/a6.gif">
+<meta property="og:image" content="https://vv-carrot.github.io/2023/06/10/%E7%BB%86%E8%83%9E%E8%87%AA%E5%8A%A8%E6%9C%BA/images/cellular-automaton/a8.gif">
+<meta property="og:image" content="https://vv-carrot.github.io/2023/06/10/%E7%BB%86%E8%83%9E%E8%87%AA%E5%8A%A8%E6%9C%BA/images/cellular-automaton/a5.gif">
+<meta property="og:image" content="https://vv-carrot.github.io/2023/06/10/%E7%BB%86%E8%83%9E%E8%87%AA%E5%8A%A8%E6%9C%BA/images/cellular-automaton/a7.gif">
+<meta property="og:image" content="https://vv-carrot.github.io/2023/06/10/%E7%BB%86%E8%83%9E%E8%87%AA%E5%8A%A8%E6%9C%BA/images/cellular-automaton/a11.gif">
+<meta property="og:image" content="https://vv-carrot.github.io/2023/06/10/%E7%BB%86%E8%83%9E%E8%87%AA%E5%8A%A8%E6%9C%BA/images/cellular-automaton/a9.gif">
+<meta property="og:image" content="https://vv-carrot.github.io/2023/06/10/%E7%BB%86%E8%83%9E%E8%87%AA%E5%8A%A8%E6%9C%BA/images/cellular-automaton/10.png">
+<meta property="og:image" content="https://vv-carrot.github.io/2023/06/10/%E7%BB%86%E8%83%9E%E8%87%AA%E5%8A%A8%E6%9C%BA/images/cellular-automaton/a10.gif">
+<meta property="og:image" content="https://vv-carrot.github.io/2023/06/10/%E7%BB%86%E8%83%9E%E8%87%AA%E5%8A%A8%E6%9C%BA/images/cellular-automaton/11.png">
+<meta property="og:image" content="https://vv-carrot.github.io/2023/06/10/%E7%BB%86%E8%83%9E%E8%87%AA%E5%8A%A8%E6%9C%BA/images/cellular-automaton/a12.gif">
 <meta property="article:published_time" content="2023-06-10T06:37:17.268Z">
 <meta property="article:modified_time" content="2023-06-10T06:37:17.268Z">
 <meta property="article:author" content="vv-carrot">
 <meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://vv-carrot.github.io/images/cellular-automaton/1.png">
+<meta name="twitter:image" content="https://vv-carrot.github.io/2023/06/10/%E7%BB%86%E8%83%9E%E8%87%AA%E5%8A%A8%E6%9C%BA/images/cellular-automaton/1.png">
 
 
 <link rel="canonical" href="https://vv-carrot.github.io/2023/06/10/%E7%BB%86%E8%83%9E%E8%87%AA%E5%8A%A8%E6%9C%BA/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://vv-carrot.github.io/2023/06/10/%E7%BB%86%E8%83%9E%E8%87%AA%E5%8A%A8%E6%9C%BA/","path":"2023/06/10/细胞自动机/","title":"细胞自动机"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://vv-carrot.github.io/2023/06/10/%E7%BB%86%E8%83%9E%E8%87%AA%E5%8A%A8%E6%9C%BA/","path":"2023/06/10/细胞自动机/","title":"细胞自动机"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>细胞自动机 | VV's Blog</title>
@@ -85,7 +86,7 @@
     <div class="column">
       <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    <div class="toggle" aria-label="切换导航栏" role="button">
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
@@ -102,7 +103,7 @@
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
     </div>
   </div>
 </div>
@@ -110,7 +111,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-相册"><a href="/gallery/" rel="section"><i class="fa fa-camera-retro fa-fw"></i>相册</a></li>
   </ul>
 </nav>
 
@@ -125,17 +126,17 @@
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
-          Table of Contents
+          文章目录
         </li>
         <li class="sidebar-nav-overview">
-          Overview
+          站点概览
         </li>
       </ul>
 
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80-%E5%AE%9E%E9%AA%8C%E9%80%89%E9%A2%98%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">一.实验选题：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C-%E5%AE%9E%E9%AA%8C%E8%BF%87%E7%A8%8B%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">二.实验过程：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%85%AD%E8%BE%B9%E5%BD%A2%E7%BD%91%E7%BB%9C%E7%AE%97%E6%B3%95%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D%EF%BC%9A"><span class="nav-number">2.0.1.</span> <span class="nav-text">1 六边形网络算法简单介绍：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%B8%AD%E5%BF%83center%E7%82%B9%E7%BB%98%E5%88%B6%EF%BC%9A"><span class="nav-number">2.0.2.</span> <span class="nav-text">2 中心center点绘制：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#a-%E4%B8%AD%E5%BF%83%E7%82%B9%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">2.0.2.1.</span> <span class="nav-text">a 中心点初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#b-%E4%BD%8D%E7%BD%AE%E6%8E%A8%E6%BC%94"><span class="nav-number">2.0.2.2.</span> <span class="nav-text">b 位置推演</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%85%AD%E4%B8%AA%E8%BE%B9%E7%95%8C%E7%82%B9%E5%9D%90%E6%A0%87%E8%AE%A1%E7%AE%97%EF%BC%9A"><span class="nav-number">2.0.3.</span> <span class="nav-text">3 六个边界点坐标计算：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E8%A1%8C%E5%88%97%E7%BC%96%E5%8F%B7%EF%BC%9A"><span class="nav-number">2.0.4.</span> <span class="nav-text">4 行列编号：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#a-%E6%8E%92%E9%99%A4%E9%9D%9E%E7%BB%86%E8%83%9E%E7%82%B9%EF%BC%88%E8%BE%B9%E7%95%8C%E7%82%B9%EF%BC%89%EF%BC%9A"><span class="nav-number">2.0.4.1.</span> <span class="nav-text">a 排除非细胞点（边界点）：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#b-%E8%A1%8C%E5%88%97%E5%8F%B7%E5%88%9D%E5%A7%8B%E5%8C%96%E8%AE%BE%E7%BD%AE%EF%BC%9A"><span class="nav-number">2.0.4.2.</span> <span class="nav-text">b 行列号初始化设置：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%9F%BA%E7%A1%80%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F%E8%A7%84%E5%88%99%EF%BC%9A"><span class="nav-number">2.0.5.</span> <span class="nav-text">1 基础生命游戏规则：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%A7%84%E5%88%99%E5%8F%98%E6%9B%B4-%E6%89%A9%E6%95%A3%E6%95%88%E6%9E%9C%EF%BC%9A"><span class="nav-number">2.0.6.</span> <span class="nav-text">2 规则变更-扩散效果：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E8%A7%84%E5%88%99%E5%8F%98%E6%9B%B4-%E8%BF%9E%E7%BB%AD%E7%8A%B6%E6%80%81%EF%BC%9A"><span class="nav-number">2.0.7.</span> <span class="nav-text">3 规则变更-连续状态：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89-%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C%E5%B1%95%E7%A4%BA%EF%BC%9A"><span class="nav-number">3.</span> <span class="nav-text">三.实验结果展示：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B-%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5%EF%BC%9A"><span class="nav-number">4.</span> <span class="nav-text">四.参考链接：</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%80%94%E2%80%94%E2%80%94"><span class="nav-number">1.</span> <span class="nav-text">———</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80-%E5%AE%9E%E9%AA%8C%E9%80%89%E9%A2%98%EF%BC%9A"><span class="nav-number"></span> <span class="nav-text">一.实验选题：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C-%E5%AE%9E%E9%AA%8C%E8%BF%87%E7%A8%8B%EF%BC%9A"><span class="nav-number"></span> <span class="nav-text">二.实验过程：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%85%AD%E8%BE%B9%E5%BD%A2%E7%BD%91%E7%BB%9C%E7%AE%97%E6%B3%95%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D%EF%BC%9A"><span class="nav-number">0.1.</span> <span class="nav-text">1 六边形网络算法简单介绍：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%B8%AD%E5%BF%83center%E7%82%B9%E7%BB%98%E5%88%B6%EF%BC%9A"><span class="nav-number">0.2.</span> <span class="nav-text">2 中心center点绘制：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#a-%E4%B8%AD%E5%BF%83%E7%82%B9%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">0.2.1.</span> <span class="nav-text">a 中心点初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#b-%E4%BD%8D%E7%BD%AE%E6%8E%A8%E6%BC%94"><span class="nav-number">0.2.2.</span> <span class="nav-text">b 位置推演</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%85%AD%E4%B8%AA%E8%BE%B9%E7%95%8C%E7%82%B9%E5%9D%90%E6%A0%87%E8%AE%A1%E7%AE%97%EF%BC%9A"><span class="nav-number">0.3.</span> <span class="nav-text">3 六个边界点坐标计算：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E8%A1%8C%E5%88%97%E7%BC%96%E5%8F%B7%EF%BC%9A"><span class="nav-number">0.4.</span> <span class="nav-text">4 行列编号：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#a-%E6%8E%92%E9%99%A4%E9%9D%9E%E7%BB%86%E8%83%9E%E7%82%B9%EF%BC%88%E8%BE%B9%E7%95%8C%E7%82%B9%EF%BC%89%EF%BC%9A"><span class="nav-number">0.4.1.</span> <span class="nav-text">a 排除非细胞点（边界点）：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#b-%E8%A1%8C%E5%88%97%E5%8F%B7%E5%88%9D%E5%A7%8B%E5%8C%96%E8%AE%BE%E7%BD%AE%EF%BC%9A"><span class="nav-number">0.4.2.</span> <span class="nav-text">b 行列号初始化设置：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%9F%BA%E7%A1%80%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F%E8%A7%84%E5%88%99%EF%BC%9A"><span class="nav-number">0.5.</span> <span class="nav-text">1 基础生命游戏规则：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%A7%84%E5%88%99%E5%8F%98%E6%9B%B4-%E6%89%A9%E6%95%A3%E6%95%88%E6%9E%9C%EF%BC%9A"><span class="nav-number">0.6.</span> <span class="nav-text">2 规则变更-扩散效果：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E8%A7%84%E5%88%99%E5%8F%98%E6%9B%B4-%E8%BF%9E%E7%BB%AD%E7%8A%B6%E6%80%81%EF%BC%9A"><span class="nav-number">0.7.</span> <span class="nav-text">3 规则变更-连续状态：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89-%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C%E5%B1%95%E7%A4%BA%EF%BC%9A"><span class="nav-number"></span> <span class="nav-text">三.实验结果展示：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B-%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5%EF%BC%9A"><span class="nav-number"></span> <span class="nav-text">四.参考链接：</span></a></div>
         </div>
         <!--/noindex-->
 
@@ -148,26 +149,21 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">7</span>
-          <span class="site-state-item-name">posts</span>
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">3</span>
-        <span class="site-state-item-name">categories</span></a>
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">3</span>
-        <span class="site-state-item-name">tags</span>
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">标签</span>
       </div>
   </nav>
 </div>
-  <div class="links-of-author animated">
-      <span class="links-of-author-item">
-        <a href="https://github.com/vv-carrot" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;vv-carrot" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
-      </span>
-  </div>
 
         </div>
       </div>
@@ -189,7 +185,7 @@
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://vv-carrot.github.io/2023/06/10/%E7%BB%86%E8%83%9E%E8%87%AA%E5%8A%A8%E6%9C%BA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -208,7 +204,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          细胞自动机<a href="https://github.com/user-name/repo-name/tree/branch-name/subdirectory-name/_posts/%E7%BB%86%E8%83%9E%E8%87%AA%E5%8A%A8%E6%9C%BA.md" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
+          细胞自动机
         </h1>
 
         <div class="post-meta-container">
@@ -217,15 +213,15 @@
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">Posted on</span>
+      <span class="post-meta-item-text">发表于</span>
 
-      <time title="Created: 2023-06-10 14:37:17" itemprop="dateCreated datePublished" datetime="2023-06-10T14:37:17+08:00">2023-06-10</time>
+      <time title="创建时间：2023-06-10 14:37:17" itemprop="dateCreated datePublished" datetime="2023-06-10T14:37:17+08:00">2023-06-10</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">In</span>
+      <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
           <a href="/categories/%E4%BA%92%E5%8A%A8%E5%AA%92%E4%BD%93%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">互动媒体技术</span></a>
         </span>
@@ -242,48 +238,46 @@
     
     <div class="post-body" itemprop="articleBody"><hr>
 <p>整理了本科一些小demo的文档。</p>
-<hr>
-<hr>
-<h1 id="一-实验选题："><a href="#一-实验选题：" class="headerlink" title="一.实验选题："></a><strong>一.实验选题：</strong></h1><ul>
+<h2 id="———"><a href="#———" class="headerlink" title="———"></a>———</h2><h1 id="一-实验选题："><a href="#一-实验选题：" class="headerlink" title="一.实验选题："></a><strong>一.实验选题：</strong></h1><ul>
 <li>自己实现一种细胞自动机，用excel或任意编程方式，可尝试在以下方面进行拓展：<ul>
-<li>网格结构（六边形&#x2F;其他形态）</li>
+<li>网格结构（六边形/其他形态）</li>
 <li>邻域</li>
 <li>计算规则</li>
-<li>数值形式（标量&#x2F;矢量&#x2F;张量…）</li>
-<li>可视化方式（静态&#x2F;非静态）</li>
-<li>其他</li>
+<li>数值形式（标量/矢量/张量…）</li>
+<li>可视化方式（静态/非静态）</li>
+<li>其他<h1 id="二-实验过程："><a href="#二-实验过程：" class="headerlink" title="二.实验过程："></a><strong>二.实验过程：</strong></h1></li>
 </ul>
 </li>
 </ul>
-<h1 id="二-实验过程："><a href="#二-实验过程：" class="headerlink" title="二.实验过程："></a><strong>二.实验过程：</strong></h1><p>在网格结构为正方形细胞自动机的基础上，我尝试着使用matlab制作了一个网格结构为正六边形的细胞自动机。<br><img src="/images/cellular-automaton/1.png"></p>
+<p>在网格结构为正方形细胞自动机的基础上，我尝试着使用matlab制作了一个网格结构为正六边形的细胞自动机。<br><img src="images/cellular-automaton/1.png" alt=""></p>
 <ul>
 <li>绘制正六边形蜂窝网络：<br>要实现网格结构为正六边形的细胞自动机，首先先要绘制出正六边形蜂窝网络，这涉及到了一定的算法实现。</li>
 </ul>
 <p>实现网格结构为正六边形的细胞自动机的状态转移，运算过程中需要记录储存的数据有：</p>
 <p><strong>1.细胞状态：0或1 ( 0代表生存，1代表死亡 )</strong></p>
 <p><strong>2.细胞中心坐标：(x0, y0)</strong></p>
-<p><strong>3.细胞六个边界点的坐标：(xi, yi) (i&#x3D;1,2,3,4,5,6)</strong></p>
+<p><strong>3.细胞六个边界点的坐标：(xi, yi) (i=1,2,3,4,5,6)</strong></p>
 <p><strong>4.六个邻近细胞行、列号：( row, col )</strong></p>
 <p>考虑到以上数值都是整型或是浮点型数值，我选择用数组这一数据结构对其进行处理。</p>
 <p>下面的过程记录会对这些数据的处理按顺序进行简单的介绍。</p>
-<h3 id="1-六边形网络算法简单介绍："><a href="#1-六边形网络算法简单介绍：" class="headerlink" title="1 六边形网络算法简单介绍："></a>1 六边形网络算法简单介绍：</h3><p>对于正方形来说，要构成一个网格，我们只有一种方式，但是对于正六边形来说，我们有多种方式排列，如下图所示的有边朝上的flat topped和尖朝上的pointy topped基础形式。<br><img src="/images/cellular-automaton/2.png"></p>
-<p>而在边朝上flat topped和尖朝上的pointy topped这两种排列的基础上，又可以拓展出以下偏移坐标系。<br><img src="/images/cellular-automaton/3.png"></p>
+<h3 id="1-六边形网络算法简单介绍："><a href="#1-六边形网络算法简单介绍：" class="headerlink" title="1 六边形网络算法简单介绍："></a>1 六边形网络算法简单介绍：</h3><p>对于正方形来说，要构成一个网格，我们只有一种方式，但是对于正六边形来说，我们有多种方式排列，如下图所示的有边朝上的flat topped和尖朝上的pointy topped基础形式。<br><img src="images/cellular-automaton/2.png" alt=""></p>
+<p>而在边朝上flat topped和尖朝上的pointy topped这两种排列的基础上，又可以拓展出以下偏移坐标系。<br><img src="images/cellular-automaton/3.png" alt=""></p>
 <p>在偏移坐标系中，最常见的方法是将每一行(或列)进行偏移。每一列被命名为col(q)，每一行被称为row(r)。如上图所示，我们可以选择偏移奇数行或者偶数行，也可以选择偏移奇数列或者偶数列。 </p>
 <h3 id="2-中心center点绘制："><a href="#2-中心center点绘制：" class="headerlink" title="2 中心center点绘制："></a>2 中心center点绘制：</h3><p>正六边形网络的排列具有高度的规律性，在绘制网络之前，我们可以先推算出每个正六边形的中心点位置并画出，然后再根据中心点绘制完整的正六边形。</p>
-<h4 id="a-中心点初始化"><a href="#a-中心点初始化" class="headerlink" title="a 中心点初始化"></a>a 中心点初始化</h4><p>首先我们设置正六边形的边长为1&#x2F;2，如下图所示，左侧第一个正六边形的横坐标<strong>初始值</strong>可以设定为：<strong>0.5或1.25</strong>。<br><img src="/images/cellular-automaton/4.png"></p>
+<h4 id="a-中心点初始化"><a href="#a-中心点初始化" class="headerlink" title="a 中心点初始化"></a>a 中心点初始化</h4><p>首先我们设置正六边形的边长为1/2，如下图所示，左侧第一个正六边形的横坐标<strong>初始值</strong>可以设定为：<strong>0.5或1.25</strong>。<br><img src="images/cellular-automaton/4.png" alt=""></p>
 <h4 id="b-位置推演"><a href="#b-位置推演" class="headerlink" title="b 位置推演"></a>b 位置推演</h4><p>如下图所示，正六边形的边长不变，水平方向上中心点到下一个中心点的横纵坐标变化为：</p>
-<p>水平方向上：$$x_{next}&#x3D;x_{recent}+\frac{3}{2}$$</p>
-<p> 垂直方向上：$$y_{next}&#x3D;y_{recent}+\frac{\sqrt{3}}{4}$$</p>
-<p><img src="/images/cellular-automaton/5.png"><br>完成初始化和确定好推演规则以后，就可以编写代码先绘制出六边形网络的所有中心点了，如下图所示。<br><img src="/images/cellular-automaton/6.png"></p>
+<p>水平方向上：<script type="math/tex">x_{next}=x_{recent}+\frac{3}{2}</script></p>
+<p> 垂直方向上：<script type="math/tex">y_{next}=y_{recent}+\frac{\sqrt{3}}{4}</script></p>
+<p><img src="images/cellular-automaton/5.png" alt=""><br>完成初始化和确定好推演规则以后，就可以编写代码先绘制出六边形网络的所有中心点了，如下图所示。<br><img src="images/cellular-automaton/6.png" alt=""></p>
 <h3 id="3-六个边界点坐标计算："><a href="#3-六个边界点坐标计算：" class="headerlink" title="3 六个边界点坐标计算："></a>3 六个边界点坐标计算：</h3><p>这里采用了flat topped类型的正六边形布局。</p>
-<p>如下图所示，设置正六边形的边长为1&#x2F;2，设正六边形的中心点坐标为(x,y),则它的六个边界点的计算如下图标注所示：<br><img src="/images/cellular-automaton/7.png"></p>
+<p>如下图所示，设置正六边形的边长为1/2，设正六边形的中心点坐标为(x,y),则它的六个边界点的计算如下图标注所示：<br><img src="images/cellular-automaton/7.png" alt=""></p>
 <p>根据上一个步骤推演计算得到的中心点坐标，计算得出正六边形六个边界点坐标值，并且调用一下matlab中的patch函数进行多边形绘制：</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">patch(<span class="built_in">reshape</span>(Cell(<span class="built_in">i</span>,<span class="built_in">j</span>,<span class="number">3</span>:<span class="number">8</span>,<span class="number">1</span>),[<span class="number">1</span>,<span class="number">6</span>]),<span class="built_in">reshape</span>(Cell(<span class="built_in">i</span>,<span class="built_in">j</span>,<span class="number">3</span>:<span class="number">8</span>,<span class="number">2</span>),[<span class="number">1</span>,<span class="number">6</span>]),<span class="string">&#x27;w&#x27;</span>,<span class="string">&#x27;EdgeColor&#x27;</span>,<span class="string">&#x27;blue&#x27;</span> );</span><br></pre></td></tr></table></figure>
-<p>效果如下图所示：<br><img src="/images/cellular-automaton/8.png"></p>
+<p>效果如下图所示：<br><img src="images/cellular-automaton/8.png" alt=""></p>
 <p>至此基础的绘图完成，但是我们还需要给每一个正六边形的位置进行行列编号处理，对于边界的正六边形还需要将其设置为非细胞。</p>
 <h3 id="4-行列编号："><a href="#4-行列编号：" class="headerlink" title="4 行列编号："></a>4 行列编号：</h3><h4 id="a-排除非细胞点（边界点）："><a href="#a-排除非细胞点（边界点）：" class="headerlink" title="a 排除非细胞点（边界点）："></a>a 排除非细胞点（边界点）：</h4><p>由于设定规则需要获得一个细胞周围细胞的状态，所以我们需要在整个界面边界设置一圈“非细胞”，以免计算时出现越界的情况。</p>
 <p>对于下图网格的每个交点进行遍历，搜索该交点附近的2个网格的交点，并计算两个点之间的距离。当距离值符合一定限制时。如图所示的浅蓝色圆形为有效搜索范围，计算出大致的范围半径并判断当前正在搜索的正六边形的中心坐标是否在范围内。如果改正六边形周边六个相邻位置都有正六边形，那么它是细胞，反之不是。</p>
-<p><img src="/images/cellular-automaton/9.png"><br>部分判断代码：</p>
+<p><img src="images/cellular-automaton/9.png" alt=""><br>部分判断代码：</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%黄色区域范围计算</span></span><br><span class="line">x_range = [<span class="number">1</span>,<span class="number">1</span>].* <span class="built_in">cos</span>(PI/<span class="number">3</span>* (<span class="built_in">i</span><span class="number">-1</span>)-PI/<span class="number">6</span>)* distance+ [<span class="number">-0.1</span> <span class="number">0.1</span>]+ Cell(i_center, j_center,<span class="number">2</span>,<span class="number">1</span>);</span><br><span class="line">y_range = [<span class="number">1</span>,<span class="number">1</span>].* <span class="built_in">sin</span>(PI/<span class="number">3</span>* (<span class="built_in">i</span><span class="number">-1</span>)-PI/<span class="number">6</span>)* distance+ [<span class="number">-0.1</span> <span class="number">0.1</span>]+ Cell(i_center, j_center,<span class="number">2</span>,<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
 <h4 id="b-行列号初始化设置："><a href="#b-行列号初始化设置：" class="headerlink" title="b 行列号初始化设置："></a>b 行列号初始化设置：</h4><p>如上图所示，在确定交点为正六边形中心点，调用循环遍历的过程中，把判定为细胞的六边形的行列号一同进行标注即可。</p>
 <p>修改正六边形的边长大小，已达到连续状态的细胞自动机可视化。</p>
@@ -291,59 +285,61 @@
 <li>规则设定：<br>每个细胞有两种状态-存活或死亡，每个细胞与以自身为中心的周围六格细胞产生互动。</li>
 </ul>
 <p>最基础的生存游戏设定的演变规则如下表所示：</p>
-<h3 id="1-基础生命游戏规则："><a href="#1-基础生命游戏规则：" class="headerlink" title="1 基础生命游戏规则："></a>1 基础生命游戏规则：</h3><table>
+<h3 id="1-基础生命游戏规则："><a href="#1-基础生命游戏规则：" class="headerlink" title="1 基础生命游戏规则："></a>1 基础生命游戏规则：</h3><div class="table-container">
+<table>
 <thead>
 <tr>
-<th align="left"><strong>条件</strong></th>
-<th align="left"><strong>状态转变</strong></th>
-<th align="left"><strong>模拟依据</strong></th>
+<th style="text-align:left"><strong>条件</strong></th>
+<th style="text-align:left"><strong>状态转变</strong></th>
+<th style="text-align:left"><strong>模拟依据</strong></th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">当前细胞为存活状态时，周围低于<strong>2</strong>个存活细胞时</td>
-<td align="left">细胞变成死亡状态</td>
-<td align="left">模拟生命数量稀少</td>
+<tbody>
+<tr>
+<td style="text-align:left">当前细胞为存活状态时，周围低于<strong>2</strong>个存活细胞时</td>
+<td style="text-align:left">细胞变成死亡状态</td>
+<td style="text-align:left">模拟生命数量稀少</td>
 </tr>
 <tr>
-<td align="left">当前细胞为存活状态时，周围有<strong>2&#x2F;3</strong>个存活细胞时</td>
-<td align="left">细胞保持原样</td>
-<td align="left">-</td>
+<td style="text-align:left">当前细胞为存活状态时，周围有<strong>2/3</strong>个存活细胞时</td>
+<td style="text-align:left">细胞保持原样</td>
+<td style="text-align:left">-</td>
 </tr>
 <tr>
-<td align="left">当前细胞为存活状态时，周围有<strong>3个以上</strong>的存活细胞时</td>
-<td align="left">细胞变成死亡状态</td>
-<td align="left">模拟生命数量过多</td>
+<td style="text-align:left">当前细胞为存活状态时，周围有<strong>3个以上</strong>的存活细胞时</td>
+<td style="text-align:left">细胞变成死亡状态</td>
+<td style="text-align:left">模拟生命数量过多</td>
 </tr>
 <tr>
-<td align="left">当前细胞为死亡状态时，当周围有<strong>3</strong>个存活细胞时</td>
-<td align="left">细胞变成存活状态</td>
-<td align="left">模拟繁殖</td>
+<td style="text-align:left">当前细胞为死亡状态时，当周围有<strong>3</strong>个存活细胞时</td>
+<td style="text-align:left">细胞变成存活状态</td>
+<td style="text-align:left">模拟繁殖</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>规则设定代码实现：</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% 演变部分代码           </span></span><br><span class="line"><span class="keyword">if</span> Cell( <span class="built_in">i</span>, <span class="built_in">j</span>, <span class="number">1</span>, <span class="number">1</span>)==<span class="number">1</span> &amp;&amp; (N_live&gt;<span class="number">3</span> || N_live&lt;<span class="number">2</span>)</span><br><span class="line">  Cell( <span class="built_in">i</span>, <span class="built_in">j</span>, <span class="number">1</span>, <span class="number">2</span>)= <span class="number">0</span>;</span><br><span class="line"><span class="keyword">elseif</span> Cell( <span class="built_in">i</span>, <span class="built_in">j</span>, <span class="number">1</span>, <span class="number">1</span>)==<span class="number">0</span> &amp;&amp; (N_live==<span class="number">3</span> )</span><br><span class="line">  Cell( <span class="built_in">i</span>, <span class="built_in">j</span>, <span class="number">1</span>, <span class="number">2</span>)= <span class="number">1</span>;</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<p>按照以上规则进行随机初始化后，运行细胞自动机，最终的结果会演化呈现出几种稳定的结构：<br><img src="/images/cellular-automaton/a2.gif"></p>
+<p>按照以上规则进行随机初始化后，运行细胞自动机，最终的结果会演化呈现出几种稳定的结构：<br><img src="images/cellular-automaton/a2.gif" alt=""></p>
 <h3 id="2-规则变更-扩散效果："><a href="#2-规则变更-扩散效果：" class="headerlink" title="2 规则变更-扩散效果："></a>2 规则变更-扩散效果：</h3><p>规则设定：先把中间点置为1，每一时间步对每一点，如果周围六个点之和为偶数，则变为0，为奇数则变为 1。</p>
 <p>规则设定代码实现：</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% 演变部分代码           </span></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">mod</span>(N_live,<span class="number">2</span>)==<span class="number">0</span></span><br><span class="line">  Cell( <span class="built_in">i</span>, <span class="built_in">j</span>, <span class="number">1</span>, <span class="number">2</span>)= <span class="number">0</span>;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  Cell( <span class="built_in">i</span>, <span class="built_in">j</span>, <span class="number">1</span>, <span class="number">2</span>)= <span class="number">1</span>;</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<p>按照以上规则进行初始化赋值设置中心点为1，运行细胞自动机，得到如下所示的效果：<br><img src="/images/cellular-automaton/a3.gif"><br>仔细观察其实也可以发现这就是分形效果的一种演变。更改初始化点的位置，可以获得不一样的效果实现，如图蓝色为初始化四个边界点为状态1的单独效果，黄色为累积叠加效果：<br><img src="/images/cellular-automaton/a4.gif"><br><img src="/images/cellular-automaton/a6.gif"></p>
+<p>按照以上规则进行初始化赋值设置中心点为1，运行细胞自动机，得到如下所示的效果：<br><img src="images/cellular-automaton/a3.gif" alt=""><br>仔细观察其实也可以发现这就是分形效果的一种演变。更改初始化点的位置，可以获得不一样的效果实现，如图蓝色为初始化四个边界点为状态1的单独效果，黄色为累积叠加效果：<br><img src="images/cellular-automaton/a4.gif" alt=""><br><img src="images/cellular-automaton/a6.gif" alt=""></p>
 <h3 id="3-规则变更-连续状态："><a href="#3-规则变更-连续状态：" class="headerlink" title="3 规则变更-连续状态："></a>3 规则变更-连续状态：</h3><p>更改了一下每个细胞中存储的状态值，现在细胞中存储的不仅仅是0或1任意一个整数值，而是0-1的任意一个浮点数数值了。</p>
 <p>下面设计了一个比较随意的规则，缩小网格数便于调试与观察。</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> N_live&gt;<span class="number">5</span> </span><br><span class="line">  <span class="keyword">if</span> Cell( <span class="built_in">i</span>, <span class="built_in">j</span>, <span class="number">1</span>, <span class="number">1</span>)<span class="number">-0.1</span>&gt;<span class="number">0</span></span><br><span class="line">    Cell( <span class="built_in">i</span>, <span class="built_in">j</span>, <span class="number">1</span>, <span class="number">2</span>)= Cell( <span class="built_in">i</span>, <span class="built_in">j</span>, <span class="number">1</span>, <span class="number">1</span>)<span class="number">-0.1</span>;</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">elseif</span> N_live&lt;<span class="number">2</span></span><br><span class="line">  <span class="keyword">if</span> Cell( <span class="built_in">i</span>, <span class="built_in">j</span>, <span class="number">1</span>, <span class="number">1</span>)+<span class="number">0.1</span>&lt;=<span class="number">1</span></span><br><span class="line">    Cell( <span class="built_in">i</span>, <span class="built_in">j</span>, <span class="number">1</span>, <span class="number">2</span>)=  Cell( <span class="built_in">i</span>, <span class="built_in">j</span>, <span class="number">1</span>, <span class="number">1</span>)+<span class="number">0.1</span>;</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<p>研究了好久Matlab官网的colormap函数，终于弄明白了这个函数的机制，自己写了一下不同数值映射到colormap的颜色上的代码：（只用了10种颜色，颜色太多网格数也太多展示效果也不明显。）</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">color = colormap(bone(<span class="number">10</span>)); <span class="comment">%颜色映射</span></span><br><span class="line">x = <span class="built_in">linspace</span>(<span class="number">0</span>,<span class="number">1</span>,<span class="number">100</span>);  <span class="comment">%范围</span></span><br><span class="line">color_index = <span class="built_in">ceil</span>(x*<span class="number">9</span>+<span class="number">1</span>);</span><br><span class="line">idx=<span class="built_in">ceil</span>(Cell( <span class="built_in">i</span>, <span class="built_in">j</span>, <span class="number">1</span>, <span class="number">1</span>)/<span class="number">0.01</span>);</span><br><span class="line"><span class="keyword">if</span> idx&gt;<span class="number">100</span></span><br><span class="line">  idx=<span class="number">100</span>;</span><br><span class="line"><span class="keyword">elseif</span> idx&lt;<span class="number">1</span></span><br><span class="line">  idx=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">c = color(color_index(idx),:);</span><br><span class="line">set(pic&#123;<span class="built_in">i</span>, <span class="built_in">j</span>&#125;,<span class="string">&#x27;FaceColor&#x27;</span>,c);</span><br></pre></td></tr></table></figure>
-<p>测试效果如下所示：<br><img src="/images/cellular-automaton/a8.gif"></p>
-<h1 id="三-实验结果展示："><a href="#三-实验结果展示：" class="headerlink" title="三.实验结果展示："></a><strong>三.实验结果展示：</strong></h1><p>基于以上的操作，自己对细胞自动机的规则设定和初始化进行了很多尝试，并且又挑选出了一些规律性强一点的变化进行展示：<br><img src="/images/cellular-automaton/a5.gif"><br><img src="/images/cellular-automaton/a7.gif"></p>
-<p>挑选了一些状态值为连续的细胞自动机颜色变化的生成图出来（无聊的小李玩了半天&#x3D; &#x3D;）：<br><img src="/images/cellular-automaton/a11.gif"><br><img src="/images/cellular-automaton/a9.gif"></p>
-<p>想到小律老师上课讲过的热传导示例程序，我决定改一下规则实现一下，尝试了以下的模板。<br><img src="/images/cellular-automaton/10.png"><br>mark一下关键规则设定代码：</p>
+<p>研究了好久Matlab官网的colormap函数，终于弄明白了这个函数的机制，自己写了一下不同数值映射到colormap的颜色上的代码：（只用了10种颜色，颜色太多网格数也太多展示效果也不明显。）<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">color = colormap(bone(<span class="number">10</span>)); <span class="comment">%颜色映射</span></span><br><span class="line">x = <span class="built_in">linspace</span>(<span class="number">0</span>,<span class="number">1</span>,<span class="number">100</span>);  <span class="comment">%范围</span></span><br><span class="line">color_index = <span class="built_in">ceil</span>(x*<span class="number">9</span>+<span class="number">1</span>);</span><br><span class="line">idx=<span class="built_in">ceil</span>(Cell( <span class="built_in">i</span>, <span class="built_in">j</span>, <span class="number">1</span>, <span class="number">1</span>)/<span class="number">0.01</span>);</span><br><span class="line"><span class="keyword">if</span> idx&gt;<span class="number">100</span></span><br><span class="line">  idx=<span class="number">100</span>;</span><br><span class="line"><span class="keyword">elseif</span> idx&lt;<span class="number">1</span></span><br><span class="line">  idx=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">c = color(color_index(idx),:);</span><br><span class="line">set(pic&#123;<span class="built_in">i</span>, <span class="built_in">j</span>&#125;,<span class="string">&#x27;FaceColor&#x27;</span>,c);</span><br></pre></td></tr></table></figure><br>测试效果如下所示：<br><img src="images/cellular-automaton/a8.gif" alt=""></p>
+<h1 id="三-实验结果展示："><a href="#三-实验结果展示：" class="headerlink" title="三.实验结果展示："></a><strong>三.实验结果展示：</strong></h1><p>基于以上的操作，自己对细胞自动机的规则设定和初始化进行了很多尝试，并且又挑选出了一些规律性强一点的变化进行展示：<br><img src="images/cellular-automaton/a5.gif" alt=""><br><img src="images/cellular-automaton/a7.gif" alt=""></p>
+<p>挑选了一些状态值为连续的细胞自动机颜色变化的生成图出来（无聊的小李玩了半天= =）：<br><img src="images/cellular-automaton/a11.gif" alt=""><br><img src="images/cellular-automaton/a9.gif" alt=""></p>
+<p>想到小律老师上课讲过的热传导示例程序，我决定改一下规则实现一下，尝试了以下的模板。<br><img src="images/cellular-automaton/10.png" alt=""><br>mark一下关键规则设定代码：</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">changed=Cell( <span class="built_in">i</span>, <span class="built_in">j</span>, <span class="number">1</span>, <span class="number">1</span>)*(<span class="number">-6</span>)*delta;</span><br><span class="line"><span class="keyword">for</span> k=<span class="number">1</span>:<span class="number">1</span>:<span class="number">6</span></span><br><span class="line">  <span class="keyword">if</span> Cell( <span class="built_in">i</span>, <span class="built_in">j</span>, k+<span class="number">8</span>, <span class="number">1</span>)~= <span class="number">-1</span> &amp;&amp; Cell( <span class="built_in">i</span>, <span class="built_in">j</span>, k+<span class="number">8</span>, <span class="number">2</span>)~= <span class="number">-1</span> <span class="comment">%非边界正六边形</span></span><br><span class="line">    changed=changed+Cell(Cell( <span class="built_in">i</span>, <span class="built_in">j</span>, k+<span class="number">8</span>, <span class="number">1</span>), Cell( <span class="built_in">i</span>, <span class="built_in">j</span>, k+<span class="number">8</span>, <span class="number">2</span>), <span class="number">1</span>, <span class="number">1</span>)*delta;  </span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line">  Cell( <span class="built_in">i</span>, <span class="built_in">j</span>, <span class="number">1</span>, <span class="number">2</span>)=Cell( <span class="built_in">i</span>, <span class="built_in">j</span>, <span class="number">1</span>, <span class="number">1</span>)+changed;</span><br><span class="line"><span class="keyword">end</span>           </span><br></pre></td></tr></table></figure>
-<p><strong>实现效果</strong>（左边是过程动图，右边是最后的结果）：<br>（好鲜艳，眼睛快被闪瞎了）<br><img src="/images/cellular-automaton/a10.gif"><br><img src="/images/cellular-automaton/11.png"></p>
-<p>修改delta来个加速变化 ( &#x3D;v&#x3D; )!<br><img src="/images/cellular-automaton/a12.gif"><br>真好玩，收工！</p>
+<p><strong>实现效果</strong>（左边是过程动图，右边是最后的结果）：<br>（好鲜艳，眼睛快被闪瞎了）<br><img src="images/cellular-automaton/a10.gif" alt=""><br><img src="images/cellular-automaton/11.png" alt=""></p>
+<p>修改delta来个加速变化 ( =v= )!<br><img src="images/cellular-automaton/a12.gif" alt=""><br>真好玩，收工！</p>
 <h1 id="四-参考链接："><a href="#四-参考链接：" class="headerlink" title="四.参考链接："></a><strong>四.参考链接：</strong></h1><p><a target="_blank" rel="noopener" href="https://www.redblobgames.com/grids/hexagons/">https://www.redblobgames.com/grids/hexagons/</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_33446100/article/details/108670505?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control&dist_request_id=1328641.36998.16156918933538867&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control">https://blog.csdn.net/qq_33446100&#x2F;article&#x2F;details&#x2F;108670505?utm_medium&#x3D;distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control&amp;dist_request_id&#x3D;1328641.36998.16156918933538867&amp;depth_1-utm_source&#x3D;distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_30522183/article/details/99658530?utm_medium=distribute.pc_relevant_download.none-task-blog-baidujs-1.nonecase&depth_1-utm_source=distribute.pc_relevant_download.none-task-blog-baidujs-1.nonecase">https://blog.csdn.net/weixin_30522183&#x2F;article&#x2F;details&#x2F;99658530?utm_medium&#x3D;distribute.pc_relevant_download.none-task-blog-baidujs-1.nonecase&amp;depth_1-utm_source&#x3D;distribute.pc_relevant_download.none-task-blog-baidujs-1.nonecase</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Cedaroski/article/details/78761838?utm_medium=distribute.pc_relevant.none-task-blog-searchFromBaidu-6.control&dist_request_id=1328641.36998.16156918933538867&depth_1-utm_source=distribute.pc_relevant.none-task-blog-searchFromBaidu-6.control">https://blog.csdn.net/Cedaroski/article/details/78761838?utm_medium&#x3D;distribute.pc_relevant.none-task-blog-searchFromBaidu-6.control&amp;dist_request_id&#x3D;1328641.36998.16156918933538867&amp;depth_1-utm_source&#x3D;distribute.pc_relevant.none-task-blog-searchFromBaidu-6.control</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/yangziluomu/article/details/70792799?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522161581789716780265438431%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=161581789716780265438431&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_v2~rank_v29-2-70792799.pc_search_result_no_baidu_js&utm_term=matlab%E8%AE%A9%E6%95%B0%E5%80%BC%E6%98%A0%E5%B0%84%E5%88%B0%E9%A2%9C%E8%89%B2">https://blog.csdn.net/yangziluomu/article/details/70792799?ops_request_misc&#x3D;%257B%2522request%255Fid%2522%253A%2522161581789716780265438431%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&amp;request_id&#x3D;161581789716780265438431&amp;biz_id&#x3D;0&amp;utm_medium&#x3D;distribute.pc_search_result.none-task-blog-2<del>all</del>first_rank_v2~rank_v29-2-70792799.pc_search_result_no_baidu_js&amp;utm_term&#x3D;matlab%E8%AE%A9%E6%95%B0%E5%80%BC%E6%98%A0%E5%B0%84%E5%88%B0%E9%A2%9C%E8%89%B2</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_33446100/article/details/108670505?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control&amp;dist_request_id=1328641.36998.16156918933538867&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control">https://blog.csdn.net/qq_33446100/article/details/108670505?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control&amp;dist_request_id=1328641.36998.16156918933538867&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_30522183/article/details/99658530?utm_medium=distribute.pc_relevant_download.none-task-blog-baidujs-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant_download.none-task-blog-baidujs-1.nonecase">https://blog.csdn.net/weixin_30522183/article/details/99658530?utm_medium=distribute.pc_relevant_download.none-task-blog-baidujs-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant_download.none-task-blog-baidujs-1.nonecase</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Cedaroski/article/details/78761838?utm_medium=distribute.pc_relevant.none-task-blog-searchFromBaidu-6.control&amp;dist_request_id=1328641.36998.16156918933538867&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-searchFromBaidu-6.control">https://blog.csdn.net/Cedaroski/article/details/78761838?utm_medium=distribute.pc_relevant.none-task-blog-searchFromBaidu-6.control&amp;dist_request_id=1328641.36998.16156918933538867&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-searchFromBaidu-6.control</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/yangziluomu/article/details/70792799?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522161581789716780265438431%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&amp;request_id=161581789716780265438431&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_v2~rank_v29-2-70792799.pc_search_result_no_baidu_js&amp;utm_term=matlab%E8%AE%A9%E6%95%B0%E5%80%BC%E6%98%A0%E5%B0%84%E5%88%B0%E9%A2%9C%E8%89%B2">https://blog.csdn.net/yangziluomu/article/details/70792799?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522161581789716780265438431%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&amp;request_id=161581789716780265438431&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_v2~rank_v29-2-70792799.pc_search_result_no_baidu_js&amp;utm_term=matlab%E8%AE%A9%E6%95%B0%E5%80%BC%E6%98%A0%E5%B0%84%E5%88%B0%E9%A2%9C%E8%89%B2</a></p>
 
     </div>
 
@@ -365,7 +361,7 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2023/06/10/%E5%A4%A9%E5%85%89%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F/" rel="next" title="天光控制系统文档介绍">
+                <a href="/2023/06/10/weather/" rel="next" title="天光控制系统文档介绍">
                   天光控制系统文档介绍 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
@@ -394,17 +390,24 @@
   </span>
   <span class="author" itemprop="copyrightHolder">vv-carrot</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
 
     </div>
   </footer>
 
   
-  <div class="back-to-top" role="button" aria-label="Back to top">
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
     <i class="fa fa-arrow-up fa-lg"></i>
     <span>0%</span>
   </div>
+  <div class="reading-progress-bar"></div>
 
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
@@ -413,17 +416,30 @@
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js","integrity":"sha256-tu9j5pBilBQrWSDePOOajCUdz6hWsid/lBNzK4KgEPM="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"forest","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
 
   
 
 
 
 
-
   
 
-
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
 
 
 
