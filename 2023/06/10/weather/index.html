@@ -9,23 +9,24 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="manifest" href="/manifest.json">
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="https://github.com/adobe-fonts/source-han-serif/raw/release/Variable/TTF/Subset/SourceHanSerifCN-VF.ttf/css?family=STZhongsong:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"vv-carrot.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"vv-carrot.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="1 天光控制系统 本文档会简单介绍天光控制系统中天气参数的获取与天体参数的计算，相关参数的调节效果等。  工作目标 天气控制系统负责根据APP的真实气象参数（云、能见度、天气气象、空气湿度、PM2.5、风力等），确实其余各系统（天光系统、云雾模型系统、粒子系统、特效渲染系统等）的参数。天气控制系统的功能包括： 1. 手动指定或者从公开天气API的网站上自动下载当前某地的天气数据。 2. 通过天气">
+    <meta name="description" content="1 天光控制系统 本文档会简单介绍天光控制系统中天气参数的获取与天体参数的计算，相关参数的调节效果等。  工作目标 天气控制系统负责根据APP的真实气象参数（云、能见度、天气气象、空气湿度、PM2.5、风力等），确实其余各系统（天光系统、云雾模型系统、粒子系统、特效渲染系统等）的参数。天气控制系统的功能包括： 1. 手动指定或者从公开天气API的网站上自动下载当前某地的天气数据。 2. 通过天气数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="天光控制系统文档介绍">
 <meta property="og:url" content="https://vv-carrot.github.io/2023/06/10/weather/index.html">
 <meta property="og:site_name" content="VV&#39;s Blog">
-<meta property="og:description" content="1 天光控制系统 本文档会简单介绍天光控制系统中天气参数的获取与天体参数的计算，相关参数的调节效果等。  工作目标 天气控制系统负责根据APP的真实气象参数（云、能见度、天气气象、空气湿度、PM2.5、风力等），确实其余各系统（天光系统、云雾模型系统、粒子系统、特效渲染系统等）的参数。天气控制系统的功能包括： 1. 手动指定或者从公开天气API的网站上自动下载当前某地的天气数据。 2. 通过天气">
+<meta property="og:description" content="1 天光控制系统 本文档会简单介绍天光控制系统中天气参数的获取与天体参数的计算，相关参数的调节效果等。  工作目标 天气控制系统负责根据APP的真实气象参数（云、能见度、天气气象、空气湿度、PM2.5、风力等），确实其余各系统（天光系统、云雾模型系统、粒子系统、特效渲染系统等）的参数。天气控制系统的功能包括： 1. 手动指定或者从公开天气API的网站上自动下载当前某地的天气数据。 2. 通过天气数">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://vv-carrot.github.io/images/weather/1.png">
 <meta property="og:image" content="https://vv-carrot.github.io/images/weather/6ad29e499c3b6e1f3608f4ac0b614656.png">
@@ -126,7 +127,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-相册"><a href="/gallery/" rel="section"><i class="fa fa-camera-retro fa-fw"></i>相册</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-笔记"><a href="/categories/" rel="section"><i class="fa fa-book fa-fw"></i>笔记</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">13</span></a></li><li class="menu-item menu-item-相册"><a href="/gallery/" rel="section"><i class="fa fa-camera-retro fa-fw"></i>相册</a></li>
   </ul>
 </nav>
 
@@ -151,7 +152,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%A4%A9%E5%85%89%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.</span> <span class="nav-text"> 1 天光控制系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#11%E5%A4%A9%E6%B0%94%E4%BF%A1%E6%81%AF%E8%8E%B7%E5%8F%96"><span class="nav-number">1.1.</span> <span class="nav-text"> 1.1天气信息获取</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#111%E5%A4%A9%E6%B0%94%E5%8F%82%E6%95%B0"><span class="nav-number">1.1.1.</span> <span class="nav-text"> 1.1.1天气参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#112%E8%B0%83%E6%95%B4%E5%8A%A8%E6%95%88"><span class="nav-number">1.1.2.</span> <span class="nav-text"> 1.1.2调整动效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#113%E5%8F%82%E6%95%B0%E8%B0%83%E8%AF%95"><span class="nav-number">1.1.3.</span> <span class="nav-text"> 1.1.3参数调试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12%E6%8E%A7%E5%88%B6%E5%8F%82%E6%95%B0%E8%AE%A1%E7%AE%97"><span class="nav-number">1.2.</span> <span class="nav-text"> 1.2控制参数计算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#121%E5%A4%A9%E4%BD%93%E5%8F%82%E6%95%B0"><span class="nav-number">1.2.1.</span> <span class="nav-text"> 1.2.1天体参数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13%E6%B8%B2%E6%9F%93%E5%8F%82%E6%95%B0%E8%B0%83%E6%8E%A7%E6%8C%87%E5%8D%97"><span class="nav-number">1.3.</span> <span class="nav-text"> 1.3渲染参数调控指南</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#131%E5%8F%82%E6%95%B0%E6%98%A0%E5%B0%84"><span class="nav-number">1.3.1.</span> <span class="nav-text"> 1.3.1参数映射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#132%E5%8F%82%E6%95%B0%E9%A2%84%E8%AE%BE"><span class="nav-number">1.3.2.</span> <span class="nav-text"> 1.3.2参数预设</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E5%A4%A9%E5%85%89%E6%B8%B2%E6%9F%93"><span class="nav-number">2.</span> <span class="nav-text"> 2 天光渲染</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E4%BD%93%E7%A7%AF%E4%BA%91%E6%B8%B2%E6%9F%93"><span class="nav-number">3.</span> <span class="nav-text"> 3 体积云渲染</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#31-%E7%9B%B8%E5%85%B3%E5%99%AA%E5%A3%B0%E7%BA%B9%E7%90%86%E7%94%9F%E6%88%90"><span class="nav-number">3.1.</span> <span class="nav-text"> 3.1 相关噪声纹理生成</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#311-worley-perlin%E5%99%AA%E5%A3%B0"><span class="nav-number">3.1.1.</span> <span class="nav-text"> 3.1.1 Worley-Perlin噪声</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#312-curl%E5%99%AA%E5%A3%B0"><span class="nav-number">3.1.2.</span> <span class="nav-text"> 3.1.2 Curl噪声</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#32-%E5%AF%86%E5%BA%A6%E9%87%87%E6%A0%B7%E4%B8%8E%E5%85%89%E7%BA%BF%E6%AD%A5%E8%BF%9B"><span class="nav-number">3.2.</span> <span class="nav-text"> 3.2 密度采样与光线步进</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#321-%E5%AF%86%E5%BA%A6%E9%87%87%E6%A0%B7"><span class="nav-number">3.2.1.</span> <span class="nav-text"> 3.2.1 密度采样</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#322-%E5%85%89%E7%BA%BF%E6%AD%A5%E8%BF%9B"><span class="nav-number">3.2.2.</span> <span class="nav-text"> 3.2.2 光线步进</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#323%E4%BC%98%E5%8C%96"><span class="nav-number">3.2.3.</span> <span class="nav-text"> 3.2.3优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#324-%E9%87%87%E6%A0%B7%E6%8A%80%E5%B7%A7"><span class="nav-number">3.2.4.</span> <span class="nav-text"> 3.2.4 采样技巧</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E5%A4%9C%E7%A9%BA%E6%B8%B2%E6%9F%93"><span class="nav-number">4.</span> <span class="nav-text"> 4 夜空渲染</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#41%E6%9C%88%E4%BA%AE%E6%B8%B2%E6%9F%93"><span class="nav-number">4.1.</span> <span class="nav-text"> 4.1月亮渲染</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%8F%82%E6%95%B0"><span class="nav-number">4.1.0.1.</span> <span class="nav-text"> 相关参数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#42%E5%A4%9C%E7%A9%BA%E6%B8%B2%E6%9F%93"><span class="nav-number">4.2.</span> <span class="nav-text"> 4.2夜空渲染</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#421%E6%98%9F%E7%A9%BA"><span class="nav-number">4.2.1.</span> <span class="nav-text"> 4.2.1星空</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#422%E9%93%B6%E6%B2%B3"><span class="nav-number">4.2.2.</span> <span class="nav-text"> 4.2.2银河</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E7%89%B9%E6%95%88%E6%B8%B2%E6%9F%93"><span class="nav-number">5.</span> <span class="nav-text"> 5 特效渲染</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#51%E5%BD%A9%E8%99%B9%E7%89%B9%E6%95%88"><span class="nav-number">5.1.</span> <span class="nav-text"> 5.1彩虹特效</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A9%BA%E6%B0%94%E6%B9%BF%E5%BA%A6%E5%88%86%E5%B8%83"><span class="nav-number">5.1.0.1.</span> <span class="nav-text"> 空气湿度分布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%8F%82%E6%95%B0-2"><span class="nav-number">5.1.0.2.</span> <span class="nav-text"> 相关参数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#52%E9%95%9C%E5%A4%B4%E5%85%89%E6%99%95%E7%89%B9%E6%95%88"><span class="nav-number">5.2.</span> <span class="nav-text"> 5.2镜头光晕特效</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%8F%82%E6%95%B0-3"><span class="nav-number">5.2.0.1.</span> <span class="nav-text"> 相关参数</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E8%89%B2%E8%B0%83%E6%98%A0%E5%B0%84"><span class="nav-number">6.</span> <span class="nav-text"> 6 色调映射</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">1 天光控制系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1%E5%A4%A9%E6%B0%94%E4%BF%A1%E6%81%AF%E8%8E%B7%E5%8F%96"><span class="nav-number">1.1.</span> <span class="nav-text">1.1天气信息获取</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-1%E5%A4%A9%E6%B0%94%E5%8F%82%E6%95%B0"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1.1天气参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-2%E8%B0%83%E6%95%B4%E5%8A%A8%E6%95%88"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.1.2调整动效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-3%E5%8F%82%E6%95%B0%E8%B0%83%E8%AF%95"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.1.3参数调试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2%E6%8E%A7%E5%88%B6%E5%8F%82%E6%95%B0%E8%AE%A1%E7%AE%97"><span class="nav-number">1.2.</span> <span class="nav-text">1.2控制参数计算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-1%E5%A4%A9%E4%BD%93%E5%8F%82%E6%95%B0"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.2.1天体参数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3%E6%B8%B2%E6%9F%93%E5%8F%82%E6%95%B0%E8%B0%83%E6%8E%A7%E6%8C%87%E5%8D%97"><span class="nav-number">1.3.</span> <span class="nav-text">1.3渲染参数调控指南</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-1%E5%8F%82%E6%95%B0%E6%98%A0%E5%B0%84"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.3.1参数映射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-2%E5%8F%82%E6%95%B0%E9%A2%84%E8%AE%BE"><span class="nav-number">1.3.2.</span> <span class="nav-text">1.3.2参数预设</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">2 天光渲染</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">3 体积云渲染</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-%E7%9B%B8%E5%85%B3%E5%99%AA%E5%A3%B0%E7%BA%B9%E7%90%86%E7%94%9F%E6%88%90"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 相关噪声纹理生成</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-1-Worley-Perlin%E5%99%AA%E5%A3%B0"><span class="nav-number">3.1.1.</span> <span class="nav-text">3.1.1 Worley-Perlin噪声</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-2-Curl%E5%99%AA%E5%A3%B0"><span class="nav-number">3.1.2.</span> <span class="nav-text">3.1.2 Curl噪声</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-%E5%AF%86%E5%BA%A6%E9%87%87%E6%A0%B7%E4%B8%8E%E5%85%89%E7%BA%BF%E6%AD%A5%E8%BF%9B"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 密度采样与光线步进</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-1-%E5%AF%86%E5%BA%A6%E9%87%87%E6%A0%B7"><span class="nav-number">3.2.1.</span> <span class="nav-text">3.2.1 密度采样</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-2-%E5%85%89%E7%BA%BF%E6%AD%A5%E8%BF%9B"><span class="nav-number">3.2.2.</span> <span class="nav-text">3.2.2 光线步进</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-3%E4%BC%98%E5%8C%96"><span class="nav-number">3.2.3.</span> <span class="nav-text">3.2.3优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-4-%E9%87%87%E6%A0%B7%E6%8A%80%E5%B7%A7"><span class="nav-number">3.2.4.</span> <span class="nav-text">3.2.4 采样技巧</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">4 夜空渲染</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1%E6%9C%88%E4%BA%AE%E6%B8%B2%E6%9F%93"><span class="nav-number">4.1.</span> <span class="nav-text">4.1月亮渲染</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%8F%82%E6%95%B0"><span class="nav-number">4.1.0.1.</span> <span class="nav-text">相关参数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2%E5%A4%9C%E7%A9%BA%E6%B8%B2%E6%9F%93"><span class="nav-number">4.2.</span> <span class="nav-text">4.2夜空渲染</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-1%E6%98%9F%E7%A9%BA"><span class="nav-number">4.2.1.</span> <span class="nav-text">4.2.1星空</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-2%E9%93%B6%E6%B2%B3"><span class="nav-number">4.2.2.</span> <span class="nav-text">4.2.2银河</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">5.</span> <span class="nav-text">5 特效渲染</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1%E5%BD%A9%E8%99%B9%E7%89%B9%E6%95%88"><span class="nav-number">5.1.</span> <span class="nav-text">5.1彩虹特效</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A9%BA%E6%B0%94%E6%B9%BF%E5%BA%A6%E5%88%86%E5%B8%83"><span class="nav-number">5.1.0.1.</span> <span class="nav-text">空气湿度分布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%8F%82%E6%95%B0-2"><span class="nav-number">5.1.0.2.</span> <span class="nav-text">相关参数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2%E9%95%9C%E5%A4%B4%E5%85%89%E6%99%95%E7%89%B9%E6%95%88"><span class="nav-number">5.2.</span> <span class="nav-text">5.2镜头光晕特效</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%8F%82%E6%95%B0-3"><span class="nav-number">5.2.0.1.</span> <span class="nav-text">相关参数</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">6.</span> <span class="nav-text">6 色调映射</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -164,7 +165,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -174,7 +175,7 @@
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -182,6 +183,10 @@
 
         </div>
       </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
     </div>
 
     
@@ -258,21 +263,21 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="1-天光控制系统"><a class="markdownIt-Anchor" href="#1-天光控制系统"></a> 1 天光控制系统</h1>
+    <div class="post-body" itemprop="articleBody"><h1>1 天光控制系统</h1>
 <p>本文档会简单介绍天光控制系统中天气参数的获取与天体参数的计算，相关参数的调节效果等。</p>
 <blockquote>
-<p><strong>工作目标</strong><br />
-天气控制系统负责根据APP的真实气象参数（云、能见度、天气气象、空气湿度、PM2.5、风力等），确实其余各系统（天光系统、云雾模型系统、粒子系统、特效渲染系统等）的参数。天气控制系统的功能包括：<br />
-1. 手动指定或者从公开天气API的网站上自动下载当前某地的天气数据。<br />
-2. 通过天气数据，根据一定的算法，生成各渲染模块需要的渲染参数。<br />
+<p><strong>工作目标</strong><br>
+天气控制系统负责根据APP的真实气象参数（云、能见度、天气气象、空气湿度、PM2.5、风力等），确实其余各系统（天光系统、云雾模型系统、粒子系统、特效渲染系统等）的参数。天气控制系统的功能包括：<br>
+1. 手动指定或者从公开天气API的网站上自动下载当前某地的天气数据。<br>
+2. 通过天气数据，根据一定的算法，生成各渲染模块需要的渲染参数。<br>
 3. 当天气参数改变时，需要能够平滑处理渲染参数从旧值到新值的变化（制作一个逐帧插值的动画效果）。</p>
 </blockquote>
-<h2 id="11天气信息获取"><a class="markdownIt-Anchor" href="#11天气信息获取"></a> 1.1天气信息获取</h2>
+<h2 id="1-1天气信息获取">1.1天气信息获取</h2>
 <p>天气信息获取在WeatherHttp.cpp文件中。目前系统用到了百度国内天气API和百度普通IP定位API分别获取天气参数和地理经纬度信息。</p>
 <p>百度国内天气API查询天气信息需要传入百度地理区域编码，这个编码目前存储在weather_district_code.xlsx中，现在简单的保留了杭州，宁波，乌鲁木齐三个城市便于测试。</p>
 <p>目前获取到的天气json参数数据如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;status&quot;: 0,</span><br><span class="line">    &quot;result&quot;: &#123;</span><br><span class="line">        &quot;location&quot;: &#123;</span><br><span class="line">            &quot;country&quot;: &quot;中国&quot;,</span><br><span class="line">            &quot;province&quot;: &quot;浙江省&quot;,</span><br><span class="line">            &quot;city&quot;: &quot;杭州市&quot;,</span><br><span class="line">            &quot;name&quot;: &quot;杭州&quot;,</span><br><span class="line">            &quot;id&quot;: &quot;330100&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;now&quot;: &#123;</span><br><span class="line">            &quot;text&quot;: &quot;多云&quot;,</span><br><span class="line">            &quot;temp&quot;: 8,</span><br><span class="line">            &quot;feels_like&quot;: 7,</span><br><span class="line">            &quot;rh&quot;: 81,</span><br><span class="line">            &quot;wind_class&quot;: &quot;2级&quot;,</span><br><span class="line">            &quot;wind_dir&quot;: &quot;西北风&quot;,</span><br><span class="line">            &quot;uptime&quot;: &quot;20230324202000&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;message&quot;: &quot;success&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="111天气参数"><a class="markdownIt-Anchor" href="#111天气参数"></a> 1.1.1天气参数</h3>
+<h3 id="1-1-1天气参数">1.1.1天气参数</h3>
 <p>天气控制系统会根据获取到的天气参数，映射到渲染参数上。详细的天气取值对照表可在百度官网资源下载处获得。 目前应用到的天气参数和对应渲染参数映射关系如下：</p>
 <table>
 <thead>
@@ -306,25 +311,37 @@
 <blockquote>
 <p><strong>Remark</strong>：百度国内天气API的高级功能会以百分比形式提供云量信息，但控制云渲染的参数比较复杂，目前控制系统并未直接使用这项数据。</p>
 </blockquote>
-<h3 id="112调整动效"><a class="markdownIt-Anchor" href="#112调整动效"></a> 1.1.2调整动效</h3>
+<h3 id="1-1-2调整动效">1.1.2调整动效</h3>
 <p>当进行城市切换时，采用JobSystem来增加一些简单的参数调整动效，以提升用户体验。具体来说，通过以下方式实现了平滑的过渡效果：</p>
-<ul>
-<li>**使用smoothstep函数：**调用smoothstep函数来实现两个城市之间参数的平缓过渡。smoothstep函数是一种常用的插值函数，它将一个输入值（如时间或距离）映射到0到1之间的输出值，使得过渡更加平滑。通过适当调整smoothstep函数的输入参数，我们可以控制城市切换时动效的变化速度和平滑程度。</li>
-<li>**参数调整动效：**通过JobSystem为城市切换过程添加了一些简单的参数调整动效。这些参数可能包括光照强度、天气效果、云层相关参数等，可以根据不同的场景和需求进行调整。通过在城市切换的过程中逐步改变这些参数，我们能够使过渡更加自然和流畅。</li>
-<li>**Job List的运用：**为了避免城市切换过快导致过渡动画中断的问题，我们使用了Job List。在城市切换过程中，我们将所有需要处理的任务（例如加载新城市资源、卸载旧城市资源、更新参数等）添加到Job List中，并按照一定的优先级和顺序执行。这样可以确保在切换城市时，所有的过渡动画和相关任务能够按照正确的顺序和时间完成，避免中断和不连贯的效果。</li>
+<ul class="lvl-0">
+<li class="lvl-4">
+<p>**使用smoothstep函数：**调用smoothstep函数来实现两个城市之间参数的平缓过渡。smoothstep函数是一种常用的插值函数，它将一个输入值（如时间或距离）映射到0到1之间的输出值，使得过渡更加平滑。通过适当调整smoothstep函数的输入参数，我们可以控制城市切换时动效的变化速度和平滑程度。</p>
+</li>
+<li class="lvl-4">
+<p>**参数调整动效：**通过JobSystem为城市切换过程添加了一些简单的参数调整动效。这些参数可能包括光照强度、天气效果、云层相关参数等，可以根据不同的场景和需求进行调整。通过在城市切换的过程中逐步改变这些参数，我们能够使过渡更加自然和流畅。</p>
+</li>
+<li class="lvl-4">
+<p>**Job List的运用：**为了避免城市切换过快导致过渡动画中断的问题，我们使用了Job List。在城市切换过程中，我们将所有需要处理的任务（例如加载新城市资源、卸载旧城市资源、更新参数等）添加到Job List中，并按照一定的优先级和顺序执行。这样可以确保在切换城市时，所有的过渡动画和相关任务能够按照正确的顺序和时间完成，避免中断和不连贯的效果。</p>
+</li>
 </ul>
 <p>通过以上的扩展和优化，我们能够实现更加平滑和流畅的城市切换效果。用户在切换城市时将能够享受到更好的视觉体验，并获得更加真实和逼真的过渡动画效果。</p>
-<h3 id="113参数调试"><a class="markdownIt-Anchor" href="#113参数调试"></a> 1.1.3参数调试</h3>
+<h3 id="1-1-3参数调试">1.1.3参数调试</h3>
 <p>调试信息用于验证和检查程序中关键数据的准确性和一致性。通过比较输出的城市、日期、位置、天气状态、日出日落时间和月相信息与渲染结果以及预期值进行对比，可以识别潜在的错误或异常。</p>
 <p>开发人员可以使用断点调试、打印日志或调试工具来检查这些信息，以确保程序正确处理和显示相关数据。这些调试信息提供了关键的上下文和指导，有助于追踪问题并进行故障排除。</p>
-<p><img src="/images/weather/1.png" alt="image" /></p>
-<h2 id="12控制参数计算"><a class="markdownIt-Anchor" href="#12控制参数计算"></a> 1.2控制参数计算</h2>
-<h3 id="121天体参数"><a class="markdownIt-Anchor" href="#121天体参数"></a> 1.2.1天体参数</h3>
+<p><img src="/images/weather/1.png" alt="image"></p>
+<h2 id="1-2控制参数计算">1.2控制参数计算</h2>
+<h3 id="1-2-1天体参数">1.2.1天体参数</h3>
 <p>在该系统中，采用左手系作为世界坐标系。具体而言，X轴的正向表示东方，Y轴的正向表示上方，Z轴的正向表示北方。这种选择能够准确地描述和计算天体的位置和运动。以下是在Astronomy.cpp文件中进行的天体相关参数计算的几种类型：</p>
-<ul>
-<li><strong>经典的天文学模型计算</strong>：使用经纬度等数据进行计算，包括儒略日、儒略世纪和儒略日与年月日之间的转换。此外，还计算太阳时角和协调世界时(UTC)，以及其他相关的计算。这些计算基于经典的天文学模型，可用于精确确定时间和位置相关的天文参数。</li>
-<li><strong>天文坐标体系下的参数矫正与计算</strong>：在天文坐标体系中，计算太阳赤纬、高度角、方位角等参数。为了获得准确结果，需要计算一些详细的参数，如真太阳时和平均太阳时差、太阳平均近角点和黄道的平均倾角等。这些计算有助于确定给定时间和位置上天体的精确位置和状态。</li>
-<li><strong>Shader及调试所需参数计算</strong>：进行与着色器和调试相关的参数计算。例如，计算太阳和月球位置方向的公式，以及当前月相的计算。此外，还计算日出和日落的时间，以及结合日出和日落时间的曝光参数调控，实现在渲染过程中的自动曝光控制。</li>
+<ul class="lvl-0">
+<li class="lvl-4">
+<p><strong>经典的天文学模型计算</strong>：使用经纬度等数据进行计算，包括儒略日、儒略世纪和儒略日与年月日之间的转换。此外，还计算太阳时角和协调世界时(UTC)，以及其他相关的计算。这些计算基于经典的天文学模型，可用于精确确定时间和位置相关的天文参数。</p>
+</li>
+<li class="lvl-4">
+<p><strong>天文坐标体系下的参数矫正与计算</strong>：在天文坐标体系中，计算太阳赤纬、高度角、方位角等参数。为了获得准确结果，需要计算一些详细的参数，如真太阳时和平均太阳时差、太阳平均近角点和黄道的平均倾角等。这些计算有助于确定给定时间和位置上天体的精确位置和状态。</p>
+</li>
+<li class="lvl-4">
+<p><strong>Shader及调试所需参数计算</strong>：进行与着色器和调试相关的参数计算。例如，计算太阳和月球位置方向的公式，以及当前月相的计算。此外，还计算日出和日落的时间，以及结合日出和日落时间的曝光参数调控，实现在渲染过程中的自动曝光控制。</p>
+</li>
 </ul>
 <p>在渲染过程中，使用这些计算得到的天体参数，主要涉及太阳方向、高度角、方位角和月亮方向等。这些值在计算完成后会传递给hlsl文件，供渲染管线使用。通过精确计算和使用这些天体参数，能够准确呈现太阳和月亮的位置、方向和相位等视觉效果。</p>
 <table>
@@ -358,15 +375,15 @@
 </tr>
 </tbody>
 </table>
-<h2 id="13渲染参数调控指南"><a class="markdownIt-Anchor" href="#13渲染参数调控指南"></a> 1.3渲染参数调控指南</h2>
+<h2 id="1-3渲染参数调控指南">1.3渲染参数调控指南</h2>
 <p>在开发和调试过程中，我们发现实际数据并不一定能够直接展现出最佳的渲染效果。举例来说，有些资料显示云层主要存在于高度约在1500-4000米之间，但是在限制云层高度的情况下，系统绘制的远处云层可能显得比较薄，而增加整体云层的厚度则能获得更好的渲染结果。</p>
 <p>除了天体方面的太阳和月亮位置参数之外，与天气相关的天光参数和体积云参数等，目前并没有固定的映射公式可供使用。为了实现曝光自适应和云层的高部erode（即云层上部的侵蚀效果），我们添加了简单的渐变函数。这样考虑到更好的呈现效果，各个参数都具备相当大的调整空间。</p>
 <p>通过对各个参数进行调整，能够优化渲染效果，以更好地展现天气现象和云层的真实感。这意味着在开发过程中，我们需要仔细地调整各项参数，以便在视觉效果和实际数据之间取得最佳的平衡。通过对参数的灵活调整最终可以达到更加逼真的渲染结果。</p>
-<p><img src="/images/weather/6ad29e499c3b6e1f3608f4ac0b614656.png" alt="image" /><br />
-<img src="/images/weather/addea336c40d7a52e83116de3240d4a4.png" alt="image" /><br />
-<img src="/images/weather/07415c6814cd4cac00260eee1fe60826.png" alt="image" /><br />
-<img src="/images/weather/1a38b32f4e68efb975f5f1526c5b1989.png" alt="image" /></p>
-<h3 id="131参数映射"><a class="markdownIt-Anchor" href="#131参数映射"></a> 1.3.1参数映射</h3>
+<p><img src="/images/weather/6ad29e499c3b6e1f3608f4ac0b614656.png" alt="image"><br>
+<img src="/images/weather/addea336c40d7a52e83116de3240d4a4.png" alt="image"><br>
+<img src="/images/weather/07415c6814cd4cac00260eee1fe60826.png" alt="image"><br>
+<img src="/images/weather/1a38b32f4e68efb975f5f1526c5b1989.png" alt="image"></p>
+<h3 id="1-3-1参数映射">1.3.1参数映射</h3>
 <p><strong>1. 天光相关的渲染参数如下：</strong></p>
 <table>
 <thead>
@@ -432,7 +449,7 @@
 <blockquote>
 <p><strong>Kuwahara滤波</strong> Kuwahara算法进行后处理可以保持图像边缘，但是对内部进行色块化，这一点可以很好模拟不透明水彩的效果，参照下图效果。 Kuwahara计算偏移Offset时需要使用UV尺寸而不是像素尺寸，否则可能会出现渲染问题，在引擎集成Vulkan后Offset的类型变为int出现了一些bug，修改了Sobel Window使之更小缓解了渲染问题的出现。</p>
 </blockquote>
-<p><img src="/images/weather/b18afb9d56028a430bbf506ad1f8cd96.png" alt="image" /><img src="/images/weather/154160fa7cbf1c2009f2b3c52c9de4ea.png" alt="image" /></p>
+<p><img src="/images/weather/b18afb9d56028a430bbf506ad1f8cd96.png" alt="image"><img src="/images/weather/154160fa7cbf1c2009f2b3c52c9de4ea.png" alt="image"></p>
 <p><strong>2. 在夜晚情况下，天光相关的渲染参数如下：</strong></p>
 <table>
 <thead>
@@ -587,9 +604,9 @@
 </tr>
 </tbody>
 </table>
-<h3 id="132参数预设"><a class="markdownIt-Anchor" href="#132参数预设"></a> 1.3.2参数预设</h3>
+<h3 id="1-3-2参数预设">1.3.2参数预设</h3>
 <p>为了更方便地展现渲染效果，控制系统已添加了参数预设的功能。这些预设参数存储在名为presets_data.xlsx的文件中，每个预设都记录了当前渲染效果所需的关键参数值。目前，系统保留了三种偏向动漫风格的参数预设，分别是kuwahara-day、kuwahara-dusk和kuwahara-night。</p>
-<p><img src="/images/weather/377fdf88ef038e98f479fe165bea0193.png" alt="image" /><img src="/images/weather/52fee772f68d28cbcd3bcac8daeb76d7.png" alt="image" /><img src="/images/weather/bfb95bc2c4c374450641d754b7bf3578.png" alt="image" /></p>
+<p><img src="/images/weather/377fdf88ef038e98f479fe165bea0193.png" alt="image"><img src="/images/weather/52fee772f68d28cbcd3bcac8daeb76d7.png" alt="image"><img src="/images/weather/bfb95bc2c4c374450641d754b7bf3578.png" alt="image"></p>
 <p>Styleized Kuwahara Presets</p>
 <p>通过使用参数预设功能，用户可以轻松地选择不同的渲染风格，并快速应用与之相对应的参数设置。这样，无需手动调整每个参数的值，用户可以直接加载特定预设，从而实现所需的渲染效果。每个预设都经过精心设计，以确保渲染结果与所选择的风格相符。</p>
 <p>在presets_data.xlsx文件中，每个预设都包含一组参数值，这些值可以直接应用于渲染管线中的相应参数。通过读取文件，系统能够快速访问和加载所需的预设参数，为用户提供便捷的操作体验。</p>
@@ -636,82 +653,120 @@
 </tbody>
 </table>
 <p>对于喜欢动漫风格的用户，kuwahara-day、kuwahara-dusk和kuwahara-night三种参数预设将为他们提供不同的渲染效果选择。这些预设经过精心调整，能够呈现出不同时间段的特定视觉效果，使用户能够在渲染过程中轻松实现所需的风格和氛围。</p>
-<h1 id="2-天光渲染"><a class="markdownIt-Anchor" href="#2-天光渲染"></a> 2 天光渲染</h1>
+<h1>2 天光渲染</h1>
 <p>系统的天光渲染实现是基于论文《A Scalable and Production Ready Sky and Atmosphere Rendering Technique》。该论文提出了一种可扩展且适用于实际生产的天空和大气渲染技术，为系统的天光效果提供了重要的指导和实现思路。</p>
-<p><img src="/images/weather/e8003f133845ac4b6cdbf958abef9e98.png" alt="image" /><img src="/images/weather/51f90ef6af5813d4b1cb26e8b8978e61.png" alt="image" /></p>
-<p><img src="/images/weather/e69ae119a1514b1c4a268b7e747d39f0.png" alt="image" /><img src="/images/weather/7972388fcddfcedb5a736fd6e59b7940.png" alt="image" /></p>
+<p><img src="/images/weather/e8003f133845ac4b6cdbf958abef9e98.png" alt="image"><img src="/images/weather/51f90ef6af5813d4b1cb26e8b8978e61.png" alt="image"></p>
+<p><img src="/images/weather/e69ae119a1514b1c4a268b7e747d39f0.png" alt="image"><img src="/images/weather/7972388fcddfcedb5a736fd6e59b7940.png" alt="image"></p>
 <p>Sky in Different Height</p>
 <p>根据论文的指导，系统采用了一系列先进的渲染技术和算法，以实现逼真的天空和大气效果。其中包括但不限于以下方面：</p>
-<ul>
-<li>大气散射模型：系统根据论文中的大气散射模型，考虑了大气中的气溶胶、颗粒物等因素，以及不同波长光在大气中的传播方式，从而模拟了逼真的散射效果。</li>
-<li>光线追踪：系统使用光线追踪算法，通过模拟光线在大气中的传播和散射过程，计算出每个像素的天空颜色和亮度，从而实现了更加真实的天空效果。</li>
-<li>渲染参数控制：系统根据论文中提供的渲染参数，可以对天光效果进行灵活的配置和调整。这使得用户可以根据需要，调整天空颜色、云层厚度、大气散射程度等参数，以获得满足需求的天光渲染效果。</li>
-<li>多层次渲染：为了提高渲染效率和性能，系统采用了多层次的渲染技术。通过对场景进行分层和分块，系统可以针对不同层次的细节和可见性进行优化渲染，从而提供高效而逼真的天光效果。</li>
+<ul class="lvl-0">
+<li class="lvl-4">
+<p>大气散射模型：系统根据论文中的大气散射模型，考虑了大气中的气溶胶、颗粒物等因素，以及不同波长光在大气中的传播方式，从而模拟了逼真的散射效果。</p>
+</li>
+<li class="lvl-4">
+<p>光线追踪：系统使用光线追踪算法，通过模拟光线在大气中的传播和散射过程，计算出每个像素的天空颜色和亮度，从而实现了更加真实的天空效果。</p>
+</li>
+<li class="lvl-4">
+<p>渲染参数控制：系统根据论文中提供的渲染参数，可以对天光效果进行灵活的配置和调整。这使得用户可以根据需要，调整天空颜色、云层厚度、大气散射程度等参数，以获得满足需求的天光渲染效果。</p>
+</li>
+<li class="lvl-4">
+<p>多层次渲染：为了提高渲染效率和性能，系统采用了多层次的渲染技术。通过对场景进行分层和分块，系统可以针对不同层次的细节和可见性进行优化渲染，从而提供高效而逼真的天光效果。</p>
+</li>
 </ul>
 <p>下面是部分相关纹理计算结果。</p>
-<p><img src="/images/weather/ec2b77310db0d0051f37c52f12b49365.png" alt="image" /></p>
+<p><img src="/images/weather/ec2b77310db0d0051f37c52f12b49365.png" alt="image"></p>
 <p>SkyTransmissionLUT</p>
-<p><img src="/images/weather/e2916b78000c2c446a9568aac62afa47.png" alt="image" /> <img src="/images/weather/485c816bb1f0f4cd188453482a191357.png" alt="image" /> <img src="/images/weather/8a623e6128fb20c89e5c6c7cd514c363.png" alt="image" /></p>
+<p><img src="/images/weather/e2916b78000c2c446a9568aac62afa47.png" alt="image"> <img src="/images/weather/485c816bb1f0f4cd188453482a191357.png" alt="image"> <img src="/images/weather/8a623e6128fb20c89e5c6c7cd514c363.png" alt="image"></p>
 <p>SkyViewLUT in Different Time</p>
-<h1 id="3-体积云渲染"><a class="markdownIt-Anchor" href="#3-体积云渲染"></a> 3 体积云渲染</h1>
+<h1>3 体积云渲染</h1>
 <p>体积云渲染使用Volumetric Raymarching技术。在一些细节上参考了《Real-Time Volumetric Cloudscapes of Horizon Zero Dawn》中的技巧。</p>
 <p>Ray marching通过迭代光线与云层相交的过程，结合密度和颜色的插值计算，以及考虑其他光照和环境因素，实现了体积云的渲染。这种方法能够捕捉云层的真实细节和光照效果，为逼真的云层渲染提供了一种有效的思路。</p>
 <p>该方法首先需要定义一个表示云层密度三维纹理。然后，从摄像机位置出发，沿着每条光线逐步前进。在每个迭代步骤中，根据当前光线所处的位置，从三维纹理中采样相应的密度值。</p>
 <p>接下来，需要确定光线是否与云层发生了相交。通过将当前光线的位置与采样到的密度值进行比较，如果密度值超过了一个预设的阈值，表示光线与云层发生了相交。</p>
 <p>一旦发生相交，可以计算光线在相交点处的透射和散射效果，并根据云层的颜色信息来着色。这可以通过将相交点的密度值与预设的阈值进行插值来实现。通过这种方式，可以模拟光线在云层内部传播时的密度变化，从而实现光线的散射和吸收过程。</p>
-<h2 id="31-相关噪声纹理生成"><a class="markdownIt-Anchor" href="#31-相关噪声纹理生成"></a> 3.1 相关噪声纹理生成</h2>
-<h3 id="311-worley-perlin噪声"><a class="markdownIt-Anchor" href="#311-worley-perlin噪声"></a> 3.1.1 Worley-Perlin噪声</h3>
+<h2 id="3-1-相关噪声纹理生成">3.1 相关噪声纹理生成</h2>
+<h3 id="3-1-1-Worley-Perlin噪声">3.1.1 Worley-Perlin噪声</h3>
 <p>为了模拟云层的外观变化，我们需要定义一个三维纹理。该纹理将在渲染过程中用于采样云层的密度和颜色信息。</p>
 <p>生成具有Worley和Perlin噪声特征的纹理，按照FBM的方式进行不同频率的叠加，并将叠加的效果来对Perlin噪声进行调制（主要是进行膨胀），保留Perlin噪声整体形状的连接感。FBM算法的基本思路是，通过将不同频率不同振幅的噪声叠加到一起，来获得更为随机的噪声数据，生成的纹理用于创建自然景观、云层、纹理效果等。通过调整噪声频率和纹理大小等参数，可以获得不同风格和细节层次的纹理效果。</p>
 <p>第一个3D纹理是一个具有4个通道的纹理，它在云层渲染中起到关键作用。</p>
 <p>这个3D纹理具有128^3的分辨率，意味着它在三个维度上分别有128个采样点。它的分辨率足够高，可以捕捉到细微的细节和变化。</p>
 <p>噪声在程序初始化时生成，参见CloudNoise.cpp中的generate_worley3d_noise函数。共生成了两张四通道的三维噪声，分辨率分别为$128^3$和$256^3$像素，高分辨率的噪声频率较低，低分辨率的噪声频率较高。噪声纹理中RGB通道存储了频率逐次翻倍的WorleyFBM噪声，A通道存储了Perlin-Worley噪声，参见CloudNoise.hlsl。</p>
-<p><img src="/images/weather/657ab76858f1d2c4223300c57eae3bae.png" alt="image" /><br />
-<img src="/images/weather/752398260c9e284cb052235d05182314.png" alt="image" /><br />
-<img src="/images/weather/868cf4dbacef1ea788964c45efd02311.png" alt="image" /></p>
+<p><img src="/images/weather/657ab76858f1d2c4223300c57eae3bae.png" alt="image"><br>
+<img src="/images/weather/752398260c9e284cb052235d05182314.png" alt="image"><br>
+<img src="/images/weather/868cf4dbacef1ea788964c45efd02311.png" alt="image"></p>
 <p>这个纹理的第一个通道是通过Perlin-Worley噪声生成的。Perlin-Worley噪声结合了Perlin噪声和Worley噪声，产生了一种具有丰富细节和层次感的噪声模式。通过在不同的尺度和强度上组合这两种噪声，我们可以创建出具有自然随机性和变化性的形状。</p>
 <p>除了第一个通道，纹理的其他三个通道是频率递增的Worley噪声。Worley噪声是一种基于点之间距离的噪声模式，它呈现出类似于细胞或颗粒的形态。通过在不同的频率上生成Worley噪声，并将其作为纹理的其他通道，我们可以在云层的基本形状上添加更多的细节和层次感。</p>
 <p>这个3D纹理在渲染中被用来定义云层的基本形状。通过采样这个纹理并与其他参数相结合，我们可以控制云层的形态、起伏和纹理特征。这种标准方法可以为云层提供基本的形状结构，并为后续的细节添加和处理提供了基础。。</p>
-<h3 id="312-curl噪声"><a class="markdownIt-Anchor" href="#312-curl噪声"></a> 3.1.2 Curl噪声</h3>
+<h3 id="3-1-2-Curl噪声">3.1.2 Curl噪声</h3>
 <p>为了模拟大气涡流的效果，在计算着色器中生成一个具有卷曲效果的curl噪声贴图。它通过使用噪音函数和位移函数来模拟云层的运动和形状变化。这种扭曲效果使得云层在视觉上更加动态和有生命力。通过调整旋度噪声的参数和与第二个纹理的叠加方式，我们可以控制湍流扭曲的强度和分布，使其与整个云层的形态和运动相协调。</p>
 <p>该噪声在程序初始化时生成，参见CloudNoise.cpp中的generate_curl_noise函数，生成了一张$256^2$像素的二维噪声。着色器代码见CurlNoise.hlsl，实现方式是对二维的Perlin噪声求旋度。</p>
-<p><img src="/images/weather/def299040063d36fba0cb31ad97fc8d2.png" alt="image" /></p>
+<p><img src="/images/weather/def299040063d36fba0cb31ad97fc8d2.png" alt="image"></p>
 <p>通过以上噪声的应用，我们能够更好地模拟云层的真实外观和运动，使观察者在场景中感受到大气中云朵的演化和变化。这样的细节和效果增强了渲染的真实性和沉浸感。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">float2 <span class="title">curl</span><span class="params">(float2 p)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">float2 result = <span class="built_in">float2</span>(**potential**(p + epsilon.yx), **potential**(p + epsilon));</span><br><span class="line"></span><br><span class="line">result -= **potential**(p);</span><br><span class="line"></span><br><span class="line">result /= epsilon.x;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="built_in">float2</span>(-result.x, result.y);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="32-密度采样与光线步进"><a class="markdownIt-Anchor" href="#32-密度采样与光线步进"></a> 3.2 密度采样与光线步进</h2>
-<h3 id="321-密度采样"><a class="markdownIt-Anchor" href="#321-密度采样"></a> 3.2.1 密度采样</h3>
+<h2 id="3-2-密度采样与光线步进">3.2 密度采样与光线步进</h2>
+<h3 id="3-2-1-密度采样">3.2.1 密度采样</h3>
 <p>本项目以地球球心为原点，建立了空间直角坐标系，实现了一个云层密度函数，见CloudPass.hlsl中的sample_cloud_density函数，根据给定的世界空间xyz坐标，返回该位置的云层密度值。该函数的操作步骤如下：</p>
-<ul>
-<li>根据debug窗口设定的云层范围，令云层范围外的坐标返回0的云层密度</li>
-<li>根据风速、风向和程序运行的时间，对采样坐标进行一定偏移，形成云被风吹动的效果</li>
-<li>采样低频噪声，构造云层的基础形状</li>
-<li>使用Curl噪声扭曲采样坐标，再使用扭曲后的坐标采样高频噪声，构造云层细节</li>
-<li>使用高频噪声构造出的云层细节对基础形状进行侵蚀</li>
-<li>重映射云密度值，令其不要超过debug窗口中设定的最大密度</li>
-<li>对靠近云层边界的地方进行羽化</li>
-<li>返回云密度值</li>
+<ul class="lvl-0">
+<li class="lvl-4">
+<p>根据debug窗口设定的云层范围，令云层范围外的坐标返回0的云层密度</p>
+</li>
+<li class="lvl-4">
+<p>根据风速、风向和程序运行的时间，对采样坐标进行一定偏移，形成云被风吹动的效果</p>
+</li>
+<li class="lvl-4">
+<p>采样低频噪声，构造云层的基础形状</p>
+</li>
+<li class="lvl-4">
+<p>使用Curl噪声扭曲采样坐标，再使用扭曲后的坐标采样高频噪声，构造云层细节</p>
+</li>
+<li class="lvl-4">
+<p>使用高频噪声构造出的云层细节对基础形状进行侵蚀</p>
+</li>
+<li class="lvl-4">
+<p>重映射云密度值，令其不要超过debug窗口中设定的最大密度</p>
+</li>
+<li class="lvl-4">
+<p>对靠近云层边界的地方进行羽化</p>
+</li>
+<li class="lvl-4">
+<p>返回云密度值</p>
+</li>
 </ul>
 <p>云层浓度采样步骤对云层的形状生成具有比较大的影响，也需要一定的细节调整，比如底部的云层比较稀薄，而上方的云层则凝结力度更高，需要根据采样的位置高度对采样值进行一定的调整。</p>
 <p>详细细节调整见代码，云相关的多数参数在密度采样时都被应用。</p>
-<h3 id="322-光线步进"><a class="markdownIt-Anchor" href="#322-光线步进"></a> 3.2.2 光线步进</h3>
+<h3 id="3-2-2-光线步进">3.2.2 光线步进</h3>
 <p>从摄像机位置开始，沿着每条光线逐步前进。在每个迭代步骤中，我们将根据当前光线所处的位置从三维纹理中采样相应的密度和颜色值。模拟云层密度和光线传输过程，考虑了大气颜色和环境光照等因素，计算光线经过云层后的光照能量，并将其应用于渲染目标，最终呈现出真实的云层效果。</p>
 <p>光路如图所示。对于AB上的每个点P，我们在A-P-C上进行一次路径积分，计算光照累加的结果，见CloudPass.hlsl中的get_cloud_light_energy函数。光线步进的步骤如下：</p>
-<ul>
-<li>在计算着色器中根据线程id和屏幕分辨率计算出uv坐标</li>
-<li>根据uv坐标计算出view向量，即图中的向量VA</li>
-<li>view向量分别与海拔1500m、4000m的球壳求交，计算出交点A和B，这定义了光线步进的总距离；注意求交时根据摄像机的海拔高度进行分类讨论</li>
-<li>在AB上进行第一个步进采样循环</li>
-<li>每次循环中，根据采样点P的位置和light向量，求交计算出C点位置，并在光路PC上进行第二次步进采样循环</li>
-<li>循环体中对云密度进行采样，并应用光照模型计算累加的光照效果</li>
-<li>二重循环结束后，返回累加的radiance强度等结果</li>
+<ul class="lvl-0">
+<li class="lvl-4">
+<p>在计算着色器中根据线程id和屏幕分辨率计算出uv坐标</p>
+</li>
+<li class="lvl-4">
+<p>根据uv坐标计算出view向量，即图中的向量VA</p>
+</li>
+<li class="lvl-4">
+<p>view向量分别与海拔1500m、4000m的球壳求交，计算出交点A和B，这定义了光线步进的总距离；注意求交时根据摄像机的海拔高度进行分类讨论</p>
+</li>
+<li class="lvl-4">
+<p>在AB上进行第一个步进采样循环</p>
+</li>
+<li class="lvl-4">
+<p>每次循环中，根据采样点P的位置和light向量，求交计算出C点位置，并在光路PC上进行第二次步进采样循环</p>
+</li>
+<li class="lvl-4">
+<p>循环体中对云密度进行采样，并应用光照模型计算累加的光照效果</p>
+</li>
+<li class="lvl-4">
+<p>二重循环结束后，返回累加的radiance强度等结果</p>
+</li>
 </ul>
 <p><strong>Remark：</strong> 为了获得更真实的云层效果，还考虑了其他因素，例如大气颜色和环境光照。这可以通过在每个迭代步骤中根据当前光线与云相交的位置（大气透视）以及地面反射率来调整颜色和光照效果。为了提高性能，可以采用一些优化技巧。例如，使用多层次采样减少光线迭代的步骤，并使用提前终止技术避免对远离相机的光线进行无用的迭代。*</p>
-<p><img src="/images/weather/f3dd5fd3d7feffc40da85ff6576427dc.png" alt="image" /><br />
-<img src="/images/weather/4a1a60f8577b3a7972f35fa7c2d85886.png" alt="image" /></p>
-<p><img src="/images/weather/dcfd454d7e9327e5efe2a3b37b68269a.png" alt="image" /><br />
-<img src="/images/weather/b9ab01ea36b61709d29860e848c04caf.png" alt="image" /></p>
+<p><img src="/images/weather/f3dd5fd3d7feffc40da85ff6576427dc.png" alt="image"><br>
+<img src="/images/weather/4a1a60f8577b3a7972f35fa7c2d85886.png" alt="image"></p>
+<p><img src="/images/weather/dcfd454d7e9327e5efe2a3b37b68269a.png" alt="image"><br>
+<img src="/images/weather/b9ab01ea36b61709d29860e848c04caf.png" alt="image"></p>
 <p>Volumetric Cloud Rendering</p>
-<h3 id="323优化"><a class="markdownIt-Anchor" href="#323优化"></a> 3.2.3优化</h3>
+<h3 id="3-2-3优化">3.2.3优化</h3>
 <p><strong>1. Beer-Powder边缘优化</strong></p>
 <p>《Real-Time Volumetric Cloudscapes of Horizon Zero Dawn》中提到了，在云层采样边缘优化中，采用Beer-Power Law可用于模拟和优化云层边缘的渲染效果。根据该定律，云层边缘处的光线在通过云层时会受到吸收和衰减，因此会产生边缘的透明度和柔和过渡效果。利用该定律可以调整光线的衰减程度，以使云层边缘看起来更加自然和真实。为了模拟真实的体积云效果，常常使用两次Henyey-Greenstein（HG）公式进行拟合，以获得所谓的&quot;银边效果&quot;。</p>
 <p><em>Remark：Henyey-Greenstein公式是一种常用的散射模型，用于描述光在云中的散射行为。它基于物理原理，考虑了光线在云中的方向性散射。该公式通过一个参数g（称为相函数），表示了光线偏好朝向的方向，负责控制光线的散射方向性。当g接近1时，光线倾向于向前散射，而当g接近-1时，光线则倾向于向后散射。</em></p>
@@ -721,28 +776,28 @@
 <p>通过两次HG公式的拟合，结合合适的参数和光线模型，可以在渲染体积云时获得具有真实感和视觉效果的&quot;银边效果&quot;。</p>
 <p>需要注意的是，实际应用中，云层边缘优化可能涉及更复杂的光线传输模型和算法，以考虑云层内部的多次散射和吸收。但Beer- Power Law为理论基础提供了一个起点，可用于探索和优化云层边缘的渲染效果。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">float</span> <span class="title">Beer</span><span class="params">(<span class="type">float</span> cloud_density, <span class="type">float</span> light_absorption = <span class="number">0.5f</span>)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="built_in">exp</span>(-cloud_density \* light_absorption);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">float</span> **BeerPowder**(<span class="type">float</span> cloud_density, <span class="type">float</span> light_absorption = <span class="number">0.5f</span>)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line"><span class="type">float</span> powder_sugar_effect = <span class="number">1.0</span> - <span class="built_in">exp</span>(-cloud_density \* <span class="number">2.0</span>);</span><br><span class="line"></span><br><span class="line"><span class="type">float</span> beers_law = **Beer**(cloud_density, light_absorption);</span><br><span class="line"></span><br><span class="line"><span class="type">float</span> light_energy = <span class="number">2.0</span> \* beers_law \* powder_sugar_effect;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> light_energy;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/images/weather/e1c8cfbc3606df32e499c2ad0af4efe6.png" alt="image" /></p>
+<p><img src="/images/weather/e1c8cfbc3606df32e499c2ad0af4efe6.png" alt="image"></p>
 <p>Beer-Lambert Law</p>
 <p><strong>2. 动态步长</strong></p>
 <p>光线步进开始时，默认为两倍步长；当前采样点云层密度大于0时，步长变更为一倍步长；当前采样点云层密度等于0时，记录下连续采样得到0密度的次数，如果连续采样密度为0超过8次（默认值），则步长改变为两倍。这是为了减少采样次数。该优化参见get_cloud_light_energy函数中no_cloud_flag布尔变量的变化。</p>
 <p><strong>3. 下采样</strong></p>
 <p>考察光照模型，式中R表示最终输出的radiance，LightScattered表示通过散射进入视线方向的光线，Transmittance表示视线方向上总云层厚度的透射率，background表示天空背景。其中需要使用光线步进进行计算的是L项和T项，因此我们把L和T单独保存到减半分辨率的纹理中，再与正常分辨率的天空背景进行混合，减少了四分之三的光线步进开销。L和T项参见CloudPass.hlsl中的结构体LightingResult；混合步骤参见CloudBlend.hlsl。</p>
-<h3 id="324-采样技巧"><a class="markdownIt-Anchor" href="#324-采样技巧"></a> 3.2.4 采样技巧</h3>
+<h3 id="3-2-4-采样技巧">3.2.4 采样技巧</h3>
 <p>在屏幕右侧所看到的是一个相对于地平线高出约30度的旋转视角。使用标准方法在相机上方的区域绘制云层。</p>
 <p>首先，我们通过采样第一个3D纹理来构建一个基本的云层形状。这个3D纹理包含了云层的外观信息。我们将采样得到的值与高度信号进行乘法运算，以控制云层的垂直位置和形状。通过这样的操作，我们可以创建一个基本的云层模型。</p>
 <p>接下来的步骤是将这个基本的云层形状与覆盖率进行乘法运算。覆盖率决定了云层的密度和覆盖程度。通过调整覆盖率，我们可以控制云层的浓密程度和展现的面积。</p>
 <p>此外，我们还会在云层底部降低密度。这意味着云层的底部会相对较薄，呈现出逐渐消散的效果。这样可以使云层在底部更加逼真，仿佛云朵正在形成或逐渐散开。</p>
 <p>通过以上步骤，我们可以创建出更加逼真的云层效果，并使其与旋转视角相匹配，为观察者呈现出更加真实的云层场景。</p>
-<p><img src="/images/weather/6b07333a84ff1d61f48cb5f6dbc63d8e.png" alt="image" /></p>
+<p><img src="/images/weather/6b07333a84ff1d61f48cb5f6dbc63d8e.png" alt="image"></p>
 <p>Height-Sample Tricks</p>
-<h1 id="4-夜空渲染"><a class="markdownIt-Anchor" href="#4-夜空渲染"></a> 4 夜空渲染</h1>
-<h2 id="41月亮渲染"><a class="markdownIt-Anchor" href="#41月亮渲染"></a> 4.1月亮渲染</h2>
+<h1>4 夜空渲染</h1>
+<h2 id="4-1月亮渲染">4.1月亮渲染</h2>
 <p>系统通过天文运算，使用论文《A Physically-Based Night Sky Model》中提出的模型来计算出真实的月球方位。这个模型基于物理原理，考虑了多个因素如地球自转、地球公转、月球轨道等，以精确地确定当前时间的月球位置。</p>
 <p>在系统的Debug窗口的Gizmos中，以黄色的方向指示当前时间的月球方位。这个指示器可以帮助用户准确地找到月球在天空中的位置。通过观察黄色指示器的方向，用户可以直观地了解到月球在特定时间的位置。</p>
 <p>此外，系统还具有真实的月相功能。根据当前时间和月球的位置，系统可以精确地计算出月亮的相位，从而呈现出真实的月相。这使用户能够观察到月亮的圆盘是如何被太阳照亮的，从而获得更加真实和逼真的视觉体验。</p>
-<p><img src="/images/weather/c479bff779006e643350be451ab8fac4.png" alt="image" /><br />
-<img src="/images/weather/538922f02a72399d3efca95d0043d6f3.png" alt="image" /></p>
-<h4 id="相关参数"><a class="markdownIt-Anchor" href="#相关参数"></a> 相关参数</h4>
+<p><img src="/images/weather/c479bff779006e643350be451ab8fac4.png" alt="image"><br>
+<img src="/images/weather/538922f02a72399d3efca95d0043d6f3.png" alt="image"></p>
+<h4 id="相关参数">相关参数</h4>
 <table>
 <thead>
 <tr>
@@ -765,25 +820,25 @@
 </tr>
 </tbody>
 </table>
-<h2 id="42夜空渲染"><a class="markdownIt-Anchor" href="#42夜空渲染"></a> 4.2夜空渲染</h2>
-<h3 id="421星空"><a class="markdownIt-Anchor" href="#421星空"></a> 4.2.1星空</h3>
+<h2 id="4-2夜空渲染">4.2夜空渲染</h2>
+<h3 id="4-2-1星空">4.2.1星空</h3>
 <p>根据输入的星空数据和参数，计算出每个顶点的位置、颜色和其他属性，并将结果传递给片段着色器进行渲染。涉及星空颜色的计算、坐标变换和一些参数的处理，用于实现星空效果的绘制。</p>
-<h3 id="422银河"><a class="markdownIt-Anchor" href="#422银河"></a> 4.2.2银河</h3>
+<h3 id="4-2-2银河">4.2.2银河</h3>
 <p>通过计算每个像素的射线方向和透射值，在天空渲染过程中采样银河纹理并计算颜色，然后将银河颜色乘以透射值和银河强度，并将结果累加到目标纹理中的对应像素上。具体实现上，代码使用多线程并行计算的方式，根据相机参数和纹理采样，利用射线-球体相交检测和纹理采样的函数，进行天空渲染并生成最终的渲染结果。</p>
-<p><img src="/images/weather/0dab56242e4aa0f84db284fc825bf36c.png" alt="image" /><br />
-<img src="/images/weather/1d081d9f9bfab1226b7203c3194d244b.png" alt="image" /></p>
-<h1 id="5-特效渲染"><a class="markdownIt-Anchor" href="#5-特效渲染"></a> 5 特效渲染</h1>
-<h2 id="51彩虹特效"><a class="markdownIt-Anchor" href="#51彩虹特效"></a> 5.1彩虹特效</h2>
+<p><img src="/images/weather/0dab56242e4aa0f84db284fc825bf36c.png" alt="image"><br>
+<img src="/images/weather/1d081d9f9bfab1226b7203c3194d244b.png" alt="image"></p>
+<h1>5 特效渲染</h1>
+<h2 id="5-1彩虹特效">5.1彩虹特效</h2>
 <p>对于观察者，彩虹的方向和太阳的方向是相反的。</p>
 <p>彩虹的强度和色散分布受到空气中水滴的影响。系统中提供 <code>moisture</code> 参数来全局调整彩虹的颜色强度，以及 <code>Moisture Drop Radius</code> 调整发生散射产生彩虹的水滴半径。这两个参数也作为提供给控制系统的接口，便于与后续可能实际存在的天气环境参数进行关联。</p>
-<p><img src="/images/weather/7d99e0ba020ac70321e7bb4b292b0fe8.png" alt="image" /><br />
-<img src="/images/weather/abc201f6371ef5c3dd0d5ba13ea9de95.png" alt="image" /></p>
+<p><img src="/images/weather/7d99e0ba020ac70321e7bb4b292b0fe8.png" alt="image"><br>
+<img src="/images/weather/abc201f6371ef5c3dd0d5ba13ea9de95.png" alt="image"></p>
 <p>当默认开启 “Use Lee Graph” 选项时，彩虹绘制会使用采样李氏图（Lee Diagram）的方式进行。李氏图是一种通过采样和插值来生成彩虹颜色序列的方法。它基于物理原理，考虑了光线折射和反射在水滴中的作用，以模拟出真实的彩虹效果。</p>
 <p>然而，如果关闭了该选项，彩虹绘制将使用拟合的光谱进行，而不是基于物理的采样贴图。这意味着绘制彩虹时不再使用李氏图进行采样和插值，而是使用预先定义好的光谱数据来绘制彩虹。这种方法可以避免复杂的物理计算和采样贴图的开销，但在一些情况下可能会牺牲一定的真实性。</p>
 <p>根据是否启用 “Use Lee Graph” 选项，彩虹绘制可以选择采用基于物理的采样李氏图方法或使用预先拟合的光谱数据进行绘制。前者可以提供更真实的彩虹效果，而后者则更加高效但可能略有牺牲真实性。</p>
-<h4 id="空气湿度分布"><a class="markdownIt-Anchor" href="#空气湿度分布"></a> 空气湿度分布</h4>
+<h4 id="空气湿度分布">空气湿度分布</h4>
 <p>除了<code>moisture</code>对当前区域时间的全局空气湿度（彩虹强度）进行控制，系统中对空气湿度在海拔高度上的分布也进行了处理，随海拔升高呈先升高后衰减的趋势（如下图），当前设置为海拔2000m时达到最大值。因此在接近中午时，太阳方向与地面接近垂直，由于地面附近湿度较低，则无法看到彩虹；太阳靠近地平线附近时，能够比较容易地看到彩虹。</p>
-<h4 id="相关参数-2"><a class="markdownIt-Anchor" href="#相关参数-2"></a> 相关参数</h4>
+<h4 id="相关参数-2">相关参数</h4>
 <table>
 <thead>
 <tr>
@@ -806,19 +861,29 @@
 </tr>
 </tbody>
 </table>
-<h2 id="52镜头光晕特效"><a class="markdownIt-Anchor" href="#52镜头光晕特效"></a> 5.2镜头光晕特效</h2>
+<h2 id="5-2镜头光晕特效">5.2镜头光晕特效</h2>
 <p>当前系统实现了2D的SDF（有符号距离场）控制的镜头光晕形状， 也能够支持贴图调整。光晕效果通常是通过对场景中明亮区域的像素进行处理来实现的。</p>
 <p>暂未提供直接调整镜头光晕样式的接口。下面是一种使用SDF实现镜头光晕的基本步骤：</p>
-<ul>
-<li><strong>提取明亮区域：</strong> 首先，需要确定哪些像素属于明亮区域，可以使用亮度阈值或色彩饱和度等方法来检测明亮像素。</li>
-<li><strong>创建SDF纹理：</strong> 对于提取的明亮区域，需要创建一个SDF纹理，其中每个像素的值表示离最近边界的距离。这可以通过计算每个像素到最近边界的距离来实现。这个距离可以使用不同的方法计算，例如基于几何形状的距离计算或基于纹理的距离计算。</li>
-<li><strong>SDF纹理采样：</strong> 将创建的SDF纹理应用于场景中的每个像素。通过采样SDF纹理，可以获取像素到最近边界的距离值。</li>
-<li><strong>光晕形状控制：</strong> 使用SDF纹理的距离值，可以根据需要控制光晕的形状。可以根据距离值应用不同的光晕效果，例如径向渐变或环形渐变。较大的距离值通常对应着较强的光晕效果，而较小的距离值则表示较弱的光晕效果。</li>
-<li><strong>光晕渲染：</strong> 最后，将计算得到的光晕效果与场景的原始图像进行混合，以实现光晕的呈现。混合的方式可以根据需求使用加法、乘法或其他混合模式。</li>
+<ul class="lvl-0">
+<li class="lvl-4">
+<p><strong>提取明亮区域：</strong> 首先，需要确定哪些像素属于明亮区域，可以使用亮度阈值或色彩饱和度等方法来检测明亮像素。</p>
+</li>
+<li class="lvl-4">
+<p><strong>创建SDF纹理：</strong> 对于提取的明亮区域，需要创建一个SDF纹理，其中每个像素的值表示离最近边界的距离。这可以通过计算每个像素到最近边界的距离来实现。这个距离可以使用不同的方法计算，例如基于几何形状的距离计算或基于纹理的距离计算。</p>
+</li>
+<li class="lvl-4">
+<p><strong>SDF纹理采样：</strong> 将创建的SDF纹理应用于场景中的每个像素。通过采样SDF纹理，可以获取像素到最近边界的距离值。</p>
+</li>
+<li class="lvl-4">
+<p><strong>光晕形状控制：</strong> 使用SDF纹理的距离值，可以根据需要控制光晕的形状。可以根据距离值应用不同的光晕效果，例如径向渐变或环形渐变。较大的距离值通常对应着较强的光晕效果，而较小的距离值则表示较弱的光晕效果。</p>
+</li>
+<li class="lvl-4">
+<p><strong>光晕渲染：</strong> 最后，将计算得到的光晕效果与场景的原始图像进行混合，以实现光晕的呈现。混合的方式可以根据需求使用加法、乘法或其他混合模式。</p>
+</li>
 </ul>
-<p><img src="/images/weather/8c6e54d8f8680e46db4b23a8f8ff1b63.png" alt="image" /><br />
-<img src="/images/weather/0dce0b9aa56466a2e620588240ab4369.png" alt="image" /></p>
-<h4 id="相关参数-3"><a class="markdownIt-Anchor" href="#相关参数-3"></a> 相关参数</h4>
+<p><img src="/images/weather/8c6e54d8f8680e46db4b23a8f8ff1b63.png" alt="image"><br>
+<img src="/images/weather/0dce0b9aa56466a2e620588240ab4369.png" alt="image"></p>
+<h4 id="相关参数-3">相关参数</h4>
 <table>
 <thead>
 <tr>
@@ -833,13 +898,13 @@
 </tr>
 </tbody>
 </table>
-<h1 id="6-色调映射"><a class="markdownIt-Anchor" href="#6-色调映射"></a> 6 色调映射</h1>
+<h1>6 色调映射</h1>
 <p>将HDR值精确映射到LDR是现代游戏渲染流程的重要组成部分。我们新渲染器的目标之一是用一种电影色调映射曲线替代Reinhard的映射曲线。我们尝试了Ucharted 2的一种曲线，并试着自己创建了一种曲线，但对这两种解决方案都不满意。最后，我们选择了ACES的曲线，它是Unreal Engine 4中默认的色调映射曲线。</p>
 <p>ACES色彩编码系统旨在无缝处理彩色图像，无论输入或输出的颜色空间如何。它还包含了一个精心设计的电影曲线，用于在LDR输出设备上显示HDR图像。对于游戏来说，完全整合ACES可能有些过度，但可以只采样ODT（RRT（x））变换，并将简单的曲线拟合到这些数据上。我们甚至不需要运行任何ACES代码，因为ACES为所有变换提供了参考图像。尽管没有线性RGB D65 ODT变换，但我们可以使用REC709 D65，并从中去除2.4的伽马校正。 拟合曲线的HLSL源代码 :</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">float3 **aces_film**(float3 x)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line"><span class="type">float</span> a = <span class="number">2.51</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">float</span> b = <span class="number">0.03</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">float</span> c = <span class="number">2.43</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">float</span> d = <span class="number">0.59</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">float</span> e = <span class="number">0.14</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> **clamp**((x \* (a \* x + b)) / (x \* (c \* x + d) + e), <span class="number">0.0</span>, <span class="number">1.0</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>曲线是手动拟合的（最大适应误差：0.0138），以便在暗部更精确，毕竟之后我们还会应用一些伽马校正。此外，数据经过预曝光处理，所以输入为1时，输出约为0.8，从而使得结果图像的亮度与没有任何色调映射曲线的图像更加一致。对于原始的ACES曲线，只需将输入（x）乘以0.6。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">float3 **gamma_correction**(float3 color, <span class="type">float</span> gamma)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> **pow**(**abs**(color), <span class="number">1.0</span> / gamma);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/images/weather/53dd710c97581e0b0b826117806cb6a6.png" alt="image" /></p>
+<p><img src="/images/weather/53dd710c97581e0b0b826117806cb6a6.png" alt="image"></p>
 <p>Fitted curve plotted</p>
 
     </div>
@@ -891,7 +956,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">vv-carrot</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
 
     </div>
@@ -904,10 +969,6 @@
     <span class="toggle-line"></span>
   </div>
   <div class="sidebar-dimmer"></div>
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up fa-lg"></i>
-    <span>0%</span>
-  </div>
   <div class="reading-progress-bar"></div>
 
 <noscript>
@@ -939,7 +1000,7 @@
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/js/third-party/math/mathjax.js"></script>
 
 
