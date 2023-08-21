@@ -84,7 +84,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-笔记"><a href="/categories/" rel="section"><i class="fa fa-book fa-fw"></i>笔记</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">13</span></a></li><li class="menu-item menu-item-相册"><a href="/gallery/" rel="section"><i class="fa fa-camera-retro fa-fw"></i>相册</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-笔记"><a href="/categories/" rel="section"><i class="fa fa-book fa-fw"></i>笔记</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">20</span></a></li><li class="menu-item menu-item-相册"><a href="/gallery/" rel="section"><i class="fa fa-camera-retro fa-fw"></i>相册</a></li>
   </ul>
 </nav>
 
@@ -121,17 +121,17 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">20</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -152,6 +152,781 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://vv-carrot.github.io/2023/06/26/UE4%E7%A0%B4%E7%A2%8E%E6%95%88%E6%9E%9C%E5%AE%9E%E7%8E%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="vv-carrot">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="VV's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | VV's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/06/26/UE4%E7%A0%B4%E7%A2%8E%E6%95%88%E6%9E%9C%E5%AE%9E%E7%8E%B0/" class="post-title-link" itemprop="url">UE4实现破碎效果</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-06-26 16:58:22" itemprop="dateCreated datePublished" datetime="2023-06-26T16:58:22+08:00">2023-06-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-07-13 19:39:48" itemprop="dateModified" datetime="2023-07-13T19:39:48+08:00">2023-07-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%B8%B8%E6%88%8F%E7%A8%8B%E5%BA%8F%E7%9B%B8%E5%85%B3/" itemprop="url" rel="index"><span itemprop="name">游戏程序相关</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.7k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <meta name="referrer" content="no-referrer">
+> 重新整理先前本科做过的一些文档。
+<p>老师特别不推荐直接使用插件去完成实验，所以写了很多，很啰嗦。</p>
+<h2 id="一-实验要求"><a class="markdownIt-Anchor" href="#一-实验要求"></a> 一、实验要求</h2>
+<p>目的：  熟悉Mesh的概念，能自由利用Mesh数据。<br>
+要求：  编写一个脚本，实现对mesh的破碎效果。<br>
+Dalao作品示例↓：（不是我的！！不是我的—）<br>
+<img src="https://img-blog.csdnimg.cn/20210322192351691.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/06/26/UE4%E7%A0%B4%E7%A2%8E%E6%95%88%E6%9E%9C%E5%AE%9E%E7%8E%B0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://vv-carrot.github.io/2023/06/26/UE4%E9%BC%A0%E6%A0%87%E6%82%AC%E5%81%9C%E7%82%B9%E5%87%BB%E6%95%88%E6%9E%9C%E5%AE%9E%E7%8E%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="vv-carrot">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="VV's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | VV's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/06/26/UE4%E9%BC%A0%E6%A0%87%E6%82%AC%E5%81%9C%E7%82%B9%E5%87%BB%E6%95%88%E6%9E%9C%E5%AE%9E%E7%8E%B0/" class="post-title-link" itemprop="url">UE4鼠标悬停点击效果实现</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-06-26 16:56:20" itemprop="dateCreated datePublished" datetime="2023-06-26T16:56:20+08:00">2023-06-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-07-13 19:39:55" itemprop="dateModified" datetime="2023-07-13T19:39:55+08:00">2023-07-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%B8%B8%E6%88%8F%E7%A8%8B%E5%BA%8F%E7%9B%B8%E5%85%B3/" itemprop="url" rel="index"><span itemprop="name">游戏程序相关</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.9k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>7 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <meta name="referrer" content="no-referrer">
+> 重新整理先前本科做过的一些文档。
+<p>这个实验做的太艰难了，因为我的电脑已经不太能带的动UE4了，c++代码只要有错误，编译一次要20多分钟。</p>
+<h2 id="一-实验要求"><a class="markdownIt-Anchor" href="#一-实验要求"></a> 一、实验要求</h2>
+<p>目的：  3D Interaction。<br>
+要求：  鼠标操作3D空间物体。<br>
+必备：悬停高亮<br>
+左键拖拽<br>
+右键旋转<br>
+作品示例↓：<br>
+<img src="https://img-blog.csdnimg.cn/20210322194453170.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjQyNzY1,size_16,color_FFFFFF,t_70" alt></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/06/26/UE4%E9%BC%A0%E6%A0%87%E6%82%AC%E5%81%9C%E7%82%B9%E5%87%BB%E6%95%88%E6%9E%9C%E5%AE%9E%E7%8E%B0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://vv-carrot.github.io/2023/06/26/unity%E6%97%A0%E9%99%90%E5%9C%B0%E5%BD%A2%E7%94%9F%E6%88%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="vv-carrot">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="VV's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | VV's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/06/26/unity%E6%97%A0%E9%99%90%E5%9C%B0%E5%BD%A2%E7%94%9F%E6%88%90/" class="post-title-link" itemprop="url">Unity无限地形生成及玩家控制</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-06-26 16:47:07" itemprop="dateCreated datePublished" datetime="2023-06-26T16:47:07+08:00">2023-06-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-07-13 19:40:01" itemprop="dateModified" datetime="2023-07-13T19:40:01+08:00">2023-07-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%B8%B8%E6%88%8F%E7%A8%8B%E5%BA%8F%E7%9B%B8%E5%85%B3/" itemprop="url" rel="index"><span itemprop="name">游戏程序相关</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <meta name="referrer" content="no-referrer">
+> 重新整理先前本科做过的一些文档。
+<p>这次实验主要实现了<strong>无限地形的生成</strong>和很常见的<strong>玩家控制</strong>，<strong>相机跟随</strong>，<strong>雾区设置</strong>，<strong>unity简单计时器的制作</strong>。<br>
+素材都是直接在unity asset store 免费下载的。</p>
+<h2 id="一-实验要求"><a class="markdownIt-Anchor" href="#一-实验要求"></a> 一、实验要求</h2>
+<p>目的：户外场景构建。<br>
+要求：构建一个户外开放世界游戏，为该游戏添加天空，地形，植物，并支持场景里自由漫游。<br>
+沿着任意方向持续行走1分钟，不能跑到边界。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/06/26/unity%E6%97%A0%E9%99%90%E5%9C%B0%E5%BD%A2%E7%94%9F%E6%88%90/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://vv-carrot.github.io/2023/06/10/weather/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="vv-carrot">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="VV's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | VV's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/06/10/weather/" class="post-title-link" itemprop="url">天光控制系统文档介绍</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-06-10 14:46:55" itemprop="dateCreated datePublished" datetime="2023-06-10T14:46:55+08:00">2023-06-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-07-11 19:02:47" itemprop="dateModified" datetime="2023-07-11T19:02:47+08:00">2023-07-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Weather/" itemprop="url" rel="index"><span itemprop="name">Weather</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>9.8k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>36 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="1-天光控制系统"><a class="markdownIt-Anchor" href="#1-天光控制系统"></a> 1 天光控制系统</h1>
+<p>本文档会简单介绍天光控制系统中天气参数的获取与天体参数的计算，相关参数的调节效果等。</p>
+<blockquote>
+<p><strong>工作目标</strong><br>
+天气控制系统负责根据APP的真实气象参数（云、能见度、天气气象、空气湿度、PM2.5、风力等），确实其余各系统（天光系统、云雾模型系统、粒子系统、特效渲染系统等）的参数。天气控制系统的功能包括：<br>
+1. 手动指定或者从公开天气API的网站上自动下载当前某地的天气数据。<br>
+2. 通过天气数据，根据一定的算法，生成各渲染模块需要的渲染参数。<br>
+3. 当天气参数改变时，需要能够平滑处理渲染参数从旧值到新值的变化（制作一个逐帧插值的动画效果）。</p>
+</blockquote>
+<h2 id="11天气信息获取"><a class="markdownIt-Anchor" href="#11天气信息获取"></a> 1.1天气信息获取</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/06/10/weather/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://vv-carrot.github.io/2023/06/10/%E7%BB%86%E8%83%9E%E8%87%AA%E5%8A%A8%E6%9C%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="vv-carrot">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="VV's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | VV's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/06/10/%E7%BB%86%E8%83%9E%E8%87%AA%E5%8A%A8%E6%9C%BA/" class="post-title-link" itemprop="url">细胞自动机</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-06-10 14:37:17" itemprop="dateCreated datePublished" datetime="2023-06-10T14:37:17+08:00">2023-06-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-07-28 16:49:17" itemprop="dateModified" datetime="2023-07-28T16:49:17+08:00">2023-07-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%BA%92%E5%8A%A8%E5%AA%92%E4%BD%93%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">互动媒体技术</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>9 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <hr>
+<p>整理了本科一些小demo的文档。</p>
+<hr>
+<hr>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/06/10/%E7%BB%86%E8%83%9E%E8%87%AA%E5%8A%A8%E6%9C%BA/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://vv-carrot.github.io/2023/06/10/%E5%88%86%E5%BD%A2%E5%8F%8A%E5%85%B6%E9%9F%B3%E9%A2%91%E5%8F%AF%E8%A7%86%E5%8C%96%E5%BA%94%E7%94%A8%E5%91%88%E7%8E%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="vv-carrot">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="VV's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | VV's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/06/10/%E5%88%86%E5%BD%A2%E5%8F%8A%E5%85%B6%E9%9F%B3%E9%A2%91%E5%8F%AF%E8%A7%86%E5%8C%96%E5%BA%94%E7%94%A8%E5%91%88%E7%8E%B0/" class="post-title-link" itemprop="url">分形及其音频可视化应用呈现</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-06-10 14:37:17" itemprop="dateCreated datePublished" datetime="2023-06-10T14:37:17+08:00">2023-06-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-07-28 16:49:48" itemprop="dateModified" datetime="2023-07-28T16:49:48+08:00">2023-07-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%BA%92%E5%8A%A8%E5%AA%92%E4%BD%93%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">互动媒体技术</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>8 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <hr>
+<p>整理了本科一些小demo的文档。</p>
+<hr>
+<hr>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/06/10/%E5%88%86%E5%BD%A2%E5%8F%8A%E5%85%B6%E9%9F%B3%E9%A2%91%E5%8F%AF%E8%A7%86%E5%8C%96%E5%BA%94%E7%94%A8%E5%91%88%E7%8E%B0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://vv-carrot.github.io/2023/06/10/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="vv-carrot">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="VV's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | VV's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/06/10/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-06-10 14:37:17" itemprop="dateCreated datePublished" datetime="2023-06-10T14:37:17+08:00">2023-06-10</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>78</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="quick-start"><a class="markdownIt-Anchor" href="#quick-start"></a> Quick Start</h2>
+<h3 id="create-a-new-post"><a class="markdownIt-Anchor" href="#create-a-new-post"></a> Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/06/10/hello-world/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -210,6 +985,21 @@
     </span>
 
   
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>7.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>26 分钟</span>
+    </span>
 </div>
 
         </div>
@@ -219,10 +1009,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1>Graphics Pipeline</h1>
-<p>本文为看龚大的系列视频 ·上帝视角看GPU·的笔记整理。<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1P44y1V7bu/?share_source=copy_web&amp;vd_source=9cb509c01f95d263c750fa9816649bfe">上帝视角看GPU（1）：图形流水线基础_哔哩哔哩_bilibili</a></p>
-<h1>1. 图形流水线</h1>
-<h2 id="帧缓存"><strong>帧缓存</strong></h2>
+          <h1 id="graphics-pipeline"><a class="markdownIt-Anchor" href="#graphics-pipeline"></a> Graphics Pipeline</h1>
+<p>本文为看龚大的系列视频 ·上帝视角看GPU·的笔记整理。<br>
+<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1P44y1V7bu/?share_source=copy_web&amp;vd_source=9cb509c01f95d263c750fa9816649bfe">上帝视角看GPU（1）：图形流水线基础_哔哩哔哩_bilibili</a></p>
+<h1 id="1-图形流水线"><a class="markdownIt-Anchor" href="#1-图形流水线"></a> 1. 图形流水线</h1>
+<h2 id="帧缓存"><a class="markdownIt-Anchor" href="#帧缓存"></a> <strong>帧缓存</strong></h2>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2023/06/10/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/#more" rel="contents">
@@ -289,6 +1080,13 @@
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-08-11 17:34:34" itemprop="dateModified" datetime="2023-08-11T17:34:34+08:00">2023-08-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
       <span class="post-meta-item-text">分类于</span>
@@ -298,6 +1096,21 @@
     </span>
 
   
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.8k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>14 分钟</span>
+    </span>
 </div>
 
         </div>
@@ -307,7 +1120,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>整理了本科一些小demo的文档。</p>
+          <p>整理了本科一些小demo的文档。(这个文档有四十多张图，可以说当时为了混工作量真的很努力了…很多动态看上去效果也不如实际运行好，所以整理的时候动图改成普通图片了QAQ。)</p>
 <hr>
 <p><em>建议运行尝试，这里的截图效果一般。</em></p>
 <hr>
@@ -393,6 +1206,21 @@
     </span>
 
   
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>15 分钟</span>
+    </span>
 </div>
 
         </div>
@@ -403,9 +1231,9 @@
     
     <div class="post-body" itemprop="articleBody">
           <hr>
-<h2 id="整理了本科一些小demo的文档。">整理了本科一些小demo的文档。</h2>
+<h2 id="整理了本科一些小demo的文档"><a class="markdownIt-Anchor" href="#整理了本科一些小demo的文档"></a> 整理了本科一些小demo的文档。</h2>
 <p><em>这部分文档主要展示了自己做出的一些比较拿得出手的效果。剩下还实现了一些数组生成函数比如sin，noise等基础的效果没有特别记录。</em></p>
-<h1><strong>一.数组</strong></h1>
+<h1 id="一数组"><a class="markdownIt-Anchor" href="#一数组"></a> <strong>一.数组</strong></h1>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2023/06/10/A1-%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB%E6%96%87%E6%A1%A3/#more" rel="contents">
@@ -450,6 +1278,22 @@
   </span>
   <span class="author" itemprop="copyrightHolder">vv-carrot</span>
 </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">60k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:37</span>
+  </span>
+</div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
 
@@ -480,7 +1324,7 @@
   <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js","integrity":"sha256-tu9j5pBilBQrWSDePOOajCUdz6hWsid/lBNzK4KgEPM="},"url":"/lib/pdf/web/viewer.html"}</script>
   <script src="/js/third-party/tags/pdf.js"></script>
 
-  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"forest","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"version":"10.3.1","theme":{"light":"neutral","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
   <script src="/js/third-party/tags/mermaid.js"></script>
 
   <script src="/js/third-party/fancybox.js"></script>

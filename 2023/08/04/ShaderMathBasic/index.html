@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"vv-carrot.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Shader数学基础 1. 笛卡尔坐标系 二维坐标系OpenGL的原点在屏幕左下方，而DX的原点在屏幕左上方。   相关概念  基矢量：坐标系的三个坐标轴； 标准正交基：三个坐标轴相互垂直，长度为1； 正交基：相互垂直但长度不为1； 左手坐标系&#x2F;右手坐标系：拇指x，食指y，中指z；">
+    <meta name="description" content="Shader数学基础  1. 笛卡尔坐标系 二维坐标系OpenGL的原点在屏幕左下方，而DX的原点在屏幕左上方。  相关概念  基矢量：坐标系的三个坐标轴； 标准正交基：三个坐标轴相互垂直，长度为1； 正交基：相互垂直但长度不为1； 左手坐标系&#x2F;右手坐标系：拇指x，食指y，中指z； 在Unity中，模型空间使用的是左手坐标系，观察空间使用的是右手坐标系；">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Shader数学基础">
 <meta property="og:url" content="https://vv-carrot.github.io/2023/08/04/ShaderMathBasic/index.html">
 <meta property="og:site_name" content="VV&#39;s Blog">
-<meta property="og:description" content="Shader数学基础 1. 笛卡尔坐标系 二维坐标系OpenGL的原点在屏幕左下方，而DX的原点在屏幕左上方。   相关概念  基矢量：坐标系的三个坐标轴； 标准正交基：三个坐标轴相互垂直，长度为1； 正交基：相互垂直但长度不为1； 左手坐标系&#x2F;右手坐标系：拇指x，食指y，中指z；">
+<meta property="og:description" content="Shader数学基础  1. 笛卡尔坐标系 二维坐标系OpenGL的原点在屏幕左下方，而DX的原点在屏幕左上方。  相关概念  基矢量：坐标系的三个坐标轴； 标准正交基：三个坐标轴相互垂直，长度为1； 正交基：相互垂直但长度不为1； 左手坐标系&#x2F;右手坐标系：拇指x，食指y，中指z； 在Unity中，模型空间使用的是左手坐标系，观察空间使用的是右手坐标系；">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://vv-carrot.github.io/images/ShaderMathBasic/Untitled.jpeg">
 <meta property="og:image" content="https://vv-carrot.github.io/images/ShaderMathBasic/Untitled%201.jpeg">
@@ -46,7 +46,7 @@
 <meta property="og:image" content="https://vv-carrot.github.io/images/ShaderMathBasic/Untitled%204.png">
 <meta property="og:image" content="https://vv-carrot.github.io/images/ShaderMathBasic/Untitled%205.png">
 <meta property="article:published_time" content="2023-08-04T10:33:55.842Z">
-<meta property="article:modified_time" content="2023-08-06T17:50:30.232Z">
+<meta property="article:modified_time" content="2023-08-19T09:21:02.676Z">
 <meta property="article:author" content="vv-carrot">
 <meta property="article:tag" content="Rendering">
 <meta property="article:tag" content="Math">
@@ -110,7 +110,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-笔记"><a href="/categories/" rel="section"><i class="fa fa-book fa-fw"></i>笔记</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">13</span></a></li><li class="menu-item menu-item-相册"><a href="/gallery/" rel="section"><i class="fa fa-camera-retro fa-fw"></i>相册</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-笔记"><a href="/categories/" rel="section"><i class="fa fa-book fa-fw"></i>笔记</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">20</span></a></li><li class="menu-item menu-item-相册"><a href="/gallery/" rel="section"><i class="fa fa-camera-retro fa-fw"></i>相册</a></li>
   </ul>
 </nav>
 
@@ -135,7 +135,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">Shader数学基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB"><span class="nav-number">1.1.</span> <span class="nav-text">1. 笛卡尔坐标系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E7%82%B9%E5%92%8C%E7%9F%A2%E9%87%8F"><span class="nav-number">1.2.</span> <span class="nav-text">2. 点和矢量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E7%9F%A9%E9%98%B5"><span class="nav-number">1.3.</span> <span class="nav-text">3. 矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4"><span class="nav-number">1.4.</span> <span class="nav-text">4. 坐标空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E6%B3%95%E7%BA%BF%E5%8F%98%E6%8D%A2"><span class="nav-number">1.5.</span> <span class="nav-text">5. 法线变换</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">Shader基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#vert-frag%E5%9F%BA%E7%A1%80"><span class="nav-number">2.1.</span> <span class="nav-text">vert&#x2F;frag基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E6%95%B0%E6%8D%AE"><span class="nav-number">2.2.</span> <span class="nav-text">模型数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vert-frag%E9%80%9A%E4%BF%A1"><span class="nav-number">2.3.</span> <span class="nav-text">vert&#x2F;frag通信</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">属性使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">Unity内置文件和变量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">5.</span> <span class="nav-text">Unity提供的CG&#x2F;HLSL语义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">6.</span> <span class="nav-text">Shader Debug</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">7.</span> <span class="nav-text">Unity基础光照</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#shader%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text"> Shader数学基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB"><span class="nav-number">1.1.</span> <span class="nav-text"> 1. 笛卡尔坐标系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E7%82%B9%E5%92%8C%E7%9F%A2%E9%87%8F"><span class="nav-number">1.2.</span> <span class="nav-text"> 2. 点和矢量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E7%9F%A9%E9%98%B5"><span class="nav-number">1.3.</span> <span class="nav-text"> 3. 矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%9D%90%E6%A0%87%E7%A9%BA%E9%97%B4"><span class="nav-number">1.4.</span> <span class="nav-text"> 4. 坐标空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E6%B3%95%E7%BA%BF%E5%8F%98%E6%8D%A2"><span class="nav-number">1.5.</span> <span class="nav-text"> 5. 法线变换</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#shader%E5%9F%BA%E7%A1%80"><span class="nav-number">2.</span> <span class="nav-text"> Shader基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#vertfrag%E5%9F%BA%E7%A1%80"><span class="nav-number">2.1.</span> <span class="nav-text"> vert&#x2F;frag基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E6%95%B0%E6%8D%AE"><span class="nav-number">2.2.</span> <span class="nav-text"> 模型数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vertfrag%E9%80%9A%E4%BF%A1"><span class="nav-number">2.3.</span> <span class="nav-text"> vert&#x2F;frag通信</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E4%BD%BF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text"> 属性使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#unity%E5%86%85%E7%BD%AE%E6%96%87%E4%BB%B6%E5%92%8C%E5%8F%98%E9%87%8F"><span class="nav-number">4.</span> <span class="nav-text"> Unity内置文件和变量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#unity%E6%8F%90%E4%BE%9B%E7%9A%84cghlsl%E8%AF%AD%E4%B9%89"><span class="nav-number">5.</span> <span class="nav-text"> Unity提供的CG&#x2F;HLSL语义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#shader-debug"><span class="nav-number">6.</span> <span class="nav-text"> Shader Debug</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#unity%E5%9F%BA%E7%A1%80%E5%85%89%E7%85%A7"><span class="nav-number">7.</span> <span class="nav-text"> Unity基础光照</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -148,17 +148,17 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">20</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -225,7 +225,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-08-07 01:50:30" itemprop="dateModified" datetime="2023-08-07T01:50:30+08:00">2023-08-07</time>
+      <time title="修改时间：2023-08-19 17:21:02" itemprop="dateModified" datetime="2023-08-19T17:21:02+08:00">2023-08-19</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -238,6 +238,21 @@
     </span>
 
   
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>11 分钟</span>
+    </span>
 </div>
 
         </div>
@@ -246,185 +261,180 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1>Shader数学基础</h1>
-<h2 id="1-笛卡尔坐标系">1. 笛卡尔坐标系</h2>
+    <div class="post-body" itemprop="articleBody"><h1 id="shader数学基础"><a class="markdownIt-Anchor" href="#shader数学基础"></a> Shader数学基础</h1>
+<h2 id="1-笛卡尔坐标系"><a class="markdownIt-Anchor" href="#1-笛卡尔坐标系"></a> 1. 笛卡尔坐标系</h2>
 <p>二维坐标系OpenGL的原点在屏幕左下方，而DX的原点在屏幕左上方。</p>
 <ol>
-<li class="lvl-3">
-<p><strong>相关概念</strong></p>
+<li><strong>相关概念</strong>
 <ol>
-<li class="lvl-7">基矢量：坐标系的三个坐标轴；</li>
-<li class="lvl-7">标准正交基：三个坐标轴相互垂直，长度为1；</li>
-<li class="lvl-7">正交基：相互垂直但长度不为1；</li>
-<li class="lvl-7">左手坐标系/右手坐标系：拇指x，食指y，中指z；</li>
+<li>基矢量：坐标系的三个坐标轴；</li>
+<li>标准正交基：三个坐标轴相互垂直，长度为1；</li>
+<li>正交基：相互垂直但长度不为1；</li>
+<li>左手坐标系/右手坐标系：拇指x，食指y，中指z；</li>
+<li>在Unity中，模型空间使用的是左手坐标系，观察空间使用的是右手坐标系；</li>
 </ol>
 </li>
 </ol>
 <span id="more"></span>
-<pre><code>5. 在Unity中，模型空间使用的是左手坐标系，观察空间使用的是右手坐标系；
-</code></pre>
-<h2 id="2-点和矢量">2. 点和矢量</h2>
+<h2 id="2-点和矢量"><a class="markdownIt-Anchor" href="#2-点和矢量"></a> 2. 点和矢量</h2>
 <ol>
-<li class="lvl-3">
+<li>
 <p><strong>相关概念</strong></p>
 <ol>
-<li class="lvl-7">点：代表n维空间中的一个位置；</li>
-<li class="lvl-7">矢量：包含模和方向；通常被用于表示相对于某个点的偏移；</li>
-<li class="lvl-7">矢量点积（内积）：点积是把两个矢量对应分量相乘后再取和，最后结果是标量；点积的几何意义是投影；a点乘b相当于计算b在a方向上的投影，然后在乘上a的模；</li>
-<li class="lvl-7">矢量叉积（外积）：叉积的结果是矢量； |axb|=|a||b|Sinθ；平行四边形面积；常应用于计算垂直于一个平面，三角形的矢量，判断三角形面片的朝向；</li>
-<li class="lvl-7">叉积相关计算公式👇：</li>
+<li>点：代表n维空间中的一个位置；</li>
+<li>矢量：包含模和方向；通常被用于表示相对于某个点的偏移；</li>
+<li>矢量点积（内积）：点积是把两个矢量对应分量相乘后再取和，最后结果是标量；点积的几何意义是投影；a点乘b相当于计算b在a方向上的投影，然后在乘上a的模；</li>
+<li>矢量叉积（外积）：叉积的结果是矢量； |axb|=|a||b|Sinθ；平行四边形面积；常应用于计算垂直于一个平面，三角形的矢量，判断三角形面片的朝向；</li>
+<li>叉积相关计算公式👇：</li>
 </ol>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44120025/article/details/120399358">叉积（向量积、外积）的运算法则及其与点积（数量积、内积）的混合运算_叉积计算公式_zeeq_的博客-CSDN博客</a></p>
 </li>
 </ol>
-<h2 id="3-矩阵">3. 矩阵</h2>
+<h2 id="3-矩阵"><a class="markdownIt-Anchor" href="#3-矩阵"></a> 3. 矩阵</h2>
 <ol>
-<li class="lvl-3">
-<p><strong>相关概念</strong></p>
+<li><strong>相关概念</strong>
 <ol>
-<li class="lvl-7">方块矩阵：行列数目相等；</li>
-<li class="lvl-7">对角矩阵：除了对角线外其余所有元素为0；</li>
-<li class="lvl-7">单位矩阵I：对角矩阵，且对角线元素为1；</li>
-<li class="lvl-7">转置矩阵：对原矩阵进行转置运算；(AB)T=BTAT;</li>
-<li class="lvl-7">逆矩阵：如果有一个逆矩阵，则这个矩阵可逆；矩阵的行列式不为0，则该矩阵可逆；MM-1=M-1M=I；（M-1）T=（MT）-1;   (AB)-1=B-1A-1;</li>
-<li class="lvl-7">正交矩阵：一个矩阵和它的转置矩阵的乘积是单位矩阵；M-1=MT；正交矩阵的每一行都应该是单位矢量，这样它们与自己的乘积才能为1，且行彼此之间相互垂直，这样与彼此的乘积才能为0；</li>
-<li class="lvl-7">正交基：一组基矢量之间相互垂直；</li>
-<li class="lvl-7">标准正交基：满足正交基的情况下矢量的模为1；</li>
-<li class="lvl-7">行矩阵/列矩阵：矩阵乘法次序对运算复杂度有影响，矩阵乘法不满足交换律，在Unity中一般都把矢量放在矩阵的右侧，把矢量转换成列矩阵来运算；</li>
+<li>方块矩阵：行列数目相等；</li>
+<li>对角矩阵：除了对角线外其余所有元素为0；</li>
+<li>单位矩阵I：对角矩阵，且对角线元素为1；</li>
+<li>转置矩阵：对原矩阵进行转置运算；(AB)T=BTAT;</li>
+<li>逆矩阵：如果有一个逆矩阵，则这个矩阵可逆；矩阵的行列式不为0，则该矩阵可逆；MM-1=M-1M=I；（M-1）T=（MT）-1;   (AB)-1=B-1A-1;</li>
+<li>正交矩阵：一个矩阵和它的转置矩阵的乘积是单位矩阵；M-1=MT；正交矩阵的每一行都应该是单位矢量，这样它们与自己的乘积才能为1，且行彼此之间相互垂直，这样与彼此的乘积才能为0；</li>
+<li>正交基：一组基矢量之间相互垂直；</li>
+<li>标准正交基：满足正交基的情况下矢量的模为1；</li>
+<li>行矩阵/列矩阵：矩阵乘法次序对运算复杂度有影响，矩阵乘法不满足交换律，在Unity中一般都把矢量放在矩阵的右侧，把矢量转换成列矩阵来运算；</li>
 </ol>
 </li>
-<li class="lvl-3">
-<p><strong>矩阵变换的几何意义</strong></p>
+<li><strong>矩阵变换的几何意义</strong>
 <ol>
-<li class="lvl-7">
+<li>
 <p>线性变换：缩放，旋转，错切，镜像，正交投影；</p>
 </li>
-<li class="lvl-7">
+<li>
 <p>仿射变换：线性变换+平移变换；可以使用4x4矩阵来表示，需要把矢量拓展到四维空间下，也就是齐次坐标空间 ;</p>
 </li>
-<li class="lvl-7">
+<li>
 <p>齐次坐标：四维矢量，点的w为1，向量的w为0；对于一个点，平移，缩放，旋转效果都能够施加上，然而对于方向向量，平移的效果就会被忽略；</p>
-<p><img src="/images/ShaderMathBasic/Untitled.jpeg" alt="Image"></p>
+<p><img src="/images/ShaderMathBasic/Untitled.jpeg" alt="Image" /></p>
 </li>
-<li class="lvl-7">
+<li>
 <p>复合变换：缩放-旋转-平移；</p>
 <ol>
-<li class="lvl-11">变换的次序不同，得到的变化结果也是不同的；</li>
-<li class="lvl-11">旋转变化：unity中的旋转变化默认是zxy变化，即按照坐标系E的z，y，x轴进行变化；</li>
+<li>变换的次序不同，得到的变化结果也是不同的；</li>
+<li>旋转变化：unity中的旋转变化默认是zxy变化，即按照坐标系E的z，y，x轴进行变化；</li>
 </ol>
 </li>
 </ol>
 </li>
 </ol>
-<h2 id="4-坐标空间">4. 坐标空间</h2>
-<p><img src="/images/ShaderMathBasic/Untitled%201.jpeg" alt="Image"></p>
+<h2 id="4-坐标空间"><a class="markdownIt-Anchor" href="#4-坐标空间"></a> 4. 坐标空间</h2>
+<p><img src="/images/ShaderMathBasic/Untitled%201.jpeg" alt="Image" /></p>
 <ol>
-<li class="lvl-3">
-<p><strong>相关概念</strong></p>
+<li><strong>相关概念</strong>
 <ol>
-<li class="lvl-7">
+<li>
 <p>定义坐标空间需要一个原点和三个坐标轴方向，而这是基于另一个坐标空间的，即每个坐标空间都是另一个坐标空间的子空间；</p>
 </li>
-<li class="lvl-7">
+<li>
 <p>子坐标空间c到父坐标空间p的转换计算可以总结为：</p>
-<p><img src="/images/ShaderMathBasic/Untitled%202.jpeg" alt="Image"></p>
+<p><img src="/images/ShaderMathBasic/Untitled%202.jpeg" alt="Image" /></p>
 </li>
-<li class="lvl-7">
+<li>
 <p>对矢量的坐标空间变换可以仅用3x3矩阵表示，因为矢量是没有位置的不需要平移变换；unity中经常使用变换矩阵的前三行前三列来对法线方向，光照方向进行空间变化；</p>
 </li>
-<li class="lvl-7">
+<li>
 <p>如果变换矩阵Mcp正交，那么可以由其转置直接获得Mpc，进而获得xp，yp，zp向量；即在矩阵中读取列表示前一个坐标空间的方向轴，读取行表示后一个坐标空间的方向轴；</p>
-<p><img src="/images/ShaderMathBasic/Untitled%203.jpeg" alt="Image"></p>
+<p><img src="/images/ShaderMathBasic/Untitled%203.jpeg" alt="Image" /></p>
 </li>
-<li class="lvl-7">
+<li>
 <p>模型空间：unity的模型空间是左手坐标系；由美术人员在建模软件中确定好位置；</p>
 </li>
-<li class="lvl-7">
+<li>
 <p>世界空间：unity通过transform修改position改变模型的位置，位置值是相对transform父节点的，如果没有父节点，则位置为世界坐标系中的位置；</p>
 </li>
-<li class="lvl-7">
+<li>
 <p>观察空间：不同于屏幕空间的二维，观察空间是一个三维空间，unity在观察空间中使用右手坐标系，这也是符合OpenGL传统的，摄像机的正前方指向的是-z方向；</p>
 </li>
-<li class="lvl-7">
+<li>
 <p><strong>裁剪空间</strong>：也称齐次裁剪空间，位于裁剪空间内的图元会被保留，为投影操作进行准备，视锥体有正交投影和透视投影两种；在unity中，裁剪空间到屏幕空间是unity直接帮忙完成的，所以unity中只需要把模型空间转到裁剪空间即可；</p>
 </li>
-<li class="lvl-7">
+<li>
 <p>**屏幕空间：**完成裁剪工作之后，需要把视锥体投影到屏幕空间，经过投影，可以获得真正的像素位置，而不是虚拟的三维坐标；使用透视除法（xyz/w）获得标准设备坐标NDC，在OpenGL中，xyz范围都为-1到1，而在DX中，z的范围是0到1；</p>
-<p><img src="/images/ShaderMathBasic/Untitled%204.jpeg" alt="Image"></p>
+<p><img src="/images/ShaderMathBasic/Untitled%204.jpeg" alt="Image" /></p>
 </li>
-<li class="lvl-8">
+<li>
 <p>模型变换：模型空间→世界空间；</p>
 </li>
-<li class="lvl-8">
+<li>
 <p>观察变换：世界空间→观察空间；观察相机在世界坐标系中的变化，进行逆变换后对z坐标进行取反操作即可获得变换矩阵；</p>
 </li>
-<li class="lvl-8">
+<li>
 <p><strong>透视投影变换</strong>：投影变换没有真正的进行投影，而是为投影做准备，透视投影将相机空间中的点从视锥体(frustum)变换到规则观察体(Canonical View Volume)中（对xyz分量进行了不同程度的缩放，z坐标还做了平移变换）。投影变换以后如果顶点在视锥体内，则其坐标必须满足：-w ≤ x/y/z ≤ w;</p>
-<p><img src="/images/ShaderMathBasic/Untitled%205.jpeg" alt="Image"></p>
-<p><img src="/images/ShaderMathBasic/Untitled%206.jpeg" alt="Image"></p>
+<p><img src="/images/ShaderMathBasic/Untitled%205.jpeg" alt="Image" /></p>
+<p><img src="/images/ShaderMathBasic/Untitled%206.jpeg" alt="Image" /></p>
 </li>
-<li class="lvl-8">
+<li>
 <p>**正交投影变换：**使用正交投影矩阵对顶点进行变换后，其w分量仍然为1，本质是因为投影矩阵的最后一行不同（0 0 -1 0）和（0 0 0 1）</p>
-<p><img src="/images/ShaderMathBasic/Untitled%207.jpeg" alt="Image"></p>
-<p><img src="/images/ShaderMathBasic/Untitled%208.jpeg" alt="Image"></p>
+<p><img src="/images/ShaderMathBasic/Untitled%207.jpeg" alt="Image" /></p>
+<p><img src="/images/ShaderMathBasic/Untitled%208.jpeg" alt="Image" /></p>
 </li>
 </ol>
 </li>
 </ol>
-<h2 id="5-法线变换">5. 法线变换</h2>
+<h2 id="5-法线变换"><a class="markdownIt-Anchor" href="#5-法线变换"></a> 5. 法线变换</h2>
 <ol>
-<li class="lvl-3">
+<li>
 <p><strong>相关概念</strong></p>
 <ol>
-<li class="lvl-7">法线（法矢量）</li>
-<li class="lvl-7">切线（切矢量）</li>
-<li class="lvl-7">法线变换：法线变换需要逆切线变换；计算的理论是切线点乘法线结果为0；**用原变化矩阵的逆转置矩阵来变换法线就可以得到正确的结果。**如果顶点的变换矩阵Mab是正交矩阵，则可以直接用Mab（T）=Mab(-1)计算得到Mab的逆转置矩阵为1/K*Mab.</li>
+<li>法线（法矢量）</li>
+<li>切线（切矢量）</li>
+<li>法线变换：法线变换需要逆切线变换；计算的理论是切线点乘法线结果为0；**用原变化矩阵的逆转置矩阵来变换法线就可以得到正确的结果。**如果顶点的变换矩阵Mab是正交矩阵，则可以直接用Mab（T）=Mab(-1)计算得到Mab的逆转置矩阵为1/K*Mab.</li>
 </ol>
-<p><img src="/images/ShaderMathBasic/Untitled%209.jpeg" alt="Image"></p>
+<p><img src="/images/ShaderMathBasic/Untitled%209.jpeg" alt="Image" /></p>
 <ol>
-<li class="lvl-7">
+<li>
 <p>UNITY_MATRIX_MV如果只是进行了旋转变换，那么UNITY_MATRIX_MV是正交矩阵，UNITY_MATRIX_T_MV是其逆矩阵；</p>
-<p><img src="/images/ShaderMathBasic/Untitled%2010.jpeg" alt="Image"></p>
+<p><img src="/images/ShaderMathBasic/Untitled%2010.jpeg" alt="Image" /></p>
 </li>
 </ol>
 </li>
 </ol>
-<h1><strong>Shader基础</strong></h1>
-<h2 id="vert-frag基础">vert/frag基础</h2>
+<h1 id="shader基础"><a class="markdownIt-Anchor" href="#shader基础"></a> <strong>Shader基础</strong></h1>
+<h2 id="vertfrag基础"><a class="markdownIt-Anchor" href="#vertfrag基础"></a> vert/frag基础</h2>
 <figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//编译指令：某个函数包含顶点，片元着色器的代码</span></span><br><span class="line"><span class="meta">#pragma vertex name</span></span><br><span class="line"><span class="meta">#pragma fragment name</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// POSITION与SV_POSITION为CG/HLSL中的语义</span></span><br><span class="line"><span class="comment">// POSITION告诉unity把模型顶点坐标填充到v</span></span><br><span class="line"><span class="comment">// SV_POSITION告诉unity函数输出的是裁剪空间坐标</span></span><br><span class="line">float4 vert(float4 v: POSITION) : SV_POSITION&#123;</span><br><span class="line">	<span class="keyword">return</span> mul(UNITY_MATRIX_MVP, v);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// SV_Target告诉unity把用户输出的颜色存储到渲染目标中</span></span><br><span class="line">fixed4 frag():SV_Target&#123;</span><br><span class="line">	<span class="keyword">return</span> fixed4(<span class="number">1.0</span>,<span class="number">1.0</span>,<span class="number">1.0</span>,<span class="number">1.0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="模型数据">模型数据</h2>
+<h2 id="模型数据"><a class="markdownIt-Anchor" href="#模型数据"></a> 模型数据</h2>
 <figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义模型数据</span></span><br><span class="line">struct a2v&#123;</span><br><span class="line">	float4 vertex:POSITION;</span><br><span class="line">	float3 normal:NORMAL; <span class="comment">//用模型的法线方向填充normal</span></span><br><span class="line">	float4 texcoord:TEXCOORD0; <span class="comment">//用模型的第一套纹理填充texcoord</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//在unity中，顶点着色器支持的输出有POSITION,TANGENT,NORMAL,TEXCOORD0-TEXCOORD3,COLOR等。</span></span><br><span class="line"><span class="comment">//填充到语义中的数据，由mesh render组件将其发送到unity shader。</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="vert-frag通信">vert/frag通信</h2>
+<h2 id="vertfrag通信"><a class="markdownIt-Anchor" href="#vertfrag通信"></a> vert/frag通信</h2>
 <figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用结构体定义vert输出数据</span></span><br><span class="line">struct v2f&#123;</span><br><span class="line">	float4 pos:SV_POSITION;</span><br><span class="line">	fixed3 color:COLOR0; <span class="comment">//COLOR0可以存储颜色信息</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">v2f vert(float4 v: POSITION) : SV_POSITION&#123;</span><br><span class="line">	v2f o;</span><br><span class="line">	o.pos = mul(UNITY_MATRIX_MVP, v.vertex);</span><br><span class="line">	o.color = v.normal * <span class="number">0.5</span> + fixed(<span class="number">0.5</span>,<span class="number">0.5</span>,<span class="number">0.5</span>);</span><br><span class="line">	<span class="keyword">return</span> o;</span><br><span class="line">&#125;</span><br><span class="line">fixed4 frag(v2f i):SV_Target&#123;</span><br><span class="line">	<span class="keyword">return</span> fixed4(i.color,<span class="number">1.0</span>); <span class="comment">//将插值后的i.color显示到屏幕上</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1>属性使用</h1>
+<h1 id="属性使用"><a class="markdownIt-Anchor" href="#属性使用"></a> 属性使用</h1>
 <figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">Shader &quot;xxx&quot;&#123;</span><br><span class="line">    Properties&#123;</span><br><span class="line">        _Color(&quot;Color&quot;, Color) = (<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    SubShader&#123;</span><br><span class="line">        Pass&#123;</span><br><span class="line">            CGPROGRAM</span><br><span class="line">            <span class="meta">#pragma vertex vert</span></span><br><span class="line">            <span class="meta">#pragma fragment frag</span></span><br><span class="line">            <span class="meta">#include &quot;UnityCG.cginc&quot;</span></span><br><span class="line">            <span class="comment">//定义一个属性名称和类型都匹配的变量</span></span><br><span class="line">            fixed4 _Color;</span><br><span class="line">            struct appdata&#123;</span><br><span class="line">                float4 vertex : POSITION;</span><br><span class="line">                float3 normal : NORMAL;</span><br><span class="line">                float4 texcoord : TEXCOORD0;</span><br><span class="line">            &#125;;</span><br><span class="line">            struct v2f&#123;</span><br><span class="line">                float4 vertex : SV_POSITION;</span><br><span class="line">                float4 color : COLOR0;</span><br><span class="line">            &#125;;</span><br><span class="line">            v2f vert(appdata v)&#123;</span><br><span class="line">                v2f o;</span><br><span class="line">                o.vertex = UnityObjectToClipPos(v.vertex);</span><br><span class="line">                o.color = v.normal * <span class="number">0.5</span> + fixed3(<span class="number">0.5</span>,<span class="number">0.5</span>,<span class="number">0.5</span>);</span><br><span class="line">                <span class="keyword">return</span> o;</span><br><span class="line">            &#125;</span><br><span class="line">            fixed4 frag(v2f i) : SV_Target&#123;</span><br><span class="line">                fixed3 c = i.color;</span><br><span class="line">								<span class="comment">//使用_Color属性来控制输出颜色</span></span><br><span class="line">                c*= _Color.rgb;</span><br><span class="line">                <span class="keyword">return</span> fixed4(c,<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            ENDCG</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 也可能在CG变量前出现uniform关键字，这是修饰变量和参数的一种修饰词，仅仅用于提供关于变量的初始值是如何指定的。</span></span><br></pre></td></tr></table></figure>
-<p><img src="/images/ShaderMathBasic/Untitled.png" alt="Image"></p>
-<h1>Unity内置文件和变量</h1>
+<p><img src="/images/ShaderMathBasic/Untitled.png" alt="Image" /></p>
+<h1 id="unity内置文件和变量"><a class="markdownIt-Anchor" href="#unity内置文件和变量"></a> Unity内置文件和变量</h1>
 <figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// unity中有很多内置文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//*********包含文件************</span></span><br><span class="line"><span class="meta">#include &quot;UnityCG.cginc&quot;</span></span><br></pre></td></tr></table></figure>
 <p>在windows中内置文件的位置如下：</p>
 <p>部分文件是不需要include也会自动包含进来的。</p>
-<p><img src="/images/ShaderMathBasic/Untitled%201.png" alt="Image"></p>
-<p><img src="/images/ShaderMathBasic/Untitled%202.png" alt="Image"></p>
-<p><img src="/images/ShaderMathBasic/Untitled%203.png" alt="Image"></p>
-<p><img src="/images/ShaderMathBasic/Untitled%204.png" alt="Image"></p>
-<h1>Unity提供的CG/HLSL语义</h1>
+<p><img src="/images/ShaderMathBasic/Untitled%201.png" alt="Image" /></p>
+<p><img src="/images/ShaderMathBasic/Untitled%202.png" alt="Image" /></p>
+<p><img src="/images/ShaderMathBasic/Untitled%203.png" alt="Image" /></p>
+<p><img src="/images/ShaderMathBasic/Untitled%204.png" alt="Image" /></p>
+<h1 id="unity提供的cghlsl语义"><a class="markdownIt-Anchor" href="#unity提供的cghlsl语义"></a> Unity提供的CG/HLSL语义</h1>
 <p>语义实际就是一个赋给shader的输入输出字符串，这个字符串表达了变量的含义。</p>
 <p>让shader知道在哪里读数据，并把数据输出到哪里。unity没有支持所有的语义。</p>
 <p>从DX10开始出现了一种新的语义类型，即是“<strong>系统数值语义</strong>”，以SV开头，在渲染流水线中具有特殊的含义。</p>
 <p>用这些语义描述的变量是不可以随便赋值的，流水线需要它们来完成特定的目的。</p>
 <p>比如渲染引擎会把SV_POSITION修饰的变量经过光栅化后显示在屏幕上。为了shader有更好的跨平台性，最好特殊含义的变量都用数值语义修饰。</p>
 <p>一个语义可以使用的寄存器只能处理四个浮点值，对于矩阵的处理，可以进行拆分后再处理。</p>
-<h1>Shader Debug</h1>
+<h1 id="shader-debug"><a class="markdownIt-Anchor" href="#shader-debug"></a> Shader Debug</h1>
 <p>vs种的graphics debugger可以对shader进行调试。</p>
 <p>intel gpa，renderdoc，nvidia nsight，amd gpu perfstudio等工具都可以获得帧的信息。</p>
 <p>unity是跨平台的，会在背后帮忙处理dx平台可能出现的纹理翻转问题，当开启抗锯齿的时候unity不会帮忙翻转纹理，此时需要手动操作。</p>
 <figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#if UNITY_UV_STARTS_AT_TOP</span></span><br><span class="line">	<span class="keyword">if</span>(_MainTex_TexelSize.y&lt;<span class="number">0</span>)&#123;</span><br><span class="line">		uv.y=<span class="number">1</span>-uv.y;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="meta">#endif</span></span><br></pre></td></tr></table></figure>
-<p><img src="/images/ShaderMathBasic/Untitled%205.png" alt="Image"></p>
+<p><img src="/images/ShaderMathBasic/Untitled%205.png" alt="Image" /></p>
 <p>remark: 在shader中应该慎用分支和循环语句，这样可以提高shader的性能。</p>
 <p>同时不要在计算中出现除0，这样得到的结果是不可预测的。</p>
-<h1>Unity基础光照</h1>
-<ul class="lvl-0">
-<li class="lvl-2">
+<h1 id="unity基础光照"><a class="markdownIt-Anchor" href="#unity基础光照"></a> Unity基础光照</h1>
+<ul>
+<li>
 <p><strong>标准光照模型BRDF</strong></p>
 <table>
 <thead>
@@ -449,12 +459,12 @@
 </tbody>
 </table>
 </li>
-<li class="lvl-2">
-<p>$C_{ambient}=g_{ambient}$</p>
-<p>$C_{diffuse}=(C_{light}*m_{diffuse})max(0,n.I)$  mdiffuse为漫反射颜色，需避免其余弦值为负数以防止物体被它背后的光源照亮。</p>
-<p>$C_{specular}=(C_{light}*m_{specular})max(0,v.r)^{m_{glass}}$  mglass是材质的反光度，控制亮点的宽度，mpecular是高光颜色，clight是光源颜色和强度。</p>
+<li>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>C</mi><mrow><mi>a</mi><mi>m</mi><mi>b</mi><mi>i</mi><mi>e</mi><mi>n</mi><mi>t</mi></mrow></msub><mo>=</mo><msub><mi>g</mi><mrow><mi>a</mi><mi>m</mi><mi>b</mi><mi>i</mi><mi>e</mi><mi>n</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">C_{ambient}=g_{ambient}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">a</span><span class="mord mathdefault mtight">m</span><span class="mord mathdefault mtight">b</span><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight">n</span><span class="mord mathdefault mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">a</span><span class="mord mathdefault mtight">m</span><span class="mord mathdefault mtight">b</span><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight">n</span><span class="mord mathdefault mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>C</mi><mrow><mi>d</mi><mi>i</mi><mi>f</mi><mi>f</mi><mi>u</mi><mi>s</mi><mi>e</mi></mrow></msub><mo>=</mo><mo stretchy="false">(</mo><msub><mi>C</mi><mrow><mi>l</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi></mrow></msub><mo>∗</mo><msub><mi>m</mi><mrow><mi>d</mi><mi>i</mi><mi>f</mi><mi>f</mi><mi>u</mi><mi>s</mi><mi>e</mi></mrow></msub><mo stretchy="false">)</mo><mi>m</mi><mi>a</mi><mi>x</mi><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><mi>n</mi><mi mathvariant="normal">.</mi><mi>I</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">C_{diffuse}=(C_{light}*m_{diffuse})max(0,n.I)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">d</span><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight" style="margin-right:0.10764em;">f</span><span class="mord mathdefault mtight" style="margin-right:0.10764em;">f</span><span class="mord mathdefault mtight">u</span><span class="mord mathdefault mtight">s</span><span class="mord mathdefault mtight">e</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight" style="margin-right:0.03588em;">g</span><span class="mord mathdefault mtight">h</span><span class="mord mathdefault mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">d</span><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight" style="margin-right:0.10764em;">f</span><span class="mord mathdefault mtight" style="margin-right:0.10764em;">f</span><span class="mord mathdefault mtight">u</span><span class="mord mathdefault mtight">s</span><span class="mord mathdefault mtight">e</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mord mathdefault">m</span><span class="mord mathdefault">a</span><span class="mord mathdefault">x</span><span class="mopen">(</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mord">.</span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="mclose">)</span></span></span></span>  mdiffuse为漫反射颜色，需避免其余弦值为负数以防止物体被它背后的光源照亮。</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>C</mi><mrow><mi>s</mi><mi>p</mi><mi>e</mi><mi>c</mi><mi>u</mi><mi>l</mi><mi>a</mi><mi>r</mi></mrow></msub><mo>=</mo><mo stretchy="false">(</mo><msub><mi>C</mi><mrow><mi>l</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi></mrow></msub><mo>∗</mo><msub><mi>m</mi><mrow><mi>s</mi><mi>p</mi><mi>e</mi><mi>c</mi><mi>u</mi><mi>l</mi><mi>a</mi><mi>r</mi></mrow></msub><mo stretchy="false">)</mo><mi>m</mi><mi>a</mi><mi>x</mi><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><mi>v</mi><mi mathvariant="normal">.</mi><mi>r</mi><msup><mo stretchy="false">)</mo><msub><mi>m</mi><mrow><mi>g</mi><mi>l</mi><mi>a</mi><mi>s</mi><mi>s</mi></mrow></msub></msup></mrow><annotation encoding="application/x-tex">C_{specular}=(C_{light}*m_{specular})max(0,v.r)^{m_{glass}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">s</span><span class="mord mathdefault mtight">p</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight">c</span><span class="mord mathdefault mtight">u</span><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span><span class="mord mathdefault mtight">a</span><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight" style="margin-right:0.03588em;">g</span><span class="mord mathdefault mtight">h</span><span class="mord mathdefault mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">s</span><span class="mord mathdefault mtight">p</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight">c</span><span class="mord mathdefault mtight">u</span><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span><span class="mord mathdefault mtight">a</span><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mord mathdefault">m</span><span class="mord mathdefault">a</span><span class="mord mathdefault">x</span><span class="mopen">(</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mord">.</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3487714285714287em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03588em;">g</span><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span><span class="mord mathdefault mtight">a</span><span class="mord mathdefault mtight">s</span><span class="mord mathdefault mtight">s</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29011428571428566em;"><span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>  mglass是材质的反光度，控制亮点的宽度，mpecular是高光颜色，clight是光源颜色和强度。</p>
 </li>
-<li class="lvl-2">
+<li>
 <p><strong>逐像素光照与注定点光照</strong></p>
 <p>在片元着色器中计算是“逐像素光照”，以像素为基础，得到它的法线（法线纹理采样/顶点法线插值计算得到）。在面片之间对顶点法线进行插值的技术被称为<strong>phong着色。</strong></p>
 <p>在顶点着色器中计算是“逐顶点光照”，也叫做**高洛德着色。**在每个顶点处计算光照，然后再渲染图原内部进行线性插值，最后输出成像素颜色。</p>
@@ -485,6 +495,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2023/08/07/slidestest/" rel="next" title="Title">
+                  Title <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -510,6 +523,22 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">vv-carrot</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">60k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:37</span>
+  </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
@@ -541,7 +570,7 @@
   <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js","integrity":"sha256-tu9j5pBilBQrWSDePOOajCUdz6hWsid/lBNzK4KgEPM="},"url":"/lib/pdf/web/viewer.html"}</script>
   <script src="/js/third-party/tags/pdf.js"></script>
 
-  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"forest","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"version":"10.3.1","theme":{"light":"neutral","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
   <script src="/js/third-party/tags/mermaid.js"></script>
 
   <script src="/js/third-party/fancybox.js"></script>

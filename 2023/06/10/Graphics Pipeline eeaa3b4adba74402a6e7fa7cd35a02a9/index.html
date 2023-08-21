@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"vv-carrot.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Graphics Pipeline 本文为看龚大的系列视频 ·上帝视角看GPU·的笔记整理。上帝视角看GPU（1）：图形流水线基础_哔哩哔哩_bilibili 1. 图形流水线 帧缓存">
+    <meta name="description" content="Graphics Pipeline 本文为看龚大的系列视频 ·上帝视角看GPU·的笔记整理。 上帝视角看GPU（1）：图形流水线基础_哔哩哔哩_bilibili  1. 图形流水线  帧缓存">
 <meta property="og:type" content="article">
 <meta property="og:title" content="上帝视角看GPU">
 <meta property="og:url" content="https://vv-carrot.github.io/2023/06/10/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/index.html">
 <meta property="og:site_name" content="VV&#39;s Blog">
-<meta property="og:description" content="Graphics Pipeline 本文为看龚大的系列视频 ·上帝视角看GPU·的笔记整理。上帝视角看GPU（1）：图形流水线基础_哔哩哔哩_bilibili 1. 图形流水线 帧缓存">
+<meta property="og:description" content="Graphics Pipeline 本文为看龚大的系列视频 ·上帝视角看GPU·的笔记整理。 上帝视角看GPU（1）：图形流水线基础_哔哩哔哩_bilibili  1. 图形流水线  帧缓存">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://vv-carrot.github.io/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled.png">
 <meta property="og:image" content="https://vv-carrot.github.io/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%201.png">
@@ -121,7 +121,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-笔记"><a href="/categories/" rel="section"><i class="fa fa-book fa-fw"></i>笔记</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">13</span></a></li><li class="menu-item menu-item-相册"><a href="/gallery/" rel="section"><i class="fa fa-camera-retro fa-fw"></i>相册</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-笔记"><a href="/categories/" rel="section"><i class="fa fa-book fa-fw"></i>笔记</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">20</span></a></li><li class="menu-item menu-item-相册"><a href="/gallery/" rel="section"><i class="fa fa-camera-retro fa-fw"></i>相册</a></li>
   </ul>
 </nav>
 
@@ -146,7 +146,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">Graphics Pipeline</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">1. 图形流水线</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%A7%E7%BC%93%E5%AD%98"><span class="nav-number">2.1.</span> <span class="nav-text">帧缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%98%BE%E5%8D%A1"><span class="nav-number">2.2.</span> <span class="nav-text">显卡</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E5%99%A8PU"><span class="nav-number">2.3.</span> <span class="nav-text">处理器PU</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%81%E6%B0%B4%E7%BA%BF%E6%B5%81%E7%A8%8B"><span class="nav-number">2.4.</span> <span class="nav-text">流水线流程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">2. 逻辑模块划分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%A0%E7%BB%9F%E5%9B%BE%E5%BD%A2%EF%BC%88%E8%AE%A1%E7%AE%97%EF%BC%89%E6%B5%81%E6%B0%B4%E7%BA%BF"><span class="nav-number">3.1.</span> <span class="nav-text">传统图形（计算）流水线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%89%E7%BA%BF%E8%BF%BD%E8%B8%AA%E6%B5%81%E6%B0%B4%E7%BA%BF"><span class="nav-number">3.2.</span> <span class="nav-text">光线追踪流水线</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">3. 部署到硬件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">5.</span> <span class="nav-text">4. 完整的软件栈</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">6.</span> <span class="nav-text">5. 图形流水线的不可编程单元</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A1%AC%E4%BB%B6%E6%9E%84%E9%80%A0%E5%85%89%E6%A0%85%E5%8C%96"><span class="nav-number">6.1.</span> <span class="nav-text">硬件构造光栅化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E6%9E%84%E9%80%A0%E5%85%89%E6%A0%85%E5%8C%96"><span class="nav-number">6.2.</span> <span class="nav-text">软件构造光栅化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">7.</span> <span class="nav-text">6. 光线跟踪流水线</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#graphics-pipeline"><span class="nav-number">1.</span> <span class="nav-text"> Graphics Pipeline</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%9B%BE%E5%BD%A2%E6%B5%81%E6%B0%B4%E7%BA%BF"><span class="nav-number">2.</span> <span class="nav-text"> 1. 图形流水线</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%A7%E7%BC%93%E5%AD%98"><span class="nav-number">2.1.</span> <span class="nav-text"> 帧缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%98%BE%E5%8D%A1"><span class="nav-number">2.2.</span> <span class="nav-text"> 显卡</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E5%99%A8pu"><span class="nav-number">2.3.</span> <span class="nav-text"> 处理器PU</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%81%E6%B0%B4%E7%BA%BF%E6%B5%81%E7%A8%8B"><span class="nav-number">2.4.</span> <span class="nav-text"> 流水线流程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E9%80%BB%E8%BE%91%E6%A8%A1%E5%9D%97%E5%88%92%E5%88%86"><span class="nav-number">3.</span> <span class="nav-text"> 2. 逻辑模块划分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%A0%E7%BB%9F%E5%9B%BE%E5%BD%A2%E8%AE%A1%E7%AE%97%E6%B5%81%E6%B0%B4%E7%BA%BF"><span class="nav-number">3.1.</span> <span class="nav-text"> 传统图形（计算）流水线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%89%E7%BA%BF%E8%BF%BD%E8%B8%AA%E6%B5%81%E6%B0%B4%E7%BA%BF"><span class="nav-number">3.2.</span> <span class="nav-text"> 光线追踪流水线</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E9%83%A8%E7%BD%B2%E5%88%B0%E7%A1%AC%E4%BB%B6"><span class="nav-number">4.</span> <span class="nav-text"> 3. 部署到硬件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E5%AE%8C%E6%95%B4%E7%9A%84%E8%BD%AF%E4%BB%B6%E6%A0%88"><span class="nav-number">5.</span> <span class="nav-text"> 4. 完整的软件栈</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E5%9B%BE%E5%BD%A2%E6%B5%81%E6%B0%B4%E7%BA%BF%E7%9A%84%E4%B8%8D%E5%8F%AF%E7%BC%96%E7%A8%8B%E5%8D%95%E5%85%83"><span class="nav-number">6.</span> <span class="nav-text"> 5. 图形流水线的不可编程单元</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A1%AC%E4%BB%B6%E6%9E%84%E9%80%A0%E5%85%89%E6%A0%85%E5%8C%96"><span class="nav-number">6.1.</span> <span class="nav-text"> 硬件构造光栅化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E6%9E%84%E9%80%A0%E5%85%89%E6%A0%85%E5%8C%96"><span class="nav-number">6.2.</span> <span class="nav-text"> 软件构造光栅化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E5%85%89%E7%BA%BF%E8%B7%9F%E8%B8%AA%E6%B5%81%E6%B0%B4%E7%BA%BF"><span class="nav-number">7.</span> <span class="nav-text"> 6. 光线跟踪流水线</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -159,17 +159,17 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">20</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -249,6 +249,21 @@
     </span>
 
   
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>7.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>26 分钟</span>
+    </span>
 </div>
 
         </div>
@@ -257,103 +272,85 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1>Graphics Pipeline</h1>
-<p>本文为看龚大的系列视频 ·上帝视角看GPU·的笔记整理。<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1P44y1V7bu/?share_source=copy_web&amp;vd_source=9cb509c01f95d263c750fa9816649bfe">上帝视角看GPU（1）：图形流水线基础_哔哩哔哩_bilibili</a></p>
-<h1>1. 图形流水线</h1>
-<h2 id="帧缓存"><strong>帧缓存</strong></h2>
+    <div class="post-body" itemprop="articleBody"><h1 id="graphics-pipeline"><a class="markdownIt-Anchor" href="#graphics-pipeline"></a> Graphics Pipeline</h1>
+<p>本文为看龚大的系列视频 ·上帝视角看GPU·的笔记整理。<br />
+<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1P44y1V7bu/?share_source=copy_web&amp;vd_source=9cb509c01f95d263c750fa9816649bfe">上帝视角看GPU（1）：图形流水线基础_哔哩哔哩_bilibili</a></p>
+<h1 id="1-图形流水线"><a class="markdownIt-Anchor" href="#1-图形流水线"></a> 1. 图形流水线</h1>
+<h2 id="帧缓存"><a class="markdownIt-Anchor" href="#帧缓存"></a> <strong>帧缓存</strong></h2>
 <p>帧缓存是内存的区域，与显示器上每一个像素是一一对应的。</p>
 <p>在帧缓存里，每32位（4字节）来表示一个像素。输出到显示器时alpha存值会被忽略。</p>
-<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled.png" alt="帧缓存与像素一一对应"></p>
-<h2 id="显卡"><strong>显卡</strong></h2>
+<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled.png" alt="帧缓存与像素一一对应" /></p>
+<h2 id="显卡"><a class="markdownIt-Anchor" href="#显卡"></a> <strong>显卡</strong></h2>
 <p>显卡把帧缓存的内容输出到显示器上，是图像的搬运工，没有计算能力。</p>
 <p>显卡的显示输出端口通往<strong>显示器</strong>，显示电路把帧缓存转换成输出信号。</p>
-<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%201.png" alt="显卡显示电路把帧缓存转换成输出信号"></p>
-<h2 id="处理器PU"><strong>处理器PU</strong></h2>
+<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%201.png" alt="显卡显示电路把帧缓存转换成输出信号" /></p>
+<h2 id="处理器pu"><a class="markdownIt-Anchor" href="#处理器pu"></a> <strong>处理器PU</strong></h2>
 <p>如果对图像的操作算法固定，只需要设置不同的参数就能够达到目的。</p>
 <p>如果操作比较灵活，就需要用一个shader程序。在PU处shader处理的是像素，所以这里叫做<font color=red bold>pixel shader</font>。</p>
-<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%202.png" alt="PU处理像素"></p>
-<h2 id="流水线流程"><strong>流水线流程</strong></h2>
-<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%203.png" alt="图形流水线流程"></p>
+<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%202.png" alt="PU处理像素" /></p>
+<h2 id="流水线流程"><a class="markdownIt-Anchor" href="#流水线流程"></a> <strong>流水线流程</strong></h2>
+<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%203.png" alt="图形流水线流程" /></p>
 <p><font color=red bold>T&amp;L </font>硬件变化和光照在早期的GPU中是固定流水线单元，为了灵活性进化成可编程单元，这就是vertex shader。</p>
 <p><font color=red bold>primitive asserbler</font>是固定流水线单元，会把屏幕之外的图形裁剪掉，计算三角形三条边的表达方程等。</p>
 <p>光栅化<font color=red bold>（rasterizer）</font>操作是固定操作，叫做<font color=red bold>固定流水线单元fixed Pipeline Unit。</font></p>
 <p>shader单元<font color=red bold>（pixel shader）</font>叫做<font color=red bold>可编程流水线单元Programmable Pipeline Unit。</font></p>
 <p><font color=red bold>output merger</font> 会根据深度判断哪个像素能够存活下来。也属于固定流水线单元。</br></p>
 <ol>
-<li class="lvl-3">
-<p><strong>vertex buffer / index buffer</strong></p>
-</li>
+<li><strong>vertex buffer / index buffer</strong></li>
 </ol>
-<p>如图所示可以表示一个几何体。<br>
-vertex shader 读入的数据可以根据需要用不同的格式保存，只处理一个数据单元。<br>
+<p>如图所示可以表示一个几何体。<br />
+vertex shader 读入的数据可以根据需要用不同的格式保存，只处理一个数据单元。<br />
 index buffer中记录的是vertex buffer 中点的index，即表示一条线。</p>
-<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%204.png" alt="vertex buffer 与 index buffer"></p>
+<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%204.png" alt="vertex buffer 与 index buffer" /></p>
 <ol start="2">
-<li class="lvl-3">
-<p><strong>world / view / projection matrix</strong></p>
+<li><strong>world / view / projection matrix</strong>
 <ol>
-<li class="lvl-7">world matrix：决定物体在空间中的位置，朝向，放缩。</li>
-<li class="lvl-7">view matrix：物体在以摄像机位置为远点的世界里，表示摄像机能看到的一个空间。</li>
-<li class="lvl-7">projection matrix： 调整摄像机的参数，视野宽窄，视域远近范围。经过该矩阵物体就在屏幕范围的空间中了，带有近大远小效果。</li>
+<li>world matrix：决定物体在空间中的位置，朝向，放缩。</li>
+<li>view matrix：物体在以摄像机位置为远点的世界里，表示摄像机能看到的一个空间。</li>
+<li>projection matrix： 调整摄像机的参数，视野宽窄，视域远近范围。经过该矩阵物体就在屏幕范围的空间中了，带有近大远小效果。</li>
 </ol>
 </li>
 </ol>
-<h1>2. 逻辑模块划分</h1>
-<h2 id="传统图形（计算）流水线">传统图形（计算）流水线</h2>
+<h1 id="2-逻辑模块划分"><a class="markdownIt-Anchor" href="#2-逻辑模块划分"></a> 2. 逻辑模块划分</h1>
+<h2 id="传统图形计算流水线"><a class="markdownIt-Anchor" href="#传统图形计算流水线"></a> 传统图形（计算）流水线</h2>
 <p>当处理的单元不是顶点也不是像素，而是一个图元，此时就需要geometry shader。</p>
 <p>vertex shader 处理完vertexes之后，primitive 先被送入geometry shader。</p>
 <p><font color=red bold><strong>geometry shader</strong> </font>的特点是单入多出，可以输出多个primitive。可以进行三角形变换位置，细分等，让gpu可以做非均匀输出这样更加灵活的任务。</p>
 <p>geometry shader是可选的，可以完成整条渲染流水线，也可以直接把数据输出到内存<font color=red bold>（<strong>stream output</strong>）</font>。</p>
 <p>因为非常灵活，硬件无法做各种假设，导致性能偏低。</p>
-<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%205.png" alt="geometry shader可选"></p>
+<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%205.png" alt="geometry shader可选" /></p>
 <p>对于细分三角形，gpu在vertex shader 之后加入了<font color=red bold><strong>tellsellation</strong> </font>功能。</p>
-<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%206.png" alt="tellsellation细分和与其相关的shaders"></p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>**hull shader：**可编程。指定每个图元如何被细分。内部分成多少个，每条边分成多少段。</p>
-</li>
-<li class="lvl-2">
-<p>**tessellatior：**固定算法细分。</p>
-</li>
-<li class="lvl-2">
-<p>**domain shader：**根据细分参数计算细分后顶点信息。</p>
-</li>
+<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%206.png" alt="tellsellation细分和与其相关的shaders" /></p>
+<ul>
+<li>**hull shader：**可编程。指定每个图元如何被细分。内部分成多少个，每条边分成多少段。</li>
+<li>**tessellatior：**固定算法细分。</li>
+<li>**domain shader：**根据细分参数计算细分后顶点信息。</li>
 </ul>
 <p><font color=red bold><strong>compute shader</strong> </font> 独立于流水线，使用gpu上的计算单元进行计算。输入输出都是内存，限制比图形流水线小。使得开发难度跟接近传统，门槛低了很多。</p>
 <p>以上 <strong>vertex shader， hull shader，domain shader，geometry shader</strong> 的存在意义就是将几何数据进行变换和拆解，但他们都无法脱离输入的几何数据。如果要离开输入的几何数据，让GPU自己生成大量复杂的数据， compute shader 任意读写能够做这件事情，但不能够接入rasterizer，这个需求催生了<font color=red bold><strong>amplification shader</strong> </font>和<font color=red bold><strong>mesh shader</strong></font>。</p>
-<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%207.png" alt="amplification shader和mesh shader"></p>
+<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%207.png" alt="amplification shader和mesh shader" /></p>
 <p>amplification shader 负责指定执行多少此mesh shader， mesh shader负责产生几何体。此时渲染的单元（输入）不再是图元，而是一小块网络，称为<font color=red bold><strong>meshlet</strong></font>。</p>
-<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%208.png" alt="LOD (level of detail)"></p>
+<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%208.png" alt="LOD (level of detail)" /></p>
 <p>meshlet输入到amplification shader ，如果需要进一步处理，就送入mesh shader，产生富有细节的一堆图元。</p>
-<h2 id="光线追踪流水线">光线追踪流水线</h2>
-<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%209.png" alt="光线追踪流水线"></p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>ray generation shader：</strong> 生成光线。</p>
-</li>
-<li class="lvl-2">
-<p><strong>intersection shader：</strong> 判定光线与物体是否相交。</p>
-</li>
-<li class="lvl-2">
-<p><strong>any hit shader：</strong> 在光线打到物体时判定是否继续往前走。</p>
-</li>
-<li class="lvl-2">
-<p><strong>closest hit shader：</strong> 光线打到物体最近点计算颜色。</p>
-</li>
-<li class="lvl-2">
-<p><strong>miss shader：</strong> 光线没打到任何物体时计算颜色。</p>
-</li>
+<h2 id="光线追踪流水线"><a class="markdownIt-Anchor" href="#光线追踪流水线"></a> 光线追踪流水线</h2>
+<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%209.png" alt="光线追踪流水线" /></p>
+<ul>
+<li><strong>ray generation shader：</strong> 生成光线。</li>
+<li><strong>intersection shader：</strong> 判定光线与物体是否相交。</li>
+<li><strong>any hit shader：</strong> 在光线打到物体时判定是否继续往前走。</li>
+<li><strong>closest hit shader：</strong> 光线打到物体最近点计算颜色。</li>
+<li><strong>miss shader：</strong> 光线没打到任何物体时计算颜色。</li>
 </ul>
 <p>GPU也添加了神经网络计算的Tensor core和视频编码解码的video codec。</p>
-<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%2010.png" alt="GPU常见模块"></p>
+<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%2010.png" alt="GPU常见模块" /></p>
 <p>CPU为通用模块，而GPU则被分为了多个模块，各有各的特点和用途。（GPU这些流水线之间是不能相互调用的）</p>
-<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%2011.png" alt="GPU图形流水线模块"></p>
+<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%2011.png" alt="GPU图形流水线模块" /></p>
 <p>使用图形流水线的典型是游戏方面的应用，使用计算流水线的是机器学习方面的应用。</p>
-<h1>3. 部署到硬件</h1>
+<h1 id="3-部署到硬件"><a class="markdownIt-Anchor" href="#3-部署到硬件"></a> 3. 部署到硬件</h1>
 <p>eg. 如果一个GPU上有两个vertex shader ，四个pixel shader。那么理论上在顶点和像素工作量在1：2时能发挥最高效率（负载较为均衡）。</p>
 <p>随着渲染内容和流水线越来越大，全部堆到硬件上，负载均衡迟早会出问题。</p>
 <p>随着需求的发展，<font color=red bold> 统一shader架构 </font>出现了。它用同样的硬件单元来执行各种shader，不需要再区分vertex专用的硬件单元。引入调度器，动态的调度需要的对应的单元。</p>
-<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%2012.png" alt="统一shader架构"></p>
+<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%2012.png" alt="统一shader架构" /></p>
 <p><strong>单指令单数据流SISD：</strong> 类比红绿灯，指令为红绿灯，数据流为车道，一个红绿灯一个车道。</p>
 <p><strong>单指令多数据流SIMD：</strong> 一个红绿灯多个车道，车道上的车方向相同。</p>
 <p>CPU上的核是SISD的，带有一定的SIMD指令集作为补充，CPU的核数指的是一共有多少条路。CPU计算的延迟小. 相当于一辆轿车, 上车就开直奔目的地.</p>
@@ -361,35 +358,35 @@ index buffer中记录的是vertex buffer 中点的index，即表示一条线。<
 <p>GPU的SIMD很宽,大部分晶体管用于计算, 少量用于控制.</p>
 <p><strong>流处理器（SP）</strong> ：一组流处理器，加上控制器和片上内存等，成为一个功能相对完整的<font color=red bold><strong>stream multi-processor (SM).</strong> </font></p>
 <p>SM是GPU上的主要组成部分, SM数量越多, GPU越高端.</p>
-<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%2013.png" alt="SP与SM，warp占用寄存器空间"></p>
+<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%2013.png" alt="SP与SM，warp占用寄存器空间" /></p>
 <p><strong>分支分歧:</strong> GPU中的不同车道需要进行不同操作时, 如果有两个分支操作,就需要把两个分支操作都执行,每个分量从结果里选择一个然后抛弃另一个.</p>
 <p><strong>用计算掩盖访存:</strong> (编程领域叫协程?) warp到达read环节时, 将其暂停,激活下一个warp执行, 当原先的warp数据read 完毕后,重新将其激活执行. 这样的调度使得GPU线程数量可以远远多于核的数量. CPU上的超线程也用到了同样的思路.</p>
 <p>SM内部会有一个寄存器空间, 每个warp都会占用一部分用于局部变量等. 如果整个空间都占满了就无法调度更多warp, 即是访存实在无法被计算掩盖的情况, 会降低效率.</p>
-<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%2014.png" alt="用计算掩盖访存"></p>
-<h1>4. 完整的软件栈</h1>
+<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%2014.png" alt="用计算掩盖访存" /></p>
+<h1 id="4-完整的软件栈"><a class="markdownIt-Anchor" href="#4-完整的软件栈"></a> 4. 完整的软件栈</h1>
 <p>在很久很久以前，程序需要通过操作系统提供的硬件端口读写，直接操作图形硬件。如果每个程序都需要对每个操作系统的每个硬件写一遍，开发效率非常低。人们自然用了抽象的思路，通过抽象形成公共接口层, 程序调用接口层需要告诉下面程序”做什么”,这就是<font color=red bold><strong>应用程序编程接口API.</strong></font></p>
-<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%2015.png" alt="应用程序编程接口API"></p>
+<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%2015.png" alt="应用程序编程接口API" /></p>
 <p>API 程序只要针对图形 API 写一遍就行，几乎不必考虑操作系统和硬件的区别。图形 API 由硬件厂商实现，往下翻译成对硬件的操作。</p>
 <p>对于不同API的不同实现,也存在大量的可以公用的部分, 于是API的实现又进行了分层,增加了抽象层 <font color=red bold><strong>设备驱动接口DDI</strong></font>, DDI以上位操作系统, 负责数据有效性检查,内存分配等. DDI以下是驱动,负责不同的硬件.</p>
-<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%2016.png" alt="抽象层 设备驱动接口DDI, DDI以上位操作系统, 负责数据有效性检查,内存分配等. DDI以下是驱动,负责不同的硬件"></p>
+<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%2016.png" alt="抽象层 设备驱动接口DDI, DDI以上位操作系统, 负责数据有效性检查,内存分配等. DDI以下是驱动,负责不同的硬件" /></p>
 <p><strong>DXD3D:</strong> 跨厂商, 但是不跨平台. 在 windows XP 的时代，软件栈就和理想状况下一样，操作系统提供一个 D3D runtime，往上是API，往下是DDI，厂商提供一个内核态驱动，这个框架称为XDDI。</p>
 <p>顺着时间纵向来看， API 发展趋势是变薄，把更多的事情交给程序去做，而不是 run time 和驱动，因为程序知道自己的意图，不需要让 API 去猜，这个改进结果就是执行效率更高。这几年出现的D3D12 和 vulkan 都是响应的这个趋势，这样的 API 显得更底层，而用它们来开发更像是在写驱动，要做大量的细节操作。一般来说， API 网上还有个渲染引擎的抽象层，可以把不同的 API 抽象成同样的接口，这就把新 API 使用麻烦的缺点抹平了，同时获得新 API 带来的效率优势。</p>
-<h1>5. 图形流水线的不可编程单元</h1>
-<h2 id="硬件构造光栅化">硬件构造光栅化</h2>
+<h1 id="5-图形流水线的不可编程单元"><a class="markdownIt-Anchor" href="#5-图形流水线的不可编程单元"></a> 5. 图形流水线的不可编程单元</h1>
+<h2 id="硬件构造光栅化"><a class="markdownIt-Anchor" href="#硬件构造光栅化"></a> 硬件构造光栅化</h2>
 <p>对于 GPU 的图形流水线来说，最核心最重要的一个组件就是光栅化器，它的存在直接决定了 GPU 在实施渲染方面的优势，以至于很多时候光栅化就是 GPU 图形流水线的代称。</p>
 <p>经过vertex shader之后，每个顶点上都有了转换后的属性，包括位置、法线、方向、颜色、纹理、坐标等。经过 primitive 三步了之后，来到光栅化阶段，转换成像素。所以光栅化这个操作本质上就是把三个顶点上的信息插值到这个三角形覆盖的每个像素上，交给 pixel shader。 primitive Assembler 和光栅化总是连在一起，因此成为了广义的光栅化器。下面的讲述会把这两部分合并起来描述算法。</p>
-<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%2017.png" alt="图形流水线"></p>
+<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%2017.png" alt="图形流水线" /></p>
 <p>要完成这样的插值，常见的方法称为<font color=red bold><strong>扫描线算法</strong></font>。顶点上有一系列的属性，根据三个顶点的位置和属性变化的长度，可以算出这个三角形覆盖的区域里，从一个像素挪到右边或者下边，各个属性会改变多少，这称为 ddx 和 ddy。</p>
-<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%2018.png" alt="扫描线算法"></p>
+<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%2018.png" alt="扫描线算法" /></p>
 <p>对于一个三角形来说，属性的 ddx 和 ddy 都是常量，只要算一次就行。接着从最靠上的顶点开始，沿着轮廓一行一行往下走，每一行根据三角形轮廓就能知道应该从哪里开始到哪里结束。往右一个像素属性增加 1 次 ddx，往下一行，属性增加 1 次 ddy。这样扫描生成三角形覆盖的所有像素。</p>
 <p>那么像素在什么情况下认为被三角形覆盖？这叫做光栅化规则。<strong>普通模式下，光栅化三角形看的是像素中心是否在三角形之内。光栅化线看的是线是否经过像素里一个菱形区域。</strong></p>
 <p>另一种模式是只要沾到一点就算覆盖，这叫<font color=red bold><strong>保守式光栅化</strong></font>，常用于体素化的需求。比如前几年很热门的 s b o contracing，就用保守式光栅化来把整个场景变成体素的表达。</p>
 <p>光栅化的算法有了，直接放到硬件上，就成了<font color=red bold><strong>立即式光栅化</strong></font>。这个做法很淳朴，用 ASIC 把刚才描述的算法变成硬连线。在算法完全固定的情况下， ASIC 的效率远高于 FPGA 和可编程单元。</p>
-<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%2019.png" alt="光栅化线：看线是否经过像素里一个菱形区域"></p>
+<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%2019.png" alt="光栅化线：看线是否经过像素里一个菱形区域" /></p>
 <p>光栅化生成的像素，经过流水线后面的几个阶段写入内存里的渲染目标，渲染目标可能是纹理，也可能是帧缓存。对于大三角形来说，这么做性能非常高，因为只要算一次 ddx， ddy 后面一路累加过去就行，可以不被打断的一直执行同样的操作。但是如果三角形层层叠叠，就得反复写入内存，带宽占用很大，功耗高。</p>
 <p>对 PC 渲染的需求来说，只要性能高，功耗高一点也可以接受，所以往往会选择立即式光栅化的方案。</p>
 <p>移动平台更看重的是性能功耗，比如果性能只有一半，但功耗只有 1/ 4，也会考虑采纳。于是移动平台上光栅化往往采用 <strong>tile base</strong> 方案，他把渲染目标划分成很多固定大小的tile，常见的是 32 * 32，每个 tile 包含一个列表，存有和这个tile相交的所有三角形列表。所以 <strong>tile base</strong> 的光栅化不再是一个三角形处理，而是一批处理。这样的 GPU 需要有一个片上内存充当 cache 的角色，不需要大，但访问速度远远高于内存。</p>
-<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%2020.png" alt="片上内存充当 cache 的角色，访问速度更加快速"></p>
+<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%2020.png" alt="片上内存充当 cache 的角色，访问速度更加快速" /></p>
 <p>对于每个tile，先会把渲染目标的对应区域载入 GPU 的片上内存，接着用扫描线算法把列表里的三角形都渲染上去，最后把片上内存里的结果存到渲染目标，然后开始处理第二个tile。不管三角形如何层层叠叠，每个 tile 每次对内存的读写总是只有 32 * 32 个像素，远低于立即式 （立即式是一次性处理载入的全部像素）。但因为一个三角形没法一直填充下去，会因为 tile 被打断。性能其实是降低的，只是相比之下功耗降得更多。这是在高通的 GPU 上跑出来。光沙化顺序图可以看到，每个 tile 大小固定，一个 tile 铺成了整个屏幕。为了让大家加深印象，这里举两个实际的场景比较一下。</p>
 <p>立即式和 <strong>tile base</strong> 在工作流程上的区别。</p>
 <p>同样是渲染两个三角形，第一种情况，把它们渲染到同一张纹里。第二种情况，把它们分别渲染到两张纹理。对于立即式来说，都是把三角形光栅化出去，两个三角形是不是到同一个纹理无所谓，操作是一样的，因此两者的性能和功耗区别可以忽略不计。这是立即式渲染的流程，对于 <strong>tile base</strong> ，这俩就很不一样了。</p>
@@ -397,45 +394,46 @@ index buffer中记录的是vertex buffer 中点的index，即表示一条线。<
 <p>注意，在片上内存的操作非常快，访问内存里的纹理慢的多，而且耗电的多，因此第一种情况比第二种情况好的多。</p>
 <p>继续往后看，光栅化产生的像素会进入 pixel shader，然后是 output merger，场景是存在遮挡的，近的会挡住远的。之前说过，这是<strong>在 output merger 里通过深度测试</strong>来完成。假设光栅化产生像素a，跑完后面的流程写入渲染目标，又在同一位置产生像素b，这里会产生两个问题，第一，如果像素 b 比像素 a 还近，那他跑完后面的流程之后会覆盖掉像素a，这使得像素 a 经过的 pixel shader 和 output merger 完全浪费了。</p>
 <p>第二，如果像素 b 比像素 a 还远，也得等到运行了 pixel shader 进入 output merger 才能发现有遮挡才抛弃掉像素b，那么像素 b 的 pixel shader 也白运行了。能不能把深度测试从 output merger 挪到 pixel shader 之前，不总是可以的，因为 pixel shader不但能输出颜色，也能输出深度。如果光栅化产生的深度和 pixel shader输出的深度顺序不一致，在 pixel shader之前执行深度测试就会出错。</p>
-<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%2017.png" alt="图形流水线参考"></p>
+<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%2017.png" alt="图形流水线参考" /></p>
 <p>为解决第二个问题， GPU 引入的功能称为 <font color=red bold><strong>early-Z</strong></font>。在渲染状态符合条件的情况下，系统会检查一下 pixel shader。如果不输出深度，不用 discard 丢弃像素，就启用 early-Z 像素，在进入 pixel shader之前提前进行一次深度测试，如果已经被挡住，就不往下走，直接丢弃掉。</p>
 <p>在 tile based 光栅化上，有的 GPU 会有个称为 <font color=red bold><strong>TBDR 模式</strong></font>， tile based differ rendering TBDR 在开启深入测试的情况下，把光栅化插值得到的像素属性都写入片上内存，这时候不可见的像素就被抛弃了，只有可见的继续往下走，同时解决那两个问题。但它是无法独立存在的，也是要一系列条件都符合的情况下才能启用，否则退回到 tile base 的模式。</p>
 <p>既然立即式性能高， tile base 性能功耗比高，能不能取长补短一下？</p>
 <p>有的 Maxwell 之后的 media GPU 就采用了两者的结合，称为<font color=red bold><strong>tile cache</strong></font>，它的tile巨大， 256* 256 这个级别 cache 也很大，不光像素，还可以把tile需要的几何也载入cache。</p>
-<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%2021.png" alt="tile cache"></p>
+<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%2021.png" alt="tile cache" /></p>
 <p>这么做降低了内存访问性能和性能，功耗比都更高了。这里依然可以用一张光栅化的顺序图来看到这个情况。</p>
-<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%2022.png" alt="tile cache光栅化顺序图"></p>
-<h2 id="软件构造光栅化">软件构造光栅化</h2>
+<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%2022.png" alt="tile cache光栅化顺序图" /></p>
+<h2 id="软件构造光栅化"><a class="markdownIt-Anchor" href="#软件构造光栅化"></a> 软件构造光栅化</h2>
 <p>软件构造不是只在 CPU 上运行，而是在 GPU 的可编程单元里运行。有些需求使得软件光栅化变得很重要。</p>
 <ol>
-<li class="lvl-3">
+<li>
 <p><strong>第一个需求：小三角形的光栅化性能。</strong> 在实际中，硬件光栅化的输出并不是一个像素，而是一个 2* 2 的像素块，这成为一个 quad 之内。每个像素都有邻居，于是可以在 pixel shader里获得任何变量的 ddx 和ddy，只要邻居一检就出来了。这四个像素如果有在三角形之外的，之后才会被丢弃。</p>
-<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%2023.png" alt="硬件光栅化输出为quad"></p>
+<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%2023.png" alt="硬件光栅化输出为quad" /></p>
 <p>对于大三角形来说，最多也就是边缘的像素存在浪费，但对于小于一个像素的三角形，这就浪费了 3/ 4。因此，对于大量三角形都小于一个像素的时候，构造一个以像素为单位的软件光栅化器可以避免浪费，性能反而更高。在UE5的Nanite就是这么做的优化。</p>
-<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%2024.png" alt="对于较小的三角形存在较多的像素浪费"></p>
+<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%2024.png" alt="对于较小的三角形存在较多的像素浪费" /></p>
 </li>
-<li class="lvl-3">
+<li>
 <p><strong>另一个需求，在无法使用硬件光栅化的时候执行光栅化</strong>。典型的是英特尔在 08 年的 larrabee上面，没有常规的流式处理器，而是对了 48 个奔腾的 X86 CPU，加上很宽的SIMD 指令集，在那些 CPU 上执行的是一个特制的软件光栅化算法，自适应细分的 tile base光栅化。</p>
 <p><font color=gray>（<strong>算法流程：</strong> 首先像普通的tile base的一样，把整个渲染目标分成一系列tile，但是每个tile较大，至少 64* 64，同样也是每个tile包含与它们相交的三角形列表。接着把这个tile等分成 16 个小tile，测试每个小tile和三角形的相交情况，完全覆盖了就全部填充，完全不相交就跳过。如果部分覆盖就把小tile再继续分成 16 个更小的tile，再次测试，以此类推，直到像素级别为止。每次都是进行宽度为 16 的 SIMD 计算。</p>
 <p>后来larrabee项目停止，砍掉显示输出能力后改造成这样。泛运算卡那个 SIMD 指令集成了 ABX5 12，普遍猜测是功耗控制不住。）</font></p>
 </li>
 </ol>
-<h1>6. 光线跟踪流水线</h1>
+<h1 id="6-光线跟踪流水线"><a class="markdownIt-Anchor" href="#6-光线跟踪流水线"></a> 6. 光线跟踪流水线</h1>
 <p>最简单的光线跟踪类算法称为<font color=red bold><strong>光线投射recasting</strong></font>，以摄像机为原点，往每个像素发射一根光线，一步一步往前跟踪。光线打到物体表面之后，根据光源和该点的材质计算出一个颜色作为该像素的颜色。这样的结果和光栅化非常相似，只是生成像素的方式有所区别，<strong>它只能得到直接光照，也就是像素颜色来自于光源的直接贡献</strong>。</p>
-<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%2025.png" alt="光线投射到物体表面，计算颜色值后填充到像素"></p>
+<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%2025.png" alt="光线投射到物体表面，计算颜色值后填充到像素" /></p>
 <p>用光栅化渲染的时候，要解答的问题是这个物体占据了哪些像素，而光线投射解答的是沿着这条光线的方向能看到什么物体。这个区别使得两者渲染流程完全不同了。</p>
 <p>光栅化是<strong>一个物体</strong>送去渲染一个三角形。光栅化 GPU 并没有场景的概念，拿到什么渲什么。光线投射就不能这样了，因为光线发出的时候并不知道会打到哪里，必须要把<strong>整个场景</strong>全部都提交给 GPU 才能开始跟踪。渲染的单位不再是三角形，而是整个场景。</p>
 <p>复杂一点，当光线打到物体表面之后，不是就此停止，而是可以继续折射、反射、散射等产生多条新的光线，继续跟踪，直到达到光源为止。最后从光源反向计算每次达到物体的颜色，得到这个像素的颜色，这就是整体的光线跟踪。</p>
 <p>既然场景都有了，不需要额外的新数据就能完成这整个操作，自然达成了实时渲染梦寐以求的<strong>全局光照</strong>， <font color=red bold><strong>GI （Global illumination）</strong></font>不是直接来自于光源，而是来自于其他光路间接贡献的光照，称为<strong>间接光照</strong>。之前为了实时计算间接光照， AO 有 AO 的方法，反射有反射的方法，折射有折射的方法，散射有散射的方法，互相还可能存在冲突，无法一起使用。有了光线跟踪之后，整个 GI  可以用一致的方法统一完成，开发简单了，效果还更好。</p>
-<p>回到物体本身，不管是光栅化还是光线跟踪，物体都可以用三角形的几何表示，那么光线跟踪的过程一定会涉及到光线和三角形的求交。理论上我们只需要这个求交判断，就能通过把所有光线和所有三角形都求交一遍来实现光线跟踪，但这样效率实在太低了，计算量大的惊人。所以长期以来研究的重点就是如何尽可能早的把不会相交的情况排除掉，以加速跟踪。常用的是把整个场景放到一个树形的加速结构，如果一根光线和一个子树已经不相交了，那就一定不会和子树里的任何物体相交，也就能排除掉整个子树。光线跟踪领域常用的加速结构叫 <font color=red bold><strong>BVH</strong></font>，这种树的叶子节点是物体本身，物体的包围和之间的关系往上组成为一级的树。用三角形表达物体属于显式表达，给一堆三角形显式的定义出一个几何体。另一种常见的形式是<strong>过程式物体属于隐式表达</strong>，他给的是一个包围盒和一个隐式函数，传入一个 x y z 坐标，这个函数告诉你是不是在他表示的物体上。这两种物体表达都可以用于光线跟踪。</p>
+<p>回到物体本身，不管是光栅化还是光线跟踪，物体都可以用三角形的几何表示，那么光线跟踪的过程一定会涉及到光线和三角形的求交。理论上我们只需要这个求交判断，就能通过把所有光线和所有三角形都求交一遍来实现光线跟踪，但这样效率实在太低了，计算量大的惊人。所以长期以来研究的重点就是如何尽可能早的把不会相交的情况排除掉，以加速跟踪。<br />
+常用的是把整个场景放到一个树形的加速结构，如果一根光线和一个子树已经不相交了，那就一定不会和子树里的任何物体相交，也就能排除掉整个子树。光线跟踪领域常用的加速结构叫 <font color=red bold><strong>BVH</strong></font>，这种树的叶子节点是物体本身，物体的包围和之间的关系往上组成为一级的树。用三角形表达物体属于显式表达，给一堆三角形显式的定义出一个几何体。另一种常见的形式是<strong>过程式物体属于隐式表达</strong>，他给的是一个包围盒和一个隐式函数，传入一个 x y z 坐标，这个函数告诉你是不是在他表示的物体上。这两种物体表达都可以用于光线跟踪。</p>
 <p>有了这些基础，我们就可以开始来看看 GPU 的光线跟踪是怎么回事。首先我们肯定会需要一个让硬件可以访问的加速结构，而且必须针对实时应用来设计。我们需要对几何体本身建立加速结构，然后摆到场景里，建立场景整体的加速结构，这就有了物体的加速结构和场景的加速结构两层的关系。其次，游戏场景里会有很多动态物体，如果物体移动就得重建整个加速结构，开销太大了。于是这样的加速结构还需要支持<strong>局部更新</strong>。有了加速结构之后，把它提交给GPU，它也是整个渲染流程的核心。</p>
 <p>光线跟踪流水线，引入了多个新类型的shader，从<strong>ray generation shader</strong>作为起点发出光线，光线遍历加速结构，找到可能有相交的叶子节点。如果是三角形几何体， GPU 就会把光线和三角形求交。如果是过程式物体，光线只会和物体的包围盒求交。然后调用 <strong>intersection shader</strong> 来确定是否真的和物体相交了，如果达到了就转到 any hit shader 判定是否要继续往前跟踪。</p>
 <p>光线打到物体的最近点，会调用一次 <strong>closed hit shader</strong> 来计算颜色，这里可以产生新的光线递归或者颜色。如果什么都没达到，就会用 <strong>miss shader</strong> 算颜色。</p>
-<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%2026.png" alt="光线追踪流程图"></p>
+<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%2026.png" alt="光线追踪流程图" /></p>
 <p>前面说过光线跟踪的时候并不知道一根光线发出去能打到什么物体，所以得把整个场景的所有物体的几种 shader 都放在一张表里。 GPU 会根据打到物体的 ID 动态决定调用哪个shader。这和光栅化很不一样，光栅化的时候是开始画一个物体之前就能静态决定用哪一组shader。因此<strong>光线跟踪的 shader 有动态调用的能力</strong>，称为Callable shader。 这些类型的 shader 仍然是在 unified shader 单元里执行的。 <strong>GPU 上的 RT core 做的是求交的加速操作</strong>。其实不管是D3D12 还是Vulkan里的光线跟踪 API 都只是定义了一个接口。</p>
-<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%2027.png" alt="场景物体shader表"></p>
+<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%2027.png" alt="场景物体shader表" /></p>
 <p>Imagination 提出过光线跟踪的 6 个等级，通过这样的定义，我们可以看到现实中的光线跟踪正处于哪个阶段，也能大致了解未来会如何发展。</p>
-<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%2028.png" alt="光线跟踪的六个等级"></p>
+<p><img src="/images/Graphics%20Pipeline%20eeaa3b4adba74402a6e7fa7cd35a02a9/Untitled%2028.png" alt="光线跟踪的六个等级" /></p>
 
     </div>
 
@@ -487,6 +485,22 @@ index buffer中记录的是vertex buffer 中点的index，即表示一条线。<
   </span>
   <span class="author" itemprop="copyrightHolder">vv-carrot</span>
 </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">60k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:37</span>
+  </span>
+</div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
 
@@ -517,7 +531,7 @@ index buffer中记录的是vertex buffer 中点的index，即表示一条线。<
   <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js","integrity":"sha256-tu9j5pBilBQrWSDePOOajCUdz6hWsid/lBNzK4KgEPM="},"url":"/lib/pdf/web/viewer.html"}</script>
   <script src="/js/third-party/tags/pdf.js"></script>
 
-  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"forest","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"version":"10.3.1","theme":{"light":"neutral","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
   <script src="/js/third-party/tags/mermaid.js"></script>
 
   <script src="/js/third-party/fancybox.js"></script>

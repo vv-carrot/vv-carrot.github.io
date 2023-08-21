@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="manifest" href="/manifest.json">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://github.com/adobe-fonts/source-han-serif/raw/release/Variable/TTF/Subset/SourceHanSerifCN-VF.ttf/css?family=STZhongsong:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"vv-carrot.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Learning Transferable Visual Models From Natural Language Supervision（CLIP）  文章发布代码和预训练权重">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Learning Transferable Visual Models From Natural Language Supervision（CLIP）">
+<meta property="og:url" content="https://vv-carrot.github.io/2023/08/17/Learning%20Transferable%20Visual%20Models%20From%20Natural%20L%20ee134ac7f72648e784ed3e4bed545926/index.html">
+<meta property="og:site_name" content="VV&#39;s Blog">
+<meta property="og:description" content="Learning Transferable Visual Models From Natural Language Supervision（CLIP）  文章发布代码和预训练权重">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://vv-carrot.github.io/images/Learning%20Transferable%20Visual%20Models%20From%20Natural%20L%20ee134ac7f72648e784ed3e4bed545926/Untitled.png">
+<meta property="og:image" content="https://vv-carrot.github.io/images/Learning%20Transferable%20Visual%20Models%20From%20Natural%20L%20ee134ac7f72648e784ed3e4bed545926/Untitled%201.png">
+<meta property="og:image" content="https://vv-carrot.github.io/images/Learning%20Transferable%20Visual%20Models%20From%20Natural%20L%20ee134ac7f72648e784ed3e4bed545926/Untitled%202.png">
+<meta property="og:image" content="https://vv-carrot.github.io/images/Learning%20Transferable%20Visual%20Models%20From%20Natural%20L%20ee134ac7f72648e784ed3e4bed545926/Untitled%203.png">
+<meta property="og:image" content="https://vv-carrot.github.io/images/Learning%20Transferable%20Visual%20Models%20From%20Natural%20L%20ee134ac7f72648e784ed3e4bed545926/Untitled%204.png">
+<meta property="og:image" content="https://vv-carrot.github.io/images/Learning%20Transferable%20Visual%20Models%20From%20Natural%20L%20ee134ac7f72648e784ed3e4bed545926/Untitled%205.png">
+<meta property="og:image" content="https://vv-carrot.github.io/images/Learning%20Transferable%20Visual%20Models%20From%20Natural%20L%20ee134ac7f72648e784ed3e4bed545926/Untitled%206.png">
+<meta property="og:image" content="https://vv-carrot.github.io/images/Learning%20Transferable%20Visual%20Models%20From%20Natural%20L%20ee134ac7f72648e784ed3e4bed545926/Untitled%207.png">
+<meta property="og:image" content="https://vv-carrot.github.io/images/Learning%20Transferable%20Visual%20Models%20From%20Natural%20L%20ee134ac7f72648e784ed3e4bed545926/Untitled%208.png">
+<meta property="og:image" content="https://vv-carrot.github.io/images/Learning%20Transferable%20Visual%20Models%20From%20Natural%20L%20ee134ac7f72648e784ed3e4bed545926/1.png">
+<meta property="article:published_time" content="2023-08-17T05:28:05.924Z">
+<meta property="article:modified_time" content="2023-08-18T09:18:58.427Z">
+<meta property="article:author" content="vv-carrot">
+<meta property="article:tag" content="pre-train">
+<meta property="article:tag" content="CLIP">
+<meta property="article:tag" content="Zero-shot">
+<meta property="article:tag" content="contrastive learning">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://vv-carrot.github.io/images/Learning%20Transferable%20Visual%20Models%20From%20Natural%20L%20ee134ac7f72648e784ed3e4bed545926/Untitled.png">
+
+
+<link rel="canonical" href="https://vv-carrot.github.io/2023/08/17/Learning%20Transferable%20Visual%20Models%20From%20Natural%20L%20ee134ac7f72648e784ed3e4bed545926/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://vv-carrot.github.io/2023/08/17/Learning%20Transferable%20Visual%20Models%20From%20Natural%20L%20ee134ac7f72648e784ed3e4bed545926/","path":"2023/08/17/Learning Transferable Visual Models From Natural L ee134ac7f72648e784ed3e4bed545926/","title":"Learning Transferable Visual Models From Natural Language Supervision（CLIP）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Learning Transferable Visual Models From Natural Language Supervision（CLIP） | VV's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">VV's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-笔记"><a href="/categories/" rel="section"><i class="fa fa-book fa-fw"></i>笔记</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">20</span></a></li><li class="menu-item menu-item-相册"><a href="/gallery/" rel="section"><i class="fa fa-camera-retro fa-fw"></i>相册</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#learning-transferable-visual-models-from-natural-language-supervisionclip"><span class="nav-number">1.</span> <span class="nav-text"> Learning Transferable Visual Models From Natural Language Supervision（CLIP）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%91%98%E8%A6%81%E8%AF%91"><span class="nav-number">1.1.</span> <span class="nav-text"> ⭕摘要（译）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A2%B3%E7%90%86"><span class="nav-number">1.2.</span> <span class="nav-text"> ⭕梳理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%B8%8F%E8%AE%BA%E6%96%87%E8%AF%95%E5%9B%BE%E8%A7%A3%E5%86%B3%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98"><span class="nav-number">1.2.1.</span> <span class="nav-text"> ➡️论文试图解决什么问题？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%B8%8F%E8%BF%99%E6%98%AF%E5%90%A6%E6%98%AF%E4%B8%80%E4%B8%AA%E6%96%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">1.2.2.</span> <span class="nav-text"> ➡️这是否是一个新的问题？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%B8%8F%E8%BF%99%E7%AF%87%E8%AE%BA%E6%96%87%E5%88%B0%E5%BA%95%E6%9C%89%E4%BB%80%E4%B9%88%E8%B4%A1%E7%8C%AE"><span class="nav-number">1.2.3.</span> <span class="nav-text"> ➡️这篇论文到底有什么贡献？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%B8%8F%E8%BF%99%E7%AF%87%E8%AE%BA%E6%96%87%E5%AD%98%E5%9C%A8%E4%BB%80%E4%B9%88%E5%B1%80%E9%99%90%E6%80%A7"><span class="nav-number">1.2.4.</span> <span class="nav-text"> ➡️这篇论文存在什么局限性？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95"><span class="nav-number">1.3.</span> <span class="nav-text"> ⭕方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%B8%8F%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="nav-number">1.3.1.</span> <span class="nav-text"> ➡️损失函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%B8%8F%E9%A2%84%E8%AE%AD%E7%BB%83%E6%96%B9%E6%B3%95"><span class="nav-number">1.3.2.</span> <span class="nav-text"> ➡️预训练方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%B8%8F%E6%95%B0%E6%8D%AE%E9%9B%86%E4%B8%8E%E8%AE%AD%E7%BB%83%E5%8F%82%E6%95%B0"><span class="nav-number">1.3.3.</span> <span class="nav-text"> ➡️数据集与训练参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%B8%8Fzero-shot-clip%E6%80%A7%E8%83%BD%E5%AF%B9%E6%AF%94"><span class="nav-number">1.3.4.</span> <span class="nav-text"> ➡️Zero-Shot CLIP性能对比</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">vv-carrot</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://vv-carrot.github.io/2023/08/17/Learning%20Transferable%20Visual%20Models%20From%20Natural%20L%20ee134ac7f72648e784ed3e4bed545926/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="vv-carrot">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="VV's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Learning Transferable Visual Models From Natural Language Supervision（CLIP） | VV's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Learning Transferable Visual Models From Natural Language Supervision（CLIP）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-08-17 13:28:05" itemprop="dateCreated datePublished" datetime="2023-08-17T13:28:05+08:00">2023-08-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-08-18 17:18:58" itemprop="dateModified" datetime="2023-08-18T17:18:58+08:00">2023-08-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" itemprop="url" rel="index"><span itemprop="name">论文阅读</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>12 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><link rel="stylesheet" href="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/KaTeX/0.11.1/katex.min.css">
+<link rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/KaTeX/0.11.1/contrib/copy-tex.min.css">
+<script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/KaTeX/0.11.1/contrib/copy-tex.min.js"></script>
+<h1 id="learning-transferable-visual-models-from-natural-language-supervisionclip"><a class="markdownIt-Anchor" href="#learning-transferable-visual-models-from-natural-language-supervisionclip"></a> Learning Transferable Visual Models From Natural Language Supervision（CLIP）</h1>
+<ul>
+<li><strong>文章发布代码和预训练权重</strong></li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://github.com/OpenAI/CLIP">🔗https://github.com/OpenAI/CLIP</a>.</p>
+<ul>
+<li>
+<p><strong>文章的理解参考了这篇几篇笔记文章</strong><br />
+<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/493489688">🔗神器CLIP：连接文本和图像，打造可迁移的视觉模型 - 知乎 (zhihu.com)</a><br />
+<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44031582/article/details/120469669">🔗CLIP论文笔记–《Learning Transferable Visual Models From Natural Language Supervision》_栗子酱15551的博客-CSDN博客</a></p>
+</li>
+<li>
+<p><strong>视频解读</strong><br />
+<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Cv411h72S/?vd_source=59b09da5ae1394e708beda64162879e6">🔗[中文字幕] OpenAI CLIP 论文解读_哔哩哔哩_bilibili</a></p>
+</li>
+<li>
+<p><strong>拓展</strong><br />
+<a target="_blank" rel="noopener" href="https://github.com/orpatashnik/StyleCLIP">🔗https://github.com/orpatashnik/StyleCLIP</a></p>
+</li>
+<li>
+<p><strong>CLIP代码详解</strong><br />
+<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/486857682">🔗【CLIP系列Paper解读】CLIP: Learning Transferable Visual Models From Natural Language Supervision</a></p>
+</li>
+</ul>
+<hr />
+<h2 id="摘要译"><a class="markdownIt-Anchor" href="#摘要译"></a> ⭕<strong>摘要（译）</strong></h2>
+<p>最先进的计算机视觉系统被训练用来预测一组固定的预定目标类别。这种受限的监督形式限制了它们的通用性和可用性，因为需要额外的标记数据来指定任何其他视觉概念。直接从关于图像的原始文本中学习是一种有前途的替代方法，它利用了更广泛的监督来源。<strong>我们证明，在从互联网上收集的4亿(图像、文字)对数据集上，预测哪个标题与哪幅图像对应的简单预训练任务是一种高效且可扩展的从头学习SOTA（「state-of-the-art」）图像表示的方法。</strong> 预训练后，使用自然语言引用学习到的视觉概念(或描述新的)，实现模型向下游任务的零样本迁移。</p>
+<p>我们通过在30多个不同的现有计算机视觉数据集上进行测试，研究了该方法的性能，这些数据集涵盖了诸如OCR、视频中的行为识别、地理定位和许多类型的细粒度对象分类等任务。该模型非平凡地迁移到大多数任务中，并且往往与完全监督的基线竞争，而不需要任何数据集特定的训练。例如，我们在ImageNet零样本上匹配原始ResNet - 50的准确率，而不需要使用它所训练的128万个训练样本中的任何一个。我们在https://github.com/OpenAI/CLIP.上发布了我们的代码和预训练的模型权重。</p>
+<h2 id="梳理"><a class="markdownIt-Anchor" href="#梳理"></a> ⭕<strong>梳理</strong></h2>
+<h3 id="️论文试图解决什么问题"><a class="markdownIt-Anchor" href="#️论文试图解决什么问题"></a> ➡️<strong>论文试图解决什么问题？</strong></h3>
+<p>计算机视觉领域，常见的迁移学习方式是在一个较大规模的数据集上进行预训练，然后在下游任务上用预训练的模型进行微调。预训练是有监督学习，需要大量数据标注，成本较高。对有监督学习在预训练数据集上采用有限类别的分类器，在新的数据集上需要定义新的数据集重新训练，有监督的方法模型迁移到下游任务时，依旧需要进行有监督微调，无法实现zero-shot。</p>
+<p>与计算机视觉领域不同，自然语言能够通过它的概括性来表达和监督更广泛的一组视觉概念。NLP基于自回归或语言掩码的预训练方式相对成熟，预训练模型更容易zero-shot迁移到下游任务。</p>
+<p>论文试图<strong>用互联网上的大量文本来作为监督信号训练视觉模型</strong>，前面这方面工作不算多（16年-<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1511.02251">Learning Visual Features from Large Weakly Supervised Data</a>，17年-<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1511.02251">Learning Visual Features from Large Weakly Supervised Data</a>），因为这些方法难以取得较高的性能。另一个方向是<strong>基于文本弱监督提升性能</strong>，如Google在JFT-300M数据集上通过自动化手段将web text划分为18291个类别，虽然存在一定的个噪声，但仍旧获得了不错的结果。</p>
+<h3 id="️这是否是一个新的问题"><a class="markdownIt-Anchor" href="#️这是否是一个新的问题"></a> ➡️<strong>这是否是一个新的问题？</strong></h3>
+<p>不是。对于zero-shot任务，2017年的Visual N-Grams在ImageNet上进行了zero-shot测试，但是准确率11.5%极低。对于对比学习的训练方法，前期也已经有<strong>ConVIRT方法。</strong> 个人感觉CLIP的优秀不在于对某种方法的完全创新，而是构造了一个大规模的数据集WIT，然后在这之上进行训练，这包含了非常大的计算量，最终也得到了非常不错的效果。</p>
+<p><img src="/images/Learning%20Transferable%20Visual%20Models%20From%20Natural%20L%20ee134ac7f72648e784ed3e4bed545926/Untitled.png" alt="Image" /></p>
+<h3 id="️这篇论文到底有什么贡献"><a class="markdownIt-Anchor" href="#️这篇论文到底有什么贡献"></a> ➡️<strong>这篇论文到底有什么贡献？</strong></h3>
+<p>不同于CV迁移学习的预训练然后微调，CLIP可以直接实现zero-shot的图像分类，不需要训练任何数据 ，就可以在下游任务上实现分类。</p>
+<h3 id="️这篇论文存在什么局限性"><a class="markdownIt-Anchor" href="#️这篇论文存在什么局限性"></a> ➡️<strong>这篇论文存在什么局限性？</strong></h3>
+<ul>
+<li>CLIP模型的训练需要较大规模的数据集及较大计算量。</li>
+<li>CLIP在自然分布漂移表现鲁棒，但无法解决域外泛化的问题，测试域外数据集表现较差，在细粒度分类任务等中表现较差。</li>
+<li>CLIP zero-shot性能与有监督ResNet 50相当，但未达到最优，作者预估达到最优CLIP要增加1000x的计算量…</li>
+</ul>
+<h2 id="方法"><a class="markdownIt-Anchor" href="#方法"></a> ⭕<strong>方法</strong></h2>
+<p><strong>CLIP全称 Contrastive Language Image Pre-training</strong> ，是一种<strong>基于对比文本图像的预训练方法</strong> 。CLIP学习的是一张图像和它对应的文字描述，期望能够学习图像-文本对的匹配关系。</p>
+<p>CLIP包括一个Text encoder（text transformer）和Image encoder（CNN / vision transformer），分别用来提取文本特征和图像特征。对提取出的文本特征和图像特征进行对比学习，如图所示<strong>计算文本特征和图像特征的余弦相似度矩阵</strong> ，在矩阵中共有N*N种配对方式，其中对角线上的文本-图像对是真正匹配的，CLIP模型的训练目标就是最大化对角线上的N个正样本的余弦相似度，同时最小化其他错误匹配的余弦相似度。</p>
+<p><img src="/images/Learning%20Transferable%20Visual%20Models%20From%20Natural%20L%20ee134ac7f72648e784ed3e4bed545926/Untitled%201.png" alt="Image" /></p>
+<h3 id="️损失函数"><a class="markdownIt-Anchor" href="#️损失函数"></a> ➡️<strong>损失函数</strong></h3>
+<p>文章提供了上述部分伪代码，损失函数是一个对称的交叉熵损失，在余弦相似度矩阵上然后优化一个<strong>对称的交叉熵损失</strong> ，训练强化模型正确匹配文本-图像对/图像-文本对的能力。</p>
+<p>由于余弦相似度的范围为[-1,1]，而交叉熵损失logits在值域上是没有上下限的（<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>o</mi><mi>g</mi><mo stretchy="false">(</mo><mfrac><mi>P</mi><mrow><mn>1</mn><mo>−</mo><mi>P</mi></mrow></mfrac><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">log(\frac{P}{1-P})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.275662em;vertical-align:-0.403331em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.872331em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mbin mtight">−</span><span class="mord mathdefault mtight" style="margin-right:0.13889em;">P</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.13889em;">P</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.403331em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose">)</span></span></span></span>），所以需要对计算出的余弦相似度进行缩放（参照伪码中的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mi>p</mi><mi mathvariant="normal">.</mi><mi>e</mi><mi>x</mi><mi>p</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">np.exp(t)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">n</span><span class="mord mathdefault">p</span><span class="mord">.</span><span class="mord mathdefault">e</span><span class="mord mathdefault">x</span><span class="mord mathdefault">p</span><span class="mopen">(</span><span class="mord mathdefault">t</span><span class="mclose">)</span></span></span></span>），通过温度参数τ进行缩放，并通过softmax归一化为概率分布。这样可以更好的区分概率值。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># image_encoder - ResNet or Vision Transformer</span></span><br><span class="line"><span class="comment"># text_encoder - CBOW or Text Transformer</span></span><br><span class="line"><span class="comment"># I[n, h, w, c] - minibatch of aligned images</span></span><br><span class="line"><span class="comment"># T[n, l] - minibatch of aligned texts</span></span><br><span class="line"><span class="comment"># W_i[d_i, d_e] - learned proj of image to embed</span></span><br><span class="line"><span class="comment"># W_t[d_t, d_e] - learned proj of text to embed</span></span><br><span class="line"><span class="comment"># t - learned temperature parameter</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 提取图像特征和文本特征</span></span><br><span class="line">I_f = image_encoder(I) <span class="comment">#[n, d_i]</span></span><br><span class="line">T_f = text_encoder(T) <span class="comment">#[n, d_t]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 对两个特征进行线性投射，得到相同维度的特征，并进行l2归一化</span></span><br><span class="line">I_e = l2_normalize(np.dot(I_f, W_i), axis=<span class="number">1</span>)</span><br><span class="line">T_e = l2_normalize(np.dot(T_f, W_t), axis=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算缩放的余弦相似度：[n, n]</span></span><br><span class="line">logits = np.dot(I_e, T_e.T) * np.exp(t)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对称的对比学习损失：等价于N个类别的cross_entropy_loss</span></span><br><span class="line">labels = np.arange(n) <span class="comment"># 对角线元素的labels</span></span><br><span class="line">loss_i = cross_entropy_loss(logits, labels, axis=<span class="number">0</span>)</span><br><span class="line">loss_t = cross_entropy_loss(logits, labels, axis=<span class="number">1</span>)</span><br><span class="line">loss = (loss_i + loss_t)/<span class="number">2</span></span><br></pre></td></tr></table></figure>
+<h3 id="️预训练方法"><a class="markdownIt-Anchor" href="#️预训练方法"></a> ➡️预训练方法</h3>
+<p>训练数据量和模型计算量都较大，所以训练效率非常重要。OpenAI最初类似于VirTex，联合训练了一个图像CNN和Text transformer，从头开始预测图像的标签caption。然而如图所示，把在ImageNet上的Zero-shot表现作为评估指标，这种训练方式的效率相比与直接预测bag of words低三倍。</p>
+<p>这两种方法的共性就是，都试图预测每张图片所对应文本的确切单词，然而与一张图像共现的描述，评论和相关文本是非常多样的，所以这个任务相对而言也十分困难。</p>
+<p>而如果采用<strong>对比学习</strong>的方法，预测整个文本与哪个图像配对，而非确切单词，参考[<strong>ConVIRT</strong>](<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2010.00747">[2010.00747] Contrastive Learning of Medical Visual Representations from Paired Images and Text (arxiv.org)</a>)，可以进一步提升训练效率至原先四倍。</p>
+<p><img src="/images/Learning%20Transferable%20Visual%20Models%20From%20Natural%20L%20ee134ac7f72648e784ed3e4bed545926/Untitled%202.png" alt="Image" /></p>
+<h3 id="️数据集与训练参数"><a class="markdownIt-Anchor" href="#️数据集与训练参数"></a> ➡️数据集与训练参数</h3>
+<p>视觉表征（visual representations）学习已有路线：</p>
+<ol>
+<li>构建image和text的联系，比如利用已有的（image，text）pair数据集，从text中学习image的表征；</li>
+<li>获取更多的数据（不要求高质量，也不要求full labeled）然后做弱监督预训练，就像谷歌使用的JFT-300M数据集进行预训练一样（在JFT数据集中，类别标签是有噪声的）。具体来说，JFT中一共有18291个类别，这能教模型的概念比ImageNet的1000类要多得多，但尽管已经有上万类了，其最后的分类器其实还是静态的、有限的，因为你最后还是得固定到18291个类别上进行分类，那么这样的类别限制还是限制了模型的zero-shot能力。</li>
+</ol>
+<p>这两条路线其实都展现了相当的潜力，前者证明<strong>paired text-image可以用来训练视觉表征</strong>，后者证明<strong>扩充数据能极大提升性能，即使数据有noise</strong>。于是high-level上，作者考虑从网上爬取大量的（text，image）pair以扩充数据，同时这样的pairs是可以用来训练视觉表征的。</p>
+<p>OpenAI构建了一个从互联网上各种公开来源收集的4亿(图像、文字)对的新数据集，称为WIT（WebImageText）。</p>
+<p>对于图像编码器，OpenAI采用了两种不同架构，一种是 ResNet-50，另一种是 Vision Transformer (ViT) 。对于文本编码器，论文使用了一个63M参数的text transformer。</p>
+<p><img src="/images/Learning%20Transferable%20Visual%20Models%20From%20Natural%20L%20ee134ac7f72648e784ed3e4bed545926/Untitled%203.png" alt="Image" /></p>
+<p>论文训练了一系列ResNet和3个Vision Transformer，每个模型训练32个eporch，使用解耦权重衰减正则化的AdamW优化器，训练过程中采用了较大的batch size（32768）。对于ViT - L / 14，论文还以更高的336像素分辨率预训练了一个额外的eporch，这个模型效果是最好的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">&#x27;RN50&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;RN101&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;RN50x4&#x27;</span>, <span class="comment"># follow EfficientNet-style model scaling and use approximately 4x, 16x, and 64x</span></span><br><span class="line"><span class="string">&#x27;RN50x16&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;RN50x64&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;ViT-B/32&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;ViT-B/16&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;ViT-L/14&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;ViT-L/14@336px&#x27;</span>]</span><br></pre></td></tr></table></figure>
+<h3 id="️zero-shot-clip性能对比"><a class="markdownIt-Anchor" href="#️zero-shot-clip性能对比"></a> ➡️Zero-Shot CLIP性能对比</h3>
+<p>参照figure1 Zero-shot首先根据数据集中的label text创建分类器，通过image encoder 和 text encoder 计算图像特征和各个类别的文本分类label特征，计算余弦相似度并进行缩放，最后通过softmax归一化得到概率。</p>
+<hr />
+<p>💽💽💽</p>
+<p>论文比较了zero-shot CLIP和ResNet 50 linear Probe（在ImageNet上预训练，线性分类层进行微调）在测试的27个数据集中，CLIP在16个中表现得更好。</p>
+<ul>
+<li><strong>在一些细粒度，复杂或者抽象的数据集上，CLIP相对表现较差</strong>（卫星图像分类( EuroSAT和RESISC45)、淋巴结肿瘤检测( PatchCamelyon )、合成场景中的物体计数( CLEVRCounts )），与全监督的ResNet 50 差距较大。</li>
+<li>在测量视频中<strong>动作识别的两个数据集上，Zero-shot CLIP显著优于ResNet 50</strong>。推测这是因为目前描述中存在很多动词，以及以动作为中心的句子导致的。</li>
+<li>在STL10上，CLIP总体达到了99.3 %最优，超过其他有监督方法，推测是STL10每一类样本都较少，难以进行有监督迁移学习。</li>
+</ul>
+<p>此外，如果测试数据集与训练数据集的分布差距较大，CLIP的表现也会较差（对CLIP来讲属于域外数据，eg. MNIST），<strong>CLIP依然没有解决域外泛化的问题</strong>。</p>
+<p><img src="/images/Learning%20Transferable%20Visual%20Models%20From%20Natural%20L%20ee134ac7f72648e784ed3e4bed545926/Untitled%204.png" alt="Image" /></p>
+<hr />
+<p>💽💽💽</p>
+<p>在少样本预测中，CLIP Zero-shot的表现持平4-shot，优于1-shot和2-shot。</p>
+<ul>
+<li>4-shot后增加样本得分更高，这也说明对于一些比较难的数据集，还是有必要有一些训练样本的。</li>
+<li>而1-shot和2-shot效果反而差于zero-shot，可能是因为单样本往往包含多种不同的视觉概念，单一样本不一定能够提取出图像的核心语义，过少的样本反而干扰了CLIP的理解能力。</li>
+</ul>
+<p><img src="/images/Learning%20Transferable%20Visual%20Models%20From%20Natural%20L%20ee134ac7f72648e784ed3e4bed545926/Untitled%205.png" alt="Image" /></p>
+<hr />
+<p>💽💽💽</p>
+<p>与标准ImageNet模型相比，<strong>零样本CLIP模型对分布偏移具有更强的鲁棒性</strong>。</p>
+<p>图中(左)一个理想的鲁棒模型(虚线)在ImageNet分布和其他自然图像分布上表现的同样好。零样本CLIP模型将一般ImageNet训练的效果与理想效果的&quot;稳健性差距&quot;缩小了高达75 %。</p>
+<p>图中(右)可视化了香蕉的分布偏移，在7个自然分布偏移数据集中的5个数据集中共享一个类。将最佳零样本CLIP模型ViT - L / 14 @ 336px与在ImageNet验证集上具有相同性能的模型ResNet - 101进行性能比较，CLIP的特征表达更加细致，更容易进行迁移学习，能够理解到更加丰富的信息，所以可以识别出素描的香蕉，而不是仅仅把香蕉和其他物品区分开。</p>
+<p><img src="/images/Learning%20Transferable%20Visual%20Models%20From%20Natural%20L%20ee134ac7f72648e784ed3e4bed545926/Untitled%206.png" alt="Image" /></p>
+<hr />
+<p>💽💽💽</p>
+<p>测试CLIP源码中notebook截图：</p>
+<p>plot图像及其文本描述。<br />
+<img src="/images/Learning%20Transferable%20Visual%20Models%20From%20Natural%20L%20ee134ac7f72648e784ed3e4bed545926/Untitled%207.png" alt="Image" /><br />
+加载模型计算得到的其余弦相似度。<br />
+<img src="/images/Learning%20Transferable%20Visual%20Models%20From%20Natural%20L%20ee134ac7f72648e784ed3e4bed545926/Untitled%208.png" alt="Image" /><br />
+在<strong>cifar100</strong> 数据集上进行zero-shot测试。<br />
+<img src="/images/Learning%20Transferable%20Visual%20Models%20From%20Natural%20L%20ee134ac7f72648e784ed3e4bed545926/1.png" alt="Image" /></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/pre-train/" rel="tag"># pre-train</a>
+              <a href="/tags/CLIP/" rel="tag"># CLIP</a>
+              <a href="/tags/Zero-shot/" rel="tag"># Zero-shot</a>
+              <a href="/tags/contrastive-learning/" rel="tag"># contrastive learning</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/08/10/Linux%20Chapter2%20Exercise/" rel="prev" title="Linux Chapter2 Exercise">
+                  <i class="fa fa-chevron-left"></i> Linux Chapter2 Exercise
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">vv-carrot</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">60k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:37</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js","integrity":"sha256-tu9j5pBilBQrWSDePOOajCUdz6hWsid/lBNzK4KgEPM="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"version":"10.3.1","theme":{"light":"neutral","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
